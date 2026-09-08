@@ -3,4006 +3,1594 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ALS LS3 Mathematics - Sets, Venn Diagrams & Real Numbers</title>
+<title>ALS LS3 Mathematics - Roots, Sets & Venn Diagrams</title>
 
 <style>
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f3f1f8;
-    color: #29243a;
-    line-height: 1.75;
-}
-
-/* =====================================================
-   MOBILE-STYLE DESKTOP LAYOUT
-   ===================================================== */
-
-.container {
-    width: 100%;
-    max-width: 850px;
-    margin: auto;
-    padding: 15px;
-}
-
-/*
-   Everything is intentionally one column.
-   Even on desktop, the lesson behaves like a large
-   tablet/mobile learning page.
-*/
-
-.objectives,
-.cards,
-.term-grid,
-.results,
-.controls {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-
-/* =====================================================
-   HEADER
-   ===================================================== */
-
-header {
-    background: linear-gradient(
-        135deg,
-        #4c1d95,
-        #7c3aed,
-        #9333ea
-    );
-
-    color: white;
-    text-align: center;
-
-    padding: 45px 20px;
-
-    border-radius: 0 0 30px 30px;
-
-    box-shadow:
-        0 6px 20px rgba(0,0,0,.18);
-}
-
-header h1 {
-    margin: 0;
-
-    font-size: clamp(
-        30px,
-        5vw,
-        44px
-    );
-
-    line-height: 1.2;
-}
-
-header p {
-    margin: 10px 0 0;
-
-    font-size: 18px;
-}
-
-.badge {
-    display: inline-block;
-
-    margin-top: 15px;
-
-    padding: 8px 18px;
-
-    border-radius: 30px;
-
-    background: rgba(255,255,255,.18);
-
-    font-weight: bold;
-}
-
-
-/* =====================================================
-   SECTIONS
-   ===================================================== */
-
-section {
-    background: white;
-
-    margin: 22px 0;
-
-    padding: 30px;
-
-    border-radius: 20px;
-
-    box-shadow:
-        0 3px 15px rgba(0,0,0,.07);
-}
-
-h2 {
-    color: #5b21b6;
-
-    border-left: 6px solid #7c3aed;
-
-    padding-left: 13px;
-
-    line-height: 1.35;
-
-    margin-top: 0;
-}
-
-h3 {
-    color: #6d28d9;
-}
-
-h4 {
-    color: #5b21b6;
-}
-
-
-/* =====================================================
-   OBJECTIVES
-   ===================================================== */
-
-.objective {
-    padding: 20px;
-
-    background: #f3e8ff;
-
-    border-radius: 15px;
-
-    border-left: 5px solid #7c3aed;
-}
-
-.objective strong {
-    color: #5b21b6;
-    font-size: 18px;
-}
-
-
-/* =====================================================
-   GENERAL CARDS
-   ===================================================== */
-
-.card {
-    padding: 20px;
-
-    border-radius: 16px;
-
-    background: #faf7ff;
-
-    border: 1px solid #e9d5ff;
-}
-
-.card h3 {
-    margin-top: 0;
-}
-
-
-/* =====================================================
-   MATHEMATICAL EXPRESSIONS
-   ===================================================== */
-
-.math {
-    display: inline-block;
-
-    background: #f3e8ff;
-
-    color: #4c1d95;
-
-    padding: 7px 13px;
-
-    border-radius: 9px;
-
-    font-weight: bold;
-
-    margin: 4px 0;
-}
-
-.formula {
-    background: #ede9fe;
-
-    border: 2px dashed #8b5cf6;
-
-    padding: 18px;
-
-    border-radius: 15px;
-
-    text-align: center;
-
-    font-size: 20px;
-
-    font-weight: bold;
-
-    margin: 20px 0;
-}
-
-
-/* =====================================================
-   EXAMPLES
-   ===================================================== */
-
-.example {
-    background: #f8fafc;
-
-    border-left: 6px solid #7c3aed;
-
-    padding: 20px;
-
-    border-radius: 12px;
-
-    margin: 18px 0;
-}
-
-.tip {
-    background: #eff6ff;
-
-    border-left: 6px solid #3b82f6;
-
-    padding: 18px;
-
-    border-radius: 12px;
-
-    margin: 18px 0;
-}
-
-.warning {
-    background: #fff7ed;
-
-    border-left: 6px solid #f97316;
-
-    padding: 18px;
-
-    border-radius: 12px;
-
-    margin: 18px 0;
-}
-
-.answer-box {
-    background: #ecfdf5;
-
-    border-left: 6px solid #10b981;
-
-    padding: 20px;
-
-    border-radius: 12px;
-
-    margin-top: 20px;
-}
-
-
-/* =====================================================
-   SET TERMS
-   ===================================================== */
-
-.term {
-    border: 1px solid #ddd6fe;
-
-    border-radius: 15px;
-
-    padding: 20px;
-
-    background: #fcfaff;
-}
-
-.term h3 {
-    margin-top: 8px;
-}
-
-.term-label {
-    display: inline-block;
-
-    background: #7c3aed;
-
-    color: white;
-
-    padding: 4px 11px;
-
-    border-radius: 20px;
-
-    font-size: 12px;
-
-    font-weight: bold;
-}
-
-
-/* =====================================================
-   REAL NUMBERS
-   ===================================================== */
-
-details.real-number {
-    margin: 15px 0;
-
-    border: 1px solid #ddd6fe;
-
-    border-radius: 15px;
-
-    overflow: hidden;
-
-    background: #faf7ff;
-}
-
-details.real-number summary {
-    cursor: pointer;
-
-    padding: 18px 20px;
-
-    font-weight: bold;
-
-    color: #4c1d95;
-
-    background: #ede9fe;
-
-    font-size: 17px;
-}
-
-.real-content {
-    padding: 22px;
-
-    background: white;
-}
-
-.number-example {
-    background: #f3f4f6;
-
-    padding: 15px;
-
-    border-radius: 10px;
-
-    margin-top: 12px;
-}
-
-.family-map {
-    background: #faf5ff;
-
-    border: 2px solid #c4b5fd;
-
-    padding: 22px;
-
-    border-radius: 15px;
-
-    text-align: center;
-
-    margin: 20px 0;
-
-    overflow-x: auto;
-}
-
-.number-line {
-    font-size: 18px;
-
-    font-weight: bold;
-
-    color: #5b21b6;
-
-    white-space: nowrap;
-}
-
-
-/* =====================================================
-   TABLES
-   ===================================================== */
-
-.table-wrapper {
-    width: 100%;
-
-    overflow-x: auto;
-
-    border-radius: 12px;
-}
-
-table {
-    width: 100%;
-
-    min-width: 650px;
-
-    border-collapse: collapse;
-
-    margin: 20px 0;
-}
-
-th,
-td {
-    padding: 13px;
-
-    border: 1px solid #ddd6fe;
-
-    text-align: left;
-}
-
-th {
-    background: #ede9fe;
-
-    color: #4c1d95;
-}
-
-
-/* =====================================================
-   INTERACTIVE VENN
-   ===================================================== */
-
-.interactive {
-    background:
-        linear-gradient(
-            135deg,
-            #faf5ff,
-            #f5f3ff
-        );
-
-    border: 2px solid #c4b5fd;
-}
-
-.control {
-    background: white;
-
-    padding: 20px;
-
-    border-radius: 15px;
-
-    box-shadow:
-        0 2px 8px rgba(0,0,0,.08);
-}
-
-.control label {
-    display: block;
-
-    font-weight: bold;
-
-    margin-bottom: 10px;
-}
-
-input[type="number"] {
-    width: 100%;
-
-    padding: 12px;
-
-    border: 1px solid #c4b5fd;
-
-    border-radius: 8px;
-
-    font-size: 17px;
-}
-
-input[type="range"] {
-    width: 100%;
-
-    accent-color: #7c3aed;
-
-    height: 8px;
-}
-
-.value {
-    color: #6d28d9;
-
-    font-size: 20px;
-}
-
-canvas {
-    display: block;
-
-    width: 100%;
-
-    max-width: 750px;
-
-    height: auto;
-
-    margin: 25px auto;
-
-    background: white;
-
-    border: 1px solid #ddd6fe;
-
-    border-radius: 15px;
-}
-
-.result {
-    background: white;
-
-    padding: 18px;
-
-    border-radius: 14px;
-
-    text-align: center;
-
-    border: 1px solid #ddd6fe;
-}
-
-.result strong {
-    display: block;
-
-    font-size: 28px;
-
-    color: #5b21b6;
-}
-
-
-/* =====================================================
-   QUIZ
-   ===================================================== */
-
-.quiz-intro {
-    background: #f3e8ff;
-
-    padding: 20px;
-
-    border-radius: 12px;
-
-    margin-bottom: 20px;
-}
-
-.quiz-item {
-    margin: 14px 0;
-
-    border: 1px solid #ddd6fe;
-
-    border-radius: 14px;
-
-    overflow: hidden;
-}
-
-.quiz-item > summary {
-    cursor: pointer;
-
-    padding: 19px;
-
-    font-weight: bold;
-
-    color: #4c1d95;
-
-    background: #faf7ff;
-
-    font-size: 16px;
-}
-
-.quiz-body {
-    padding: 20px;
-
-    background: white;
-}
-
-.option {
-    display: block;
-
-    padding: 12px;
-
-    margin: 8px 0;
-
-    border-radius: 8px;
-
-    cursor: pointer;
-}
-
-.option:hover {
-    background: #f5f3ff;
-}
-
-.answer {
-    margin-top: 18px;
-
-    border: 1px solid #bbf7d0;
-
-    border-radius: 10px;
-}
-
-.answer summary {
-    padding: 13px;
-
-    cursor: pointer;
-
-    font-weight: bold;
-
-    color: #047857;
-
-    background: #ecfdf5;
-}
-
-.answer-content {
-    padding: 16px;
-}
-
-.quiz-buttons {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-
-    margin-top: 25px;
-}
-
-button {
-    border: none;
-
-    padding: 14px 22px;
-
-    border-radius: 10px;
-
-    cursor: pointer;
-
-    font-size: 16px;
-
-    font-weight: bold;
-
-    width: 100%;
-}
-
-.primary {
-    background: #7c3aed;
-
-    color: white;
-}
-
-.secondary {
-    background: #ede9fe;
-
-    color: #5b21b6;
-}
-
-#score {
-    display: none;
-
-    margin-top: 20px;
-
-    padding: 22px;
-
-    background: #ecfdf5;
-
-    border-radius: 15px;
-
-    font-size: 19px;
-
-    font-weight: bold;
-
-    text-align: center;
-}
-
-
-/* =====================================================
-   FOOTER
-   ===================================================== */
-
-footer {
-    text-align: center;
-
-    padding: 35px 20px;
-
-    color: #6b7280;
-}
-
-
-/* =====================================================
-   SMALL SCREEN
-   ===================================================== */
-
-@media(max-width:600px) {
-
-    .container {
-        padding: 10px;
+    * {
+        box-sizing: border-box;
     }
 
-    section {
-        padding: 20px;
+    body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f3efff;
+        color: #292238;
+        line-height: 1.65;
+    }
 
-        border-radius: 16px;
+    .page {
+        width: 100%;
+        max-width: 850px;
+        margin: auto;
+        background: white;
+        min-height: 100vh;
+        box-shadow: 0 0 20px rgba(60, 30, 100, 0.12);
     }
 
     header {
-        padding: 35px 15px;
+        background: linear-gradient(135deg, #5b21b6, #7c3aed, #9333ea);
+        color: white;
+        padding: 35px 25px;
+        text-align: center;
     }
 
     header h1 {
+        margin: 0;
         font-size: 30px;
     }
 
-    .formula {
+    header p {
+        margin: 8px 0 0;
         font-size: 17px;
     }
 
-    .math {
-        max-width: 100%;
-
-        overflow-x: auto;
-    }
-
-}
-
-
-/* =====================================================
-   LARGE DESKTOP
-   ===================================================== */
-
-@media(min-width:1200px) {
-
-    .container {
-        max-width: 850px;
-    }
-
     section {
-        padding: 32px;
+        padding: 25px;
+        border-bottom: 1px solid #e7ddf5;
     }
 
-}
+    h2 {
+        color: #5b21b6;
+        font-size: 25px;
+        margin-top: 0;
+    }
 
+    h3 {
+        color: #6d28d9;
+        margin-top: 22px;
+    }
 
-/* =====================================================
-   PRINT
-   ===================================================== */
+    .intro {
+        background: #f5f0ff;
+        border-left: 5px solid #7c3aed;
+        padding: 16px;
+        border-radius: 8px;
+        margin: 15px 0;
+    }
 
-@media print {
+    .objective {
+        background: #faf7ff;
+        border: 1px solid #e4d7f7;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 10px 0;
+    }
 
-    body {
+    .formula {
+        background: #eee6ff;
+        border-radius: 10px;
+        padding: 15px;
+        margin: 15px 0;
+        font-size: 18px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .example {
+        background: #f8f5ff;
+        border: 1px solid #ddd0f5;
+        border-radius: 10px;
+        padding: 18px;
+        margin: 15px 0;
+    }
+
+    .tip {
+        background: #fff8df;
+        border-left: 5px solid #eab308;
+        padding: 15px;
+        border-radius: 7px;
+        margin: 15px 0;
+    }
+
+    .warning {
+        background: #fff0f0;
+        border-left: 5px solid #dc2626;
+        padding: 15px;
+        border-radius: 7px;
+        margin: 15px 0;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 15px 0;
+    }
+
+    th, td {
+        border: 1px solid #d8cbed;
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background: #ede5fb;
+        color: #4c1d95;
+    }
+
+    details {
+        background: #faf8ff;
+        border: 1px solid #ddd2f2;
+        border-radius: 10px;
+        margin: 12px 0;
+        overflow: hidden;
+    }
+
+    summary {
+        cursor: pointer;
+        padding: 15px;
+        font-weight: bold;
+        color: #5b21b6;
+        background: #f1eaff;
+    }
+
+    details > div {
+        padding: 15px;
+    }
+
+    .quiz-section {
+        background: #faf8ff;
+    }
+
+    .quiz-topic {
+        background: #5b21b6;
+        color: white;
+        padding: 15px;
+        border-radius: 10px;
+        margin: 30px 0 15px;
+    }
+
+    .quiz-topic h3 {
+        color: white;
+        margin: 0;
+    }
+
+    .question {
         background: white;
+        border: 1px solid #ddd2f2;
+        border-radius: 12px;
+        padding: 18px;
+        margin: 15px 0;
     }
 
-    section {
-        box-shadow: none;
-
-        border: 1px solid #ddd;
-
-        page-break-inside: avoid;
+    .question-title {
+        font-weight: bold;
+        margin-bottom: 12px;
     }
 
-    .interactive {
+    .option {
+        display: block;
+        padding: 10px;
+        margin: 7px 0;
+        border: 1px solid #ddd5eb;
+        border-radius: 7px;
+        cursor: pointer;
+        background: #fff;
+    }
+
+    .option:hover {
+        background: #f3edff;
+    }
+
+    .submit-btn {
+        background: #6d28d9;
+        color: white;
+        border: none;
+        padding: 10px 18px;
+        border-radius: 7px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .submit-btn:hover {
+        background: #5b21b6;
+    }
+
+    .feedback {
         display: none;
+        margin-top: 15px;
+        padding: 14px;
+        border-radius: 8px;
     }
 
-    .quiz-buttons {
-        display: none;
+    .correct {
+        display: block;
+        background: #e9f9ee;
+        border-left: 5px solid #16a34a;
     }
 
-}
+    .incorrect {
+        display: block;
+        background: #fff0f0;
+        border-left: 5px solid #dc2626;
+    }
 
+    .score-box {
+        background: linear-gradient(135deg, #5b21b6, #7c3aed);
+        color: white;
+        padding: 25px;
+        border-radius: 12px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .score-box button {
+        background: white;
+        color: #5b21b6;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 7px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .small {
+        font-size: 14px;
+        color: #625875;
+    }
+
+    footer {
+        background: #32145f;
+        color: white;
+        text-align: center;
+        padding: 25px;
+        font-size: 14px;
+    }
+
+    /* Venn Diagram */
+    .venn-container {
+        position: relative;
+        width: 100%;
+        max-width: 650px;
+        height: 330px;
+        margin: 20px auto;
+        background: #fff;
+        border: 3px solid #6d28d9;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .circle {
+        position: absolute;
+        width: 210px;
+        height: 210px;
+        border: 4px solid #7c3aed;
+        border-radius: 50%;
+        top: 60px;
+    }
+
+    .circle-a {
+        left: 18%;
+        background: rgba(124, 58, 237, 0.13);
+    }
+
+    .circle-b {
+        right: 18%;
+        background: rgba(147, 51, 234, 0.13);
+    }
+
+    .venn-label {
+        position: absolute;
+        font-weight: bold;
+        color: #4c1d95;
+    }
+
+    #labelA {
+        left: 25%;
+        top: 85px;
+    }
+
+    #labelB {
+        right: 25%;
+        top: 85px;
+    }
+
+    #labelBoth {
+        left: 47%;
+        top: 150px;
+    }
+
+    #labelNeither {
+        left: 42%;
+        bottom: 15px;
+        font-size: 14px;
+    }
+
+    .solver input {
+        width: 100%;
+        padding: 10px;
+        margin: 6px 0 12px;
+        border: 1px solid #cfc3df;
+        border-radius: 7px;
+        font-size: 16px;
+    }
+
+    .solver button {
+        width: 100%;
+        padding: 12px;
+        background: #6d28d9;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .result {
+        background: #f1eaff;
+        padding: 15px;
+        margin-top: 15px;
+        border-radius: 8px;
+    }
+
+    @media(max-width:600px) {
+        header h1 {
+            font-size: 25px;
+        }
+
+        section {
+            padding: 20px 15px;
+        }
+
+        .venn-container {
+            height: 280px;
+        }
+
+        .circle {
+            width: 170px;
+            height: 170px;
+            top: 55px;
+        }
+
+        .circle-a {
+            left: 8%;
+        }
+
+        .circle-b {
+            right: 8%;
+        }
+    }
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<div class="page">
 
 <header>
-
-<h1>Sets & Venn Diagrams</h1>
-
-<p>ALS LS3 Mathematics</p>
-
-<span class="badge">
-Sets • Set Terms • Venn Diagrams • Real Numbers
-</span>
-
+    <h1>ALS LS3 Mathematics</h1>
+    <p>Square Roots, Cube Roots, Sets & Venn Diagrams</p>
 </header>
 
-
-<div class="container">
-
-
-<!-- =====================================================
-     OBJECTIVES
-===================================================== -->
-
+<!-- ROOTS -->
 <section>
+<h2>1. Basic of Square Roots and Cube Roots</h2>
 
-<h2>🎯 Learning Objectives</h2>
-
-<div class="objectives">
-
-<div class="objective">
-
-<strong>1. Understand Sets</strong>
-
-<p>
-Define a set and identify its elements or members.
-</p>
-
+<div class="intro">
+    Before studying sets and Venn diagrams, let us review two important number concepts:
+    <strong>square roots</strong> and <strong>cube roots</strong>.
 </div>
 
-
-<div class="objective">
-
-<strong>2. Recognize Set Types</strong>
+<h3>What Is a Square?</h3>
 
 <p>
-Identify singleton, empty/null, finite, infinite,
-equal, equivalent, subset, proper subset, disjoint,
-and overlapping sets.
+When a number is multiplied by itself, the result is called its
+<strong>square</strong>.
 </p>
 
+<div class="formula">
+    5 × 5 = 25 → 5² = 25
 </div>
-
-
-<div class="objective">
-
-<strong>3. Understand Venn Diagrams</strong>
 
 <p>
-Interpret union, intersection, only, complement,
-and neither using Venn diagrams.
+The number 25 is the square of 5.
 </p>
 
-</div>
-
-
-<div class="objective">
-
-<strong>4. Classify Real Numbers</strong>
+<h3>What Is a Square Root?</h3>
 
 <p>
-Identify natural, whole, integer, rational,
-irrational, and real numbers.
+A square root asks:
+<strong>"What number multiplied by itself gives this number?"</strong>
 </p>
 
+<div class="formula">
+    √25 = 5 because 5 × 5 = 25
 </div>
 
+<div class="example">
+<strong>Examples:</strong>
+<br>√4 = 2 because 2 × 2 = 4
+<br>√9 = 3 because 3 × 3 = 9
+<br>√16 = 4 because 4 × 4 = 16
+<br>√36 = 6 because 6 × 6 = 36
+<br>√64 = 8 because 8 × 8 = 64
+<br>√100 = 10 because 10 × 10 = 100
+</div>
 
-<div class="objective">
-
-<strong>5. Solve Simple Problems</strong>
+<h3>Perfect Squares</h3>
 
 <p>
-Use set operations and Venn diagrams in
-real-life situations.
+A <strong>perfect square</strong> is a whole number that can be written as
+a whole number multiplied by itself.
 </p>
 
+<table>
+<tr>
+    <th>Number</th>
+    <th>Square</th>
+</tr>
+<tr><td>1</td><td>1² = 1</td></tr>
+<tr><td>2</td><td>2² = 4</td></tr>
+<tr><td>3</td><td>3² = 9</td></tr>
+<tr><td>4</td><td>4² = 16</td></tr>
+<tr><td>5</td><td>5² = 25</td></tr>
+<tr><td>6</td><td>6² = 36</td></tr>
+<tr><td>7</td><td>7² = 49</td></tr>
+<tr><td>8</td><td>8² = 64</td></tr>
+<tr><td>9</td><td>9² = 81</td></tr>
+<tr><td>10</td><td>10² = 100</td></tr>
+</table>
+
+<div class="tip">
+<strong>Tip:</strong> If a number appears in the square-number list,
+its square root is a whole number.
 </div>
 
+<h3>How to Find a Square Root</h3>
+
+<p><strong>Method 1: Recall the square.</strong></p>
+
+<div class="example">
+To find √49:
+<br>
+7 × 7 = 49
+<br>
+Therefore, <strong>√49 = 7</strong>.
+</div>
+
+<p><strong>Method 2: Factor pairs.</strong></p>
+
+<div class="example">
+To find √36:
+<br>
+36 = 6 × 6
+<br>
+Therefore, <strong>√36 = 6</strong>.
+</div>
+
+<div class="warning">
+<strong>Important:</strong> Not every whole number is a perfect square.
+For example, 20 is not a perfect square because there is no whole number
+that multiplied by itself equals 20.
+</div>
+
+<h3>What Is a Cube?</h3>
+
+<p>
+When a number is multiplied by itself three times, the result is called
+its <strong>cube</strong>.
+</p>
+
+<div class="formula">
+    3 × 3 × 3 = 27 → 3³ = 27
+</div>
+
+<h3>What Is a Cube Root?</h3>
+
+<p>
+A cube root asks:
+<strong>"What number multiplied by itself three times gives this number?"</strong>
+</p>
+
+<div class="formula">
+    ∛27 = 3 because 3 × 3 × 3 = 27
+</div>
+
+<div class="example">
+<strong>Examples:</strong>
+<br>∛8 = 2 because 2 × 2 × 2 = 8
+<br>∛27 = 3 because 3 × 3 × 3 = 27
+<br>∛64 = 4 because 4 × 4 × 4 = 64
+<br>∛125 = 5 because 5 × 5 × 5 = 125
+<br>∛216 = 6 because 6 × 6 × 6 = 216
+<br>∛343 = 7 because 7 × 7 × 7 = 343
+</div>
+
+<h3>Perfect Cubes</h3>
+
+<p>
+A <strong>perfect cube</strong> is a whole number that can be written as
+a whole number multiplied by itself three times.
+</p>
+
+<table>
+<tr>
+    <th>Number</th>
+    <th>Cube</th>
+</tr>
+<tr><td>1</td><td>1³ = 1</td></tr>
+<tr><td>2</td><td>2³ = 8</td></tr>
+<tr><td>3</td><td>3³ = 27</td></tr>
+<tr><td>4</td><td>4³ = 64</td></tr>
+<tr><td>5</td><td>5³ = 125</td></tr>
+<tr><td>6</td><td>6³ = 216</td></tr>
+<tr><td>7</td><td>7³ = 343</td></tr>
+<tr><td>8</td><td>8³ = 512</td></tr>
+<tr><td>9</td><td>9³ = 729</td></tr>
+<tr><td>10</td><td>10³ = 1000</td></tr>
+</table>
+
+<h3>Square Root vs. Cube Root</h3>
+
+<table>
+<tr>
+    <th>Concept</th>
+    <th>Question to Ask</th>
+    <th>Example</th>
+</tr>
+<tr>
+    <td>Square Root</td>
+    <td>What number × itself gives the number?</td>
+    <td>√64 = 8</td>
+</tr>
+<tr>
+    <td>Cube Root</td>
+    <td>What number × itself × itself gives the number?</td>
+    <td>∛64 = 4</td>
+</tr>
+</table>
+
+<div class="tip">
+<strong>Remember:</strong>
+<br>
+Square → multiply a number <strong>2 times</strong>.
+<br>
+Cube → multiply a number <strong>3 times</strong>.
+<br><br>
+The symbols are:
+<strong>√</strong> for square root and
+<strong>∛</strong> for cube root.
 </div>
 
 </section>
 
-
-<!-- =====================================================
-     SET DEFINITION
-===================================================== -->
-
+<!-- OBJECTIVES -->
 <section>
+<h2>2. Learning Objectives</h2>
 
-<h2>1. What Is a Set?</h2>
+<div class="objective">✓ Identify and describe sets and their elements.</div>
+<div class="objective">✓ Understand common terms related to sets.</div>
+<div class="objective">✓ Identify perfect squares and perfect cubes.</div>
+<div class="objective">✓ Find basic square roots and cube roots.</div>
+<div class="objective">✓ Understand union and intersection.</div>
+<div class="objective">✓ Use Venn diagrams to solve simple problems.</div>
+<div class="objective">✓ Determine "only," "both," "at least one," and "neither."</div>
+</section>
+
+<!-- SETS -->
+<section>
+<h2>3. What Is a Set?</h2>
 
 <p>
-A <strong>set</strong> is a collection of objects, numbers,
-people, or things that are clearly defined.
+A <strong>set</strong> is a well-defined collection of objects.
+The objects in a set are called <strong>elements</strong> or
+<strong>members</strong>.
 </p>
-
-<p>
-The objects inside a set are called
-<strong>elements</strong> or <strong>members</strong>.
-</p>
-
 
 <div class="example">
-
 <strong>Example:</strong>
-
-<p>
-Let A be the set of the first five counting numbers.
-</p>
-
-<div class="math">
+<br>
 A = {1, 2, 3, 4, 5}
+<br><br>
+The numbers 1, 2, 3, 4, and 5 are the elements of set A.
+</div>
+
+<h3>Set Notation</h3>
+
+<p>
+Sets are usually written using <strong>curly brackets { }</strong>.
+</p>
+
+<div class="formula">
+A = {2, 4, 6, 8}
 </div>
 
 <p>
-The elements of A are:
-1, 2, 3, 4, and 5.
+We can say:
 </p>
-
-</div>
-
-
-<div class="tip">
-
-<strong>What does "well-defined" mean?</strong>
-
-<p>
-It means that we can clearly determine whether something
-belongs to the set.
-</p>
-
-<p>
-For example, "the set of even numbers" is well-defined.
-We can determine whether a number is even or not.
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     SET NOTATION
-===================================================== -->
-
-<section>
-
-<h2>2. Elements and Set Notation</h2>
-
-<p>
-Sets are usually written using curly brackets:
-<strong>{ }</strong>.
-</p>
-
 
 <div class="example">
-
-<div class="math">
-B = {2, 4, 6, 8, 10}
+4 ∈ A means "4 is an element of A."
+<br>
+5 ∉ A means "5 is not an element of A."
 </div>
 
-<p>
-Set B has five elements.
-</p>
+<h3>Related Terms of Sets</h3>
 
+<details>
+<summary>Singleton Set</summary>
+<div>
+A set containing exactly one element.
+<br><br>
+Example: A = {7}
 </div>
+</details>
 
-
-<h3>Membership Symbols</h3>
-
-<p>
-<strong>∈</strong> means "is an element of."
-</p>
-
-<p>
-<strong>∉</strong> means "is not an element of."
-</p>
-
-
-<div class="example">
-
-<div class="math">
-4 ∈ B
+<details>
+<summary>Empty Set / Null Set</summary>
+<div>
+A set containing no elements.
+<br><br>
+Symbols: ∅ or { }
+<br><br>
+Example: The set of whole numbers less than 0 is empty.
 </div>
+</details>
 
-<p>
-4 belongs to B.
-</p>
-
-<div class="math">
-5 ∉ B
+<details>
+<summary>Finite Set</summary>
+<div>
+A set with a limited number of elements.
+<br><br>
+Example: {1, 2, 3, 4}
 </div>
+</details>
 
-<p>
-5 does not belong to B.
-</p>
-
+<details>
+<summary>Infinite Set</summary>
+<div>
+A set that continues without end.
+<br><br>
+Example: {1, 2, 3, 4, 5, ...}
 </div>
+</details>
 
-</section>
-
-
-<!-- =====================================================
-     SET TERMS
-===================================================== -->
-
-<section>
-
-<h2>3. Related Terms of Sets</h2>
-
-<p>
-These terms describe the size, type, or relationship
-between sets.
-</p>
-
-
-<div class="term-grid">
-
-
-<div class="term">
-
-<span class="term-label">
-SET TYPE
-</span>
-
-<h3>Singleton Set</h3>
-
-<p>
-A singleton set contains exactly
-<strong>one element</strong>.
-</p>
-
-<div class="math">
-{5}
-</div>
-
-<p>
-The set {5} has only one element.
-Therefore, it is a singleton set.
-</p>
-
-</div>
-
-
-<div class="term">
-
-<span class="term-label">
-SET TYPE
-</span>
-
-<h3>Empty Set</h3>
-
-<p>
-An empty set contains
-<strong>no elements</strong>.
-</p>
-
-<div class="math">
-∅
-</div>
-
-<p>
-It can also be written as:
-</p>
-
-<div class="math">
-{ }
-</div>
-
-</div>
-
-
-<div class="term">
-
-<span class="term-label">
-ANOTHER NAME
-</span>
-
-<h3>Null Set</h3>
-
-<p>
-A null set is another name for an
-<strong>empty set</strong>.
-</p>
-
-<div class="math">
-∅ = { }
-</div>
-
-</div>
-
-
-<div class="term">
-
-<span class="term-label">
-LIMITED
-</span>
-
-<h3>Finite Set</h3>
-
-<p>
-A finite set contains a definite,
-limited number of elements.
-</p>
-
-<div class="math">
-{1, 2, 3, 4, 5}
-</div>
-
-<p>
-It has exactly five elements.
-</p>
-
-</div>
-
-
-<div class="term">
-
-<span class="term-label">
-UNLIMITED
-</span>
-
-<h3>Infinite Set</h3>
-
-<p>
-An infinite set has an unlimited number
-of elements.
-</p>
-
-<div class="math">
-{1, 2, 3, 4, 5, ...}
-</div>
-
-<p>
-The counting numbers continue forever.
-</p>
-
-</div>
-
-
-<div class="term">
-
-<span class="term-label">
-COMPARISON
-</span>
-
-<h3>Equal Sets</h3>
-
-<p>
-Two sets are equal if they contain
-exactly the same elements.
-</p>
-
-<div class="math">
+<details>
+<summary>Equal Sets</summary>
+<div>
+Two sets are equal when they contain exactly the same elements.
+<br><br>
 A = {1, 2, 3}
-</div>
-
-<div class="math">
+<br>
 B = {3, 2, 1}
+<br><br>
+Therefore, A = B.
 </div>
+</details>
 
-<p>
-A = B because order does not matter
-when comparing sets.
-</p>
-
-</div>
-
-
-<div class="term">
-
-<span class="term-label">
-COMPARISON
-</span>
-
-<h3>Equivalent Sets</h3>
-
-<p>
-Two sets are equivalent if they have
-the <strong>same number of elements</strong>.
-</p>
-
-<div class="math">
+<details>
+<summary>Equivalent Sets</summary>
+<div>
+Two sets are equivalent when they have the same number of elements,
+even if the elements are different.
+<br><br>
 A = {1, 2, 3}
-</div>
-
-<div class="math">
+<br>
 B = {a, b, c}
+<br><br>
+Both have 3 elements.
 </div>
+</details>
 
-<p>
-Both have three elements, so they
-are equivalent.
-</p>
-
-</div>
-
-
-<div class="term">
-
-<span class="term-label">
-RELATIONSHIP
-</span>
-
-<h3>Subset</h3>
-
-<p>
-A is a subset of B if every element
-of A is also found in B.
-</p>
-
-<div class="math">
-A ⊆ B
-</div>
-
-<div class="example">
-
-A = {1, 2}<br>
-
+<details>
+<summary>Subset</summary>
+<div>
+Set A is a subset of B if every element of A is also an element of B.
+<br><br>
+Example:
+<br>
+A = {1, 2}
+<br>
 B = {1, 2, 3, 4}
-
-<p>
-Therefore, A ⊆ B.
-</p>
-
+<br><br>
+Therefore A ⊆ B.
 </div>
+</details>
 
-</div>
-
-
-<div class="term">
-
-<span class="term-label">
-RELATIONSHIP
-</span>
-
-<h3>Proper Subset</h3>
-
-<p>
-A is a proper subset of B when every
-element of A is in B, but A and B
-are not equal.
-</p>
-
-<div class="math">
-A ⊂ B
-</div>
-
-<div class="example">
-
-A = {1, 2}<br>
-
+<details>
+<summary>Proper Subset</summary>
+<div>
+A proper subset contains fewer elements than the larger set.
+<br><br>
+A = {1, 2}
+<br>
 B = {1, 2, 3}
-
+<br><br>
+A is a proper subset of B.
 </div>
+</details>
 
-</div>
-
-
-<div class="term">
-
-<span class="term-label">
-RELATIONSHIP
-</span>
-
-<h3>Disjoint Sets</h3>
-
-<p>
-Two sets are disjoint when they have
-<strong>no elements in common</strong>.
-</p>
-
-<div class="math">
-A ∩ B = ∅
-</div>
-
-<div class="example">
-
-A = {1, 2, 3}<br>
-
+<details>
+<summary>Disjoint Sets</summary>
+<div>
+Two sets are disjoint when they have no common elements.
+<br><br>
+A = {1, 2, 3}
+<br>
 B = {4, 5, 6}
-
+<br><br>
+A and B have no elements in common.
 </div>
+</details>
 
-</div>
-
-
-<div class="term">
-
-<span class="term-label">
-RELATIONSHIP
-</span>
-
-<h3>Overlapping Sets</h3>
-
-<p>
-Two sets overlap when they have
-at least one common element.
-</p>
-
-<div class="math">
-A ∩ B ≠ ∅
-</div>
-
-<div class="example">
-
-A = {1, 2, 3}<br>
-
+<details>
+<summary>Overlapping Sets</summary>
+<div>
+Two sets overlap when they have at least one common element.
+<br><br>
+A = {1, 2, 3}
+<br>
 B = {3, 4, 5}
-
+<br><br>
+The common element is 3.
 </div>
-
-</div>
-
-
-<div class="term">
-
-<span class="term-label">
-LARGEST GROUP
-</span>
-
-<h3>Universal Set</h3>
-
-<p>
-The universal set contains all objects
-being considered in a particular problem.
-</p>
-
-<div class="math">
-U = All learners being studied
-</div>
-
-</div>
-
-</div>
-
-
-<div class="tip">
-
-<strong>Easy Memory Guide:</strong>
-
-<p>
-Singleton = <strong>one</strong>
-</p>
-
-<p>
-Empty / Null = <strong>zero</strong>
-</p>
-
-<p>
-Finite = <strong>limited</strong>
-</p>
-
-<p>
-Infinite = <strong>never-ending</strong>
-</p>
-
-<p>
-Disjoint = <strong>nothing in common</strong>
-</p>
-
-<p>
-Overlapping = <strong>something in common</strong>
-</p>
-
-</div>
+</details>
 
 </section>
 
-
-<!-- =====================================================
-     UNIVERSAL SET
-===================================================== -->
-
+<!-- UNIVERSAL SET -->
 <section>
-
 <h2>4. Universal Set</h2>
 
 <p>
-The <strong>universal set</strong>, represented by U,
-contains everything being considered in the problem.
+The <strong>universal set</strong> contains all the objects being considered
+in a particular problem.
 </p>
-
 
 <div class="example">
-
-<strong>Example:</strong>
+If we are discussing numbers from 1 to 10:
+<br><br>
+U = {1,2,3,4,5,6,7,8,9,10}
+</div>
 
 <p>
-Suppose there are 50 learners in a class.
-If we are studying their favorite subjects,
-all 50 learners belong to the universal set.
+The universal set is commonly represented by the letter <strong>U</strong>.
 </p>
-
-<div class="math">
-U = All 50 learners
-</div>
-
-</div>
-
 </section>
 
-
-<!-- =====================================================
-     VENN DIAGRAM
-===================================================== -->
-
+<!-- VENN -->
 <section>
-
-<h2>5. What Is a Venn Diagram?</h2>
-
-<p>
-A <strong>Venn diagram</strong> is a visual way of showing
-sets and the relationships between them.
-</p>
-
-<div class="cards">
-
-
-<div class="card">
-
-<h3>Circle A</h3>
+<h2>5. Venn Diagram</h2>
 
 <p>
-Contains all elements belonging to Set A.
+A <strong>Venn diagram</strong> is a visual representation of sets.
+Circles are used to show the relationships between sets.
 </p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Circle B</h3>
-
-<p>
-Contains all elements belonging to Set B.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Overlap</h3>
-
-<p>
-The overlapping part represents elements
-belonging to both A and B.
-</p>
-
-</div>
-
-
-<div class="card">
-
-<h3>Outside</h3>
-
-<p>
-The area outside both circles represents
-elements belonging to neither set.
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     UNION
-===================================================== -->
-
-<section>
-
-<h2>6. Union — A ∪ B</h2>
-
-<p>
-The <strong>union</strong> contains everything that belongs
-to A, B, or both.
-</p>
-
-<div class="formula">
-A ∪ B = A or B or both
-</div>
-
-<p>
-Common clue words are:
-<strong>or</strong>, <strong>at least one</strong>,
-and <strong>either or both</strong>.
-</p>
-
 
 <div class="example">
-
-A = {1, 2, 3}<br>
-
-B = {3, 4, 5}
-
-<p>
-Therefore:
-</p>
-
-<div class="math">
-A ∪ B = {1, 2, 3, 4, 5}
+The rectangle represents the <strong>universal set</strong>.
+The circles represent individual sets.
+The overlapping part represents elements common to both sets.
 </div>
 
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     INTERSECTION
-===================================================== -->
-
-<section>
-
-<h2>7. Intersection — A ∩ B</h2>
+<h3>Union: A ∪ B</h3>
 
 <p>
-The <strong>intersection</strong> contains elements that
-are common to both sets.
+The union contains everything that belongs to A, B, or both.
 </p>
 
 <div class="formula">
-A ∩ B = elements in both A and B
+A ∪ B = all elements in A or B
 </div>
 
+<h3>Intersection: A ∩ B</h3>
+
 <p>
-Common clue words include:
-<strong>both</strong>, <strong>common</strong>,
-and <strong>shared</strong>.
+The intersection contains only the elements that are common to both sets.
 </p>
 
+<div class="formula">
+A ∩ B = elements common to A and B
+</div>
+
+<h3>A Only and B Only</h3>
+
+<p>
+If a Venn diagram has two overlapping sets:
+</p>
 
 <div class="example">
-
-A = {1, 2, 3, 4}<br>
-
-B = {3, 4, 5, 6}
-
-<p>
-Therefore:
-</p>
-
-<div class="math">
-A ∩ B = {3, 4}
+<strong>A only</strong> = elements in A but not in B.
+<br>
+<strong>B only</strong> = elements in B but not in A.
+<br>
+<strong>Both</strong> = elements in both A and B.
 </div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     ONLY
-===================================================== -->
-
-<section>
-
-<h2>8. A Only and B Only</h2>
-
-<h3>A Only</h3>
-
-<p>
-A Only means elements that belong to A
-but do not belong to B.
-</p>
-
-<div class="formula">
-A Only = n(A) − n(A ∩ B)
-</div>
-
-
-<h3>B Only</h3>
-
-<p>
-B Only means elements that belong to B
-but do not belong to A.
-</p>
-
-<div class="formula">
-B Only = n(B) − n(A ∩ B)
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     COMPLEMENT
-===================================================== -->
-
-<section>
-
-<h2>9. Complement and Neither</h2>
-
-<p>
-The <strong>complement of A</strong>, written as A′,
-means everything in the universal set that is
-not in A.
-</p>
-
-<div class="formula">
-A′ = U − A
-</div>
-
 
 <h3>Neither</h3>
 
 <p>
-For two sets, <strong>neither</strong> means elements
-that are outside both circles.
+"Neither" means the elements that belong to neither A nor B.
+They are outside both circles but still inside the universal set.
 </p>
 
 <div class="formula">
-Neither = U − (A ∪ B)
+Neither = Total − At Least One
 </div>
 
 </section>
 
-
-<!-- =====================================================
-     REAL NUMBERS
-===================================================== -->
-
+<!-- REAL NUMBERS -->
 <section>
-
-<h2>10. 🔢 Family of Real Numbers</h2>
-
-<p>
-The <strong>real numbers</strong> are all numbers that can
-be represented on a number line.
-</p>
+<h2>6. Family of Real Numbers</h2>
 
 <p>
-The family includes natural numbers, whole numbers,
-integers, rational numbers, and irrational numbers.
+The real numbers include numbers that can be located on the number line.
+The number system can be viewed as a family of related sets.
 </p>
 
-
-<div class="family-map">
-
-<h3>Number Family</h3>
-
-<p class="number-line">
-Natural ⊂ Whole ⊂ Integers ⊂ Rational ⊂ Real
-</p>
-
-<p>
-Irrational numbers are also real numbers,
-but they are not rational.
-</p>
-
-<p class="number-line">
-Rational ∪ Irrational = Real
-</p>
-
-</div>
-
-
-<!-- NATURAL -->
-
-<details class="real-number">
-
-<summary>
-① Natural Numbers
-</summary>
-
-<div class="real-content">
-
-<h3>Natural Numbers</h3>
-
-<p>
+<details>
+<summary>Natural Numbers</summary>
+<div>
 Natural numbers are counting numbers.
-</p>
-
-<div class="math">
+<br><br>
+Example:
 1, 2, 3, 4, 5, ...
 </div>
+</details>
 
-<p>
+<details>
+<summary>Whole Numbers</summary>
+<div>
+Whole numbers include zero and the natural numbers.
+<br><br>
+Example:
+0, 1, 2, 3, 4, 5, ...
+</div>
+</details>
+
+<details>
+<summary>Integers</summary>
+<div>
+Integers include positive whole numbers, zero, and negative whole numbers.
+<br><br>
+Example:
+..., -3, -2, -1, 0, 1, 2, 3, ...
+</div>
+</details>
+
+<details>
+<summary>Rational Numbers</summary>
+<div>
+A rational number can be written as a fraction a/b where a and b are integers
+and b ≠ 0.
+<br><br>
 Examples:
-7, 15, 100
-</p>
-
-<p>
-In this lesson, we use 1 as the first
-natural number.
-</p>
-
+1/2, 3/4, -5, 0.25
 </div>
-
 </details>
 
-
-<!-- WHOLE -->
-
-<details class="real-number">
-
-<summary>
-② Whole Numbers
-</summary>
-
-<div class="real-content">
-
-<h3>Whole Numbers</h3>
-
-<p>
-Whole numbers include zero and all
-positive counting numbers.
-</p>
-
-<div class="math">
-0, 1, 2, 3, 4, ...
-</div>
-
-<p>
+<details>
+<summary>Irrational Numbers</summary>
+<div>
+Irrational numbers cannot be written as a fraction of two integers.
+Their decimal expansions do not terminate or repeat.
+<br><br>
 Examples:
-0, 5, 20, 100
-</p>
-
+√2, √3, π
 </div>
-
 </details>
 
-
-<!-- INTEGER -->
-
-<details class="real-number">
-
-<summary>
-③ Integers
-</summary>
-
-<div class="real-content">
-
-<h3>Integers</h3>
-
-<p>
-Integers include negative numbers,
-zero, and positive whole numbers.
-</p>
-
-<div class="math">
-..., −3, −2, −1, 0, 1, 2, 3, ...
-</div>
-
-<p>
+<details>
+<summary>Real Numbers</summary>
+<div>
+Real numbers include both rational and irrational numbers.
+<br><br>
 Examples:
-−10, −2, 0, 5
-</p>
-
+-5, 0, 1/2, √2, π
 </div>
-
 </details>
-
-
-<!-- RATIONAL -->
-
-<details class="real-number">
-
-<summary>
-④ Rational Numbers
-</summary>
-
-<div class="real-content">
-
-<h3>Rational Numbers</h3>
-
-<p>
-A rational number can be written as a
-fraction of two integers.
-</p>
-
-<div class="formula">
-a / b, where b ≠ 0
-</div>
-
-<p>
-Examples:
-</p>
-
-<div class="math">
-½
-</div>
-
-<div class="math">
-¾
-</div>
-
-<div class="math">
-−2
-</div>
-
-<div class="math">
-0.5
-</div>
-
-<div class="math">
-0.75
-</div>
-
-<p>
-Even whole numbers and integers are rational.
-For example:
-</p>
-
-<div class="math">
-5 = 5/1
-</div>
-
-</div>
-
-</details>
-
-
-<!-- IRRATIONAL -->
-
-<details class="real-number">
-
-<summary>
-⑤ Irrational Numbers
-</summary>
-
-<div class="real-content">
-
-<h3>Irrational Numbers</h3>
-
-<p>
-Irrational numbers cannot be written as
-a fraction of two integers.
-</p>
-
-<p>
-Their decimal representations continue forever
-without repeating a pattern.
-</p>
-
-<div class="number-example">
-
-<strong>Examples:</strong>
-
-<div class="math">
-√2
-</div>
-
-<div class="math">
-√3
-</div>
-
-<div class="math">
-π
-</div>
-
-<p>
-For example:
-</p>
-
-<div class="math">
-√2 ≈ 1.414213562...
-</div>
-
-</div>
-
-
-<div class="warning">
-
-<strong>Important:</strong>
-
-<p>
-Not every square root is irrational.
-</p>
-
-<p>
-For example:
-</p>
-
-<div class="math">
-√9 = 3
-</div>
-
-<p>
-Since 3 is an integer and can be written
-as 3/1, √9 is rational.
-</p>
-
-<p>
-For a positive integer, a square root is
-irrational when the number under the radical
-is not a perfect square.
-</p>
-
-</div>
-
-</div>
-
-</details>
-
-
-<!-- REAL -->
-
-<details class="real-number">
-
-<summary>
-⑥ Real Numbers
-</summary>
-
-<div class="real-content">
-
-<h3>Real Numbers</h3>
-
-<p>
-Real numbers include all rational and
-irrational numbers.
-</p>
-
-<div class="formula">
-Real = Rational ∪ Irrational
-</div>
-
-<p>
-Examples include:
-</p>
-
-<div class="math">
-−5
-</div>
-
-<div class="math">
-0
-</div>
-
-<div class="math">
-3
-</div>
-
-<div class="math">
-½
-</div>
-
-<div class="math">
-√2
-</div>
-
-<div class="math">
-π
-</div>
-
-</div>
-
-</details>
-
-
-<h3>Quick Classification</h3>
-
-<div class="table-wrapper">
 
 <table>
-
 <tr>
-<th>Number</th>
-<th>Natural</th>
-<th>Whole</th>
-<th>Integer</th>
-<th>Rational</th>
-<th>Irrational</th>
+    <th>Number</th>
+    <th>Classification</th>
 </tr>
-
-<tr>
-<td>5</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✗</td>
-</tr>
-
-<tr>
-<td>0</td>
-<td>✗</td>
-<td>✓</td>
-<td>✓</td>
-<td>✓</td>
-<td>✗</td>
-</tr>
-
-<tr>
-<td>−3</td>
-<td>✗</td>
-<td>✗</td>
-<td>✓</td>
-<td>✓</td>
-<td>✗</td>
-</tr>
-
-<tr>
-<td>½</td>
-<td>✗</td>
-<td>✗</td>
-<td>✗</td>
-<td>✓</td>
-<td>✗</td>
-</tr>
-
-<tr>
-<td>√2</td>
-<td>✗</td>
-<td>✗</td>
-<td>✗</td>
-<td>✗</td>
-<td>✓</td>
-</tr>
-
+<tr><td>5</td><td>Natural, Whole, Integer, Rational, Real</td></tr>
+<tr><td>0</td><td>Whole, Integer, Rational, Real</td></tr>
+<tr><td>-3</td><td>Integer, Rational, Real</td></tr>
+<tr><td>1/2</td><td>Rational, Real</td></tr>
+<tr><td>√2</td><td>Irrational, Real</td></tr>
 </table>
-
-</div>
 
 </section>
 
-
-<!-- =====================================================
-     REAL-LIFE VENN EXAMPLE
-===================================================== -->
-
+<!-- EXAMPLE -->
 <section>
-
-<h2>11. Complete Venn Diagram Example</h2>
+<h2>7. Complete Venn Diagram Example</h2>
 
 <div class="example">
-
-<p>
-There are <strong>80 ALS learners</strong>.
-</p>
-
-<p>
+A group has <strong>80 learners</strong>.
+<br><br>
 45 learners like LS5.
-</p>
-
-<p>
+<br>
 40 learners like LS6.
-</p>
-
-<p>
+<br>
 20 learners like both LS5 and LS6.
-</p>
-
 </div>
 
+<h3>Step 1: Find LS5 Only</h3>
 
-<h3>Step 1 — Identify the Sets</h3>
-
-<div class="math">
-A = Learners who like LS5
-</div>
-
-<div class="math">
-B = Learners who like LS6
-</div>
-
-
-<h3>Step 2 — Put the Intersection First</h3>
-
-<div class="math">
-A ∩ B = 20
-</div>
-
-
-<h3>Step 3 — Find A Only</h3>
-
-<div class="math">
+<div class="formula">
 45 − 20 = 25
 </div>
 
+<p>Therefore, 25 learners like LS5 only.</p>
 
-<h3>Step 4 — Find B Only</h3>
+<h3>Step 2: Find LS6 Only</h3>
 
-<div class="math">
+<div class="formula">
 40 − 20 = 20
 </div>
 
+<p>Therefore, 20 learners like LS6 only.</p>
 
-<h3>Step 5 — Find the Union</h3>
+<h3>Step 3: Find At Least One</h3>
 
 <div class="formula">
-n(A ∪ B) =
-n(A) + n(B) − n(A ∩ B)
+25 + 20 + 20 = 65
 </div>
 
-<div class="math">
-45 + 40 − 20 = 65
-</div>
+<p>
+Therefore, 65 learners like at least one of the two learning strands.
+</p>
 
+<h3>Step 4: Find Neither</h3>
 
-<h3>Step 6 — Find Neither</h3>
-
-<div class="math">
+<div class="formula">
 80 − 65 = 15
 </div>
 
-
-<div class="answer-box">
-
-<strong>Final Answer:</strong>
-
 <p>
-LS5 only = 25
+Therefore, 15 learners like neither.
 </p>
-
-<p>
-LS6 only = 20
-</p>
-
-<p>
-Both = 20
-</p>
-
-<p>
-At least one = 65
-</p>
-
-<p>
-Neither = 15
-</p>
-
-<p>
-Check:
-<strong>25 + 20 + 20 + 15 = 80 ✓</strong>
-</p>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     FORMULA
-===================================================== -->
-
-<section>
-
-<h2>12. Important Venn Diagram Formula</h2>
-
-<div class="formula">
-
-n(A ∪ B)
-=
-n(A)
-+
-n(B)
-−
-n(A ∩ B)
-
-</div>
-
-<p>
-We subtract the intersection because the common elements
-would otherwise be counted twice.
-</p>
-
 
 <div class="tip">
+<strong>Final answer:</strong>
+<br>
+LS5 only = 25
+<br>
+LS6 only = 20
+<br>
+Both = 20
+<br>
+At least one = 65
+<br>
+Neither = 15
+</div>
 
-<strong>Easy Memory Trick:</strong>
+<h3>Important Formula</h3>
+
+<div class="formula">
+n(A ∪ B) = n(A) + n(B) − n(A ∩ B)
+</div>
 
 <p>
-<strong>
-Union = Add both sets − subtract the overlap.
-</strong>
+We subtract the intersection once because the learners in the intersection
+were counted twice when A and B were added.
 </p>
-
-</div>
 
 </section>
 
-
-<!-- =====================================================
-     COMMON MISTAKES
-===================================================== -->
-
+<!-- COMMON MISTAKES -->
 <section>
-
-<h2>13. Common Mistakes</h2>
+<h2>8. Common Mistakes</h2>
 
 <div class="warning">
-
-<h3>❌ Mistake 1: Confusing Union and Intersection</h3>
-
-<p>
-Union means <strong>A or B or both</strong>.
-Intersection means <strong>both A and B</strong>.
-</p>
-
-
-<h3>❌ Mistake 2: Counting the Overlap Twice</h3>
-
-<p>
-When finding the union, subtract the intersection once.
-</p>
-
-
-<h3>❌ Mistake 3: Confusing "Only"</h3>
-
-<p>
-If A has 40 learners and 15 are in both,
-A Only is:
-</p>
-
-<div class="math">
-40 − 15 = 25
+<strong>Mistake 1:</strong> Adding A and B without subtracting the overlap.
+<br><br>
+Correct:
+A ∪ B = A + B − Both
 </div>
 
-
-<h3>❌ Mistake 4: Assuming Every Square Root Is Irrational</h3>
-
-<p>
-Check whether the number is a perfect square.
-</p>
-
-<div class="math">
-√9 = 3
+<div class="warning">
+<strong>Mistake 2:</strong> Treating "both" as the same as "at least one."
+<br><br>
+"Both" means the intersection only.
+<br>
+"At least one" includes A only, B only, and both.
 </div>
 
-<p>
-Therefore √9 is rational.
-</p>
+<div class="warning">
+<strong>Mistake 3:</strong> Confusing square root and cube root.
+<br><br>
+√64 = 8 because 8 × 8 = 64.
+<br>
+∛64 = 4 because 4 × 4 × 4 = 64.
+</div>
 
+<div class="warning">
+<strong>Mistake 4:</strong> Assuming every square root is a whole number.
+<br><br>
+√25 = 5, but √2 is not a whole number.
 </div>
 
 </section>
 
-
-<!-- =====================================================
-     QUICK REVIEW
-===================================================== -->
-
+<!-- INTERACTIVE LAST -->
 <section>
+<h2>9. Interactive Venn Diagram Solver</h2>
 
-<h2>14. Quick Review</h2>
+<p>
+Enter the total number of learners, the number in Set A, the number in Set B,
+and the number in both sets.
+</p>
 
-<div class="table-wrapper">
+<div class="solver">
+    <label>Total:</label>
+    <input type="number" id="total" value="80">
 
-<table>
+    <label>Set A:</label>
+    <input type="number" id="setA" value="45">
 
-<tr>
-<th>Concept</th>
-<th>Symbol</th>
-<th>Meaning</th>
-</tr>
+    <label>Set B:</label>
+    <input type="number" id="setB" value="40">
 
-<tr>
-<td>Singleton</td>
-<td>{a}</td>
-<td>Exactly one element</td>
-</tr>
+    <label>Both A and B:</label>
+    <input type="number" id="both" value="20">
 
-<tr>
-<td>Empty / Null</td>
-<td>∅</td>
-<td>No elements</td>
-</tr>
+    <button onclick="solveVenn()">Calculate Venn Diagram</button>
+</div>
 
-<tr>
-<td>Union</td>
-<td>A ∪ B</td>
-<td>A or B or both</td>
-</tr>
+<div class="venn-container">
+    <div class="circle circle-a"></div>
+    <div class="circle circle-b"></div>
 
-<tr>
-<td>Intersection</td>
-<td>A ∩ B</td>
-<td>Common elements</td>
-</tr>
+    <div class="venn-label" id="labelA">A Only</div>
+    <div class="venn-label" id="labelB">B Only</div>
+    <div class="venn-label" id="labelBoth">Both</div>
+    <div class="venn-label" id="labelNeither">Neither</div>
+</div>
 
-<tr>
-<td>Subset</td>
-<td>A ⊆ B</td>
-<td>Every element of A is in B</td>
-</tr>
-
-<tr>
-<td>Complement</td>
-<td>A′</td>
-<td>Elements not in A</td>
-</tr>
-
-<tr>
-<td>Disjoint</td>
-<td>A ∩ B = ∅</td>
-<td>No common elements</td>
-</tr>
-
-<tr>
-<td>Natural</td>
-<td>N</td>
-<td>1, 2, 3, ...</td>
-</tr>
-
-<tr>
-<td>Whole</td>
-<td>W</td>
-<td>0, 1, 2, 3, ...</td>
-</tr>
-
-<tr>
-<td>Integer</td>
-<td>Z</td>
-<td>..., −2, −1, 0, 1, 2, ...</td>
-</tr>
-
-<tr>
-<td>Rational</td>
-<td>Q</td>
-<td>Can be written as a/b</td>
-</tr>
-
-<tr>
-<td>Irrational</td>
-<td>—</td>
-<td>Cannot be written as a/b</td>
-</tr>
-
-<tr>
-<td>Real</td>
-<td>R</td>
-<td>Rational and irrational numbers</td>
-</tr>
-
-</table>
-
+<div id="vennResult" class="result">
+Enter the values and press "Calculate Venn Diagram."
 </div>
 
 </section>
 
-
-<!-- =====================================================
-     INTERACTIVE
-===================================================== -->
-
-<section class="interactive">
-
-<h2>🎮 15. Interactive Venn Diagram Solver</h2>
+<!-- QUIZ -->
+<section class="quiz-section">
+<h2>10. 30-Item Interactive Quiz</h2>
 
 <p>
-This activity lets you experiment with different numbers.
-Change the values and observe how the Venn diagram changes.
+The quiz is divided into three topics. Each topic contains
+<strong>10 questions</strong>.
+Choose an answer and press <strong>Submit Answer</strong>.
+The explanation will appear immediately after you submit that question.
 </p>
 
-
-<div class="controls">
-
-
-<div class="control">
-
-<label for="total">
-Total Learners
-</label>
-
-<input
-type="number"
-id="total"
-min="20"
-max="200"
-value="80"
-oninput="updateDiagram()">
-
+<div class="quiz-topic">
+<h3>Topic A — Square Roots & Cube Roots</h3>
 </div>
 
+<div id="quiz1"></div>
 
-<div class="control">
-
-<label for="setA">
-
-Set A — LS5:
-<span
-class="value"
-id="aValue">
-45
-</span>
-
-</label>
-
-<input
-type="range"
-id="setA"
-min="0"
-max="100"
-value="45"
-oninput="updateDiagram()">
-
+<div class="quiz-topic">
+<h3>Topic B — Sets & Set Terminology</h3>
 </div>
 
+<div id="quiz2"></div>
 
-<div class="control">
-
-<label for="setB">
-
-Set B — LS6:
-<span
-class="value"
-id="bValue">
-40
-</span>
-
-</label>
-
-<input
-type="range"
-id="setB"
-min="0"
-max="100"
-value="40"
-oninput="updateDiagram()">
-
+<div class="quiz-topic">
+<h3>Topic C — Venn Diagrams</h3>
 </div>
 
+<div id="quiz3"></div>
 
-<div class="control">
-
-<label for="both">
-
-Both:
-<span
-class="value"
-id="bothValue">
-20
-</span>
-
-</label>
-
-<input
-type="range"
-id="both"
-min="0"
-max="100"
-value="20"
-oninput="updateDiagram()">
-
-</div>
-
-</div>
-
-
-<canvas
-id="vennCanvas"
-width="750"
-height="400">
-</canvas>
-
-
-<div class="results">
-
-<div class="result">
-
-A Only
-
-<strong id="aOnly">
-25
-</strong>
-
-</div>
-
-
-<div class="result">
-
-B Only
-
-<strong id="bOnly">
-20
-</strong>
-
-</div>
-
-
-<div class="result">
-
-Both
-
-<strong id="bothResult">
-20
-</strong>
-
-</div>
-
-
-<div class="result">
-
-At Least One
-
-<strong id="union">
-65
-</strong>
-
-</div>
-
-
-<div class="result">
-
-Neither
-
-<strong id="neither">
-15
-</strong>
-
-</div>
-
-</div>
-
-
-<div class="tip">
-
-<strong>Practice Challenge</strong>
-
-<p>
-Try these values:
-</p>
-
-<p>
-Total = 100<br>
-A = 60<br>
-B = 50<br>
-Both = 20
-</p>
-
-<p>
-Before looking at the result, calculate:
-</p>
-
-<ul>
-
-<li>A Only</li>
-
-<li>B Only</li>
-
-<li>Both</li>
-
-<li>At Least One</li>
-
-<li>Neither</li>
-
-</ul>
-
+<div class="score-box">
+    <h2 style="color:white;">Quiz Score</h2>
+    <div id="score">0 / 30</div>
+    <button onclick="resetQuiz()">Reset Quiz</button>
 </div>
 
 </section>
-
-
-<!-- =====================================================
-     QUIZ
-===================================================== -->
-
-<section>
-
-<h2>📝 16. 15-Item Expandable Quiz</h2>
-
-<div class="quiz-intro">
-
-<strong>Instructions:</strong>
-
-<p>
-Click a question to expand it.
-Select your answer and continue to the next question.
-</p>
-
-<p>
-You may open <strong>Show Answer & Explanation</strong>
-after answering to check your work.
-</p>
-
-<p>
-<strong>Suggested Time:</strong> 15 minutes
-</p>
-
-</div>
-
-
-<!-- Q1 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 1 — What is a set?
-</summary>
-
-<div class="quiz-body">
-
-<p>
-Which statement best describes a set?
-</p>
-
-<label class="option">
-<input type="radio" name="q1" value="A">
-A. A collection of well-defined objects
-</label>
-
-<label class="option">
-<input type="radio" name="q1" value="B">
-B. A random collection
-</label>
-
-<label class="option">
-<input type="radio" name="q1" value="C">
-C. A mathematical operation
-</label>
-
-<label class="option">
-<input type="radio" name="q1" value="D">
-D. A graph
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: A</strong>
-
-<p>
-A set is a collection of well-defined objects.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q2 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 2 — Singleton Set
-</summary>
-
-<div class="quiz-body">
-
-<p>
-Which is a singleton set?
-</p>
-
-<label class="option">
-<input type="radio" name="q2" value="A">
-A. {1, 2, 3}
-</label>
-
-<label class="option">
-<input type="radio" name="q2" value="B">
-B. {5}
-</label>
-
-<label class="option">
-<input type="radio" name="q2" value="C">
-C. { }
-</label>
-
-<label class="option">
-<input type="radio" name="q2" value="D">
-D. {1, 2}
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: B</strong>
-
-<p>
-A singleton set has exactly one element.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q3 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 3 — Empty Set
-</summary>
-
-<div class="quiz-body">
-
-<p>
-Which symbol represents an empty set?
-</p>
-
-<label class="option">
-<input type="radio" name="q3" value="A">
-A. ∞
-</label>
-
-<label class="option">
-<input type="radio" name="q3" value="B">
-B. ∅
-</label>
-
-<label class="option">
-<input type="radio" name="q3" value="C">
-C. ∈
-</label>
-
-<label class="option">
-<input type="radio" name="q3" value="D">
-D. ∪
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: B</strong>
-
-<p>
-∅ represents an empty set.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q4 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 4 — Union
-</summary>
-
-<div class="quiz-body">
-
-<p>
-What does A ∪ B represent?
-</p>
-
-<label class="option">
-<input type="radio" name="q4" value="A">
-A. Elements common to both
-</label>
-
-<label class="option">
-<input type="radio" name="q4" value="B">
-B. Elements in A or B or both
-</label>
-
-<label class="option">
-<input type="radio" name="q4" value="C">
-C. Elements outside both
-</label>
-
-<label class="option">
-<input type="radio" name="q4" value="D">
-D. Elements in A only
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: B</strong>
-
-<p>
-Union contains everything in A, B, or both.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q5 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 5 — Intersection
-</summary>
-
-<div class="quiz-body">
-
-<p>
-What does A ∩ B represent?
-</p>
-
-<label class="option">
-<input type="radio" name="q5" value="A">
-A. Elements common to both sets
-</label>
-
-<label class="option">
-<input type="radio" name="q5" value="B">
-B. Elements in A only
-</label>
-
-<label class="option">
-<input type="radio" name="q5" value="C">
-C. Elements outside both
-</label>
-
-<label class="option">
-<input type="radio" name="q5" value="D">
-D. All elements
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: A</strong>
-
-<p>
-Intersection represents elements shared by both sets.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q6 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 6 — Find the Intersection
-</summary>
-
-<div class="quiz-body">
-
-<p>
-A = {1, 2, 3} and B = {3, 4, 5}.
-What is A ∩ B?
-</p>
-
-<label class="option">
-<input type="radio" name="q6" value="A">
-A. {1, 2}
-</label>
-
-<label class="option">
-<input type="radio" name="q6" value="B">
-B. {3}
-</label>
-
-<label class="option">
-<input type="radio" name="q6" value="C">
-C. {4, 5}
-</label>
-
-<label class="option">
-<input type="radio" name="q6" value="D">
-D. {1, 2, 3, 4, 5}
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: B</strong>
-
-<p>
-3 is the only element common to both sets.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q7 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 7 — Rational Number
-</summary>
-
-<div class="quiz-body">
-
-<p>
-Which number is rational?
-</p>
-
-<label class="option">
-<input type="radio" name="q7" value="A">
-A. √2
-</label>
-
-<label class="option">
-<input type="radio" name="q7" value="B">
-B. π
-</label>
-
-<label class="option">
-<input type="radio" name="q7" value="C">
-C. ½
-</label>
-
-<label class="option">
-<input type="radio" name="q7" value="D">
-D. √3
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: C</strong>
-
-<p>
-½ is a ratio of two integers, so it is rational.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q8 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 8 — Irrational Number
-</summary>
-
-<div class="quiz-body">
-
-<p>
-Which number is irrational?
-</p>
-
-<label class="option">
-<input type="radio" name="q8" value="A">
-A. 4
-</label>
-
-<label class="option">
-<input type="radio" name="q8" value="B">
-B. ½
-</label>
-
-<label class="option">
-<input type="radio" name="q8" value="C">
-C. 0.25
-</label>
-
-<label class="option">
-<input type="radio" name="q8" value="D">
-D. √2
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: D</strong>
-
-<p>
-√2 is irrational.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q9 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 9 — Whole Number
-</summary>
-
-<div class="quiz-body">
-
-<p>
-Which is a whole number?
-</p>
-
-<label class="option">
-<input type="radio" name="q9" value="A">
-A. −2
-</label>
-
-<label class="option">
-<input type="radio" name="q9" value="B">
-B. 0
-</label>
-
-<label class="option">
-<input type="radio" name="q9" value="C">
-C. ½
-</label>
-
-<label class="option">
-<input type="radio" name="q9" value="D">
-D. √2
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: B</strong>
-
-<p>
-Whole numbers begin with 0.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q10 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 10 — Integer
-</summary>
-
-<div class="quiz-body">
-
-<p>
-Which number is an integer?
-</p>
-
-<label class="option">
-<input type="radio" name="q10" value="A">
-A. −5
-</label>
-
-<label class="option">
-<input type="radio" name="q10" value="B">
-B. ½
-</label>
-
-<label class="option">
-<input type="radio" name="q10" value="C">
-C. 1.5
-</label>
-
-<label class="option">
-<input type="radio" name="q10" value="D">
-D. √2
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: A</strong>
-
-<p>
-−5 is an integer because integers include negative whole numbers.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q11 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 11 — Union Calculation
-</summary>
-
-<div class="quiz-body">
-
-<p>
-A has 40 learners, B has 30 learners,
-and 10 are in both.
-How many are in A ∪ B?
-</p>
-
-<label class="option">
-<input type="radio" name="q11" value="A">
-A. 50
-</label>
-
-<label class="option">
-<input type="radio" name="q11" value="B">
-B. 60
-</label>
-
-<label class="option">
-<input type="radio" name="q11" value="C">
-C. 70
-</label>
-
-<label class="option">
-<input type="radio" name="q11" value="D">
-D. 80
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: B</strong>
-
-<p>
-40 + 30 − 10 = 60.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q12 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 12 — Neither
-</summary>
-
-<div class="quiz-body">
-
-<p>
-There are 70 learners.
-If 55 belong to at least one set,
-how many belong to neither?
-</p>
-
-<label class="option">
-<input type="radio" name="q12" value="A">
-A. 10
-</label>
-
-<label class="option">
-<input type="radio" name="q12" value="B">
-B. 15
-</label>
-
-<label class="option">
-<input type="radio" name="q12" value="C">
-C. 20
-</label>
-
-<label class="option">
-<input type="radio" name="q12" value="D">
-D. 25
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: B</strong>
-
-<p>
-70 − 55 = 15.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q13 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 13 — Disjoint Sets
-</summary>
-
-<div class="quiz-body">
-
-<p>
-Which pair of sets is disjoint?
-</p>
-
-<label class="option">
-<input type="radio" name="q13" value="A">
-A. {1,2} and {2,3}
-</label>
-
-<label class="option">
-<input type="radio" name="q13" value="B">
-B. {1,2} and {3,4}
-</label>
-
-<label class="option">
-<input type="radio" name="q13" value="C">
-C. {4,5} and {5,6}
-</label>
-
-<label class="option">
-<input type="radio" name="q13" value="D">
-D. {2,3} and {3,4}
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: B</strong>
-
-<p>
-There are no common elements between the two sets.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q14 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 14 — Neither
-</summary>
-
-<div class="quiz-body">
-
-<p>
-There are 100 learners.
-75 belong to A ∪ B.
-How many belong to neither?
-</p>
-
-<label class="option">
-<input type="radio" name="q14" value="A">
-A. 15
-</label>
-
-<label class="option">
-<input type="radio" name="q14" value="B">
-B. 20
-</label>
-
-<label class="option">
-<input type="radio" name="q14" value="C">
-C. 25
-</label>
-
-<label class="option">
-<input type="radio" name="q14" value="D">
-D. 30
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: C</strong>
-
-<p>
-100 − 75 = 25.
-</p>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- Q15 -->
-
-<details class="quiz-item">
-
-<summary>
-Question 15 — Complete Venn Problem
-</summary>
-
-<div class="quiz-body">
-
-<p>
-There are 80 learners.
-45 like LS5, 40 like LS6,
-and 20 like both.
-How many like neither?
-</p>
-
-<label class="option">
-<input type="radio" name="q15" value="A">
-A. 10
-</label>
-
-<label class="option">
-<input type="radio" name="q15" value="B">
-B. 15
-</label>
-
-<label class="option">
-<input type="radio" name="q15" value="C">
-C. 20
-</label>
-
-<label class="option">
-<input type="radio" name="q15" value="D">
-D. 25
-</label>
-
-<details class="answer">
-
-<summary>
-Show Answer & Explanation
-</summary>
-
-<div class="answer-content">
-
-<strong>Answer: B</strong>
-
-<p>
-First find the union:
-</p>
-
-<div class="math">
-45 + 40 − 20 = 65
-</div>
-
-<p>
-Then:
-</p>
-
-<div class="math">
-80 − 65 = 15
-</div>
-
-</div>
-
-</details>
-
-</div>
-
-</details>
-
-
-<!-- QUIZ BUTTONS -->
-
-<div class="quiz-buttons">
-
-<button
-class="primary"
-onclick="checkScore()">
-
-✅ Check My Score
-
-</button>
-
-
-<button
-class="secondary"
-onclick="resetQuiz()">
-
-🔄 Reset Quiz
-
-</button>
-
-</div>
-
-
-<div id="score"></div>
-
-</section>
-
-
-</div>
-
 
 <footer>
-
-<p>
-<strong>ALS LS3 Mathematics</strong>
-</p>
-
-<p>
-Sets • Set Terminology • Venn Diagrams • Real Numbers
-</p>
-
+ALS LS3 Mathematics<br>
+Square Roots • Cube Roots • Sets • Venn Diagrams
 </footer>
 
+</div>
 
 <script>
 
-/* =====================================================
-   INTERACTIVE VENN DIAGRAM
-===================================================== */
-
-function updateDiagram() {
-
-    let total =
-        Number(
-            document.getElementById("total").value
-        );
-
-    let a =
-        Number(
-            document.getElementById("setA").value
-        );
-
-    let b =
-        Number(
-            document.getElementById("setB").value
-        );
-
-    let both =
-        Number(
-            document.getElementById("both").value
-        );
-
-
-    if (total < 20) {
-        total = 20;
-    }
-
-    if (total > 200) {
-        total = 200;
-    }
-
-
-    a = Math.min(a, total);
-
-    b = Math.min(b, total);
-
-    both =
-        Math.min(
-            both,
-            a,
-            b,
-            total
-        );
-
-
-    let union =
-        a + b - both;
-
-
-    if (union > total) {
-
-        b =
-            total -
-            a +
-            both;
-
-        if (b < both) {
-            b = both;
-        }
-
-        union =
-            a + b - both;
-
-    }
-
-
-    let aOnly =
-        a - both;
-
-    let bOnly =
-        b - both;
-
-    let neither =
-        total - union;
-
-
-    if (neither < 0) {
-        neither = 0;
-    }
-
-
-    document.getElementById(
-        "aValue"
-    ).textContent = a;
-
-
-    document.getElementById(
-        "bValue"
-    ).textContent = b;
-
-
-    document.getElementById(
-        "bothValue"
-    ).textContent = both;
-
-
-    document.getElementById(
-        "aOnly"
-    ).textContent = aOnly;
-
-
-    document.getElementById(
-        "bOnly"
-    ).textContent = bOnly;
-
-
-    document.getElementById(
-        "bothResult"
-    ).textContent = both;
-
-
-    document.getElementById(
-        "union"
-    ).textContent = union;
-
-
-    document.getElementById(
-        "neither"
-    ).textContent = neither;
-
-
-    drawVenn(
-        total,
-        aOnly,
-        bOnly,
-        both,
-        neither
-    );
-
-}
-
-
-/* =====================================================
-   DRAW VENN
-===================================================== */
-
-function drawVenn(
-    total,
-    aOnly,
-    bOnly,
-    both,
-    neither
-) {
-
-    const canvas =
-        document.getElementById(
-            "vennCanvas"
-        );
-
-    const ctx =
-        canvas.getContext("2d");
-
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-
-    /* Universal Set */
-
-    ctx.strokeStyle = "#5b21b6";
-
-    ctx.lineWidth = 3;
-
-    ctx.strokeRect(
-        20,
-        20,
-        710,
-        360
-    );
-
-
-    ctx.fillStyle = "#4c1d95";
-
-    ctx.font =
-        "bold 18px Arial";
-
-
-    ctx.fillText(
-        "Universal Set U = " +
-        total +
-        " learners",
-        35,
-        50
-    );
-
-
-    /* Circle A */
-
-    ctx.beginPath();
-
-    ctx.arc(
-        300,
-        205,
-        120,
-        0,
-        Math.PI * 2
-    );
-
-    ctx.strokeStyle = "#7c3aed";
-
-    ctx.lineWidth = 4;
-
-    ctx.stroke();
-
-
-    /* Circle B */
-
-    ctx.beginPath();
-
-    ctx.arc(
-        450,
-        205,
-        120,
-        0,
-        Math.PI * 2
-    );
-
-    ctx.strokeStyle = "#9333ea";
-
-    ctx.stroke();
-
-
-    /* Labels */
-
-    ctx.font =
-        "bold 20px Arial";
-
-
-    ctx.fillStyle =
-        "#5b21b6";
-
-
-    ctx.fillText(
-        "A — LS5",
-        235,
-        120
-    );
-
-
-    ctx.fillStyle =
-        "#7e22ce";
-
-
-    ctx.fillText(
-        "B — LS6",
-        445,
-        120
-    );
-
-
-    /* Region Numbers */
-
-    ctx.font =
-        "bold 26px Arial";
-
-    ctx.fillStyle =
-        "#4c1d95";
-
-
-    ctx.fillText(
-        aOnly,
-        245,
-        215
-    );
-
-
-    ctx.fillText(
-        bOnly,
-        475,
-        215
-    );
-
-
-    ctx.fillText(
-        both,
-        355,
-        215
-    );
-
-
-    /* Neither */
-
-    ctx.font =
-        "bold 20px Arial";
-
-    ctx.fillStyle =
-        "#374151";
-
-
-    ctx.fillText(
-        "Neither: " +
-        neither,
-        315,
-        340
-    );
-
-
-    /* Region Labels */
-
-    ctx.font =
-        "14px Arial";
-
-
-    ctx.fillText(
-        "A only",
-        230,
-        240
-    );
-
-
-    ctx.fillText(
-        "Both",
-        355,
-        240
-    );
-
-
-    ctx.fillText(
-        "B only",
-        470,
-        240
-    );
-
-}
-
-
-/* =====================================================
-   QUIZ ANSWERS
-===================================================== */
-
-const correctAnswers = {
-
-    q1: "A",
-
-    q2: "B",
-
-    q3: "B",
-
-    q4: "B",
-
-    q5: "A",
-
-    q6: "B",
-
-    q7: "C",
-
-    q8: "D",
-
-    q9: "B",
-
-    q10: "A",
-
-    q11: "B",
-
-    q12: "B",
-
-    q13: "B",
-
-    q14: "C",
-
-    q15: "B"
-
-};
-
-
-/* =====================================================
-   CHECK SCORE
-===================================================== */
-
-function checkScore() {
-
-    let score = 0;
-
-    let answered = 0;
-
-
-    for (
-        let i = 1;
-        i <= 15;
-        i++
+/* -----------------------------
+   VENN SOLVER
+----------------------------- */
+
+function solveVenn() {
+
+    let total = Number(document.getElementById("total").value);
+    let A = Number(document.getElementById("setA").value);
+    let B = Number(document.getElementById("setB").value);
+    let both = Number(document.getElementById("both").value);
+
+    let onlyA = A - both;
+    let onlyB = B - both;
+    let atLeastOne = A + B - both;
+    let neither = total - atLeastOne;
+
+    let result = document.getElementById("vennResult");
+
+    if (
+        total < 0 ||
+        A < 0 ||
+        B < 0 ||
+        both < 0 ||
+        both > A ||
+        both > B ||
+        atLeastOne > total
     ) {
-
-        const selected =
-            document.querySelector(
-                'input[name="q' +
-                i +
-                '"]:checked'
-            );
-
-
-        if (selected) {
-
-            answered++;
-
-
-            if (
-                selected.value ===
-                correctAnswers[
-                    "q" + i
-                ]
-            ) {
-
-                score++;
-
-            }
-
-        }
-
+        result.innerHTML =
+            "<strong>Please check your values.</strong><br>" +
+            "The number in both sets cannot be greater than Set A or Set B, " +
+            "and the total number cannot be less than the number in at least one set.";
+        return;
     }
 
+    document.getElementById("labelA").innerHTML = "A Only: " + onlyA;
+    document.getElementById("labelB").innerHTML = "B Only: " + onlyB;
+    document.getElementById("labelBoth").innerHTML = "Both: " + both;
+    document.getElementById("labelNeither").innerHTML = "Neither: " + neither;
 
-    const percentage =
-        Math.round(
-            (score / 15) * 100
-        );
-
-
-    let message;
-
-
-    if (percentage >= 90) {
-
-        message =
-            "Excellent! 🌟";
-
-    }
-
-    else if (percentage >= 75) {
-
-        message =
-            "Very good! Keep practicing. 👍";
-
-    }
-
-    else if (percentage >= 60) {
-
-        message =
-            "Good effort! Review the lesson and try again. 📘";
-
-    }
-
-    else {
-
-        message =
-            "Keep practicing. You can improve! 💪";
-
-    }
-
-
-    const scoreBox =
-        document.getElementById(
-            "score"
-        );
-
-
-    scoreBox.style.display =
-        "block";
-
-
-    scoreBox.innerHTML =
-
-        "Your Score: " +
-        score +
-        " / 15<br><br>" +
-
-        "Percentage: " +
-        percentage +
-        "%<br><br>" +
-
-        "Answered: " +
-        answered +
-        " / 15<br><br>" +
-
-        message;
-
+    result.innerHTML =
+        "<strong>Results</strong><br><br>" +
+        "A Only = " + onlyA + "<br>" +
+        "B Only = " + onlyB + "<br>" +
+        "Both = " + both + "<br>" +
+        "At Least One = " + atLeastOne + "<br>" +
+        "Neither = " + neither;
 }
 
 
-/* =====================================================
-   RESET QUIZ
-===================================================== */
+/* -----------------------------
+   QUIZ DATA
+----------------------------- */
+
+const questions = [
+
+/* TOPIC A */
+{
+topic: 1,
+q: "What is √25?",
+options: ["4", "5", "6", "7"],
+answer: 1,
+explanation: "√25 = 5 because 5 × 5 = 25."
+},
+{
+topic: 1,
+q: "What is √64?",
+options: ["6", "7", "8", "9"],
+answer: 2,
+explanation: "√64 = 8 because 8 × 8 = 64."
+},
+{
+topic: 1,
+q: "Which number is a perfect square?",
+options: ["20", "25", "30", "35"],
+answer: 1,
+explanation: "25 is a perfect square because 5 × 5 = 25."
+},
+{
+topic: 1,
+q: "What is √81?",
+options: ["7", "8", "9", "10"],
+answer: 2,
+explanation: "√81 = 9 because 9 × 9 = 81."
+},
+{
+topic: 1,
+q: "What is ∛8?",
+options: ["2", "3", "4", "5"],
+answer: 0,
+explanation: "∛8 = 2 because 2 × 2 × 2 = 8."
+},
+{
+topic: 1,
+q: "What is ∛27?",
+options: ["2", "3", "4", "5"],
+answer: 1,
+explanation: "∛27 = 3 because 3 × 3 × 3 = 27."
+},
+{
+topic: 1,
+q: "Which number is a perfect cube?",
+options: ["20", "30", "40", "64"],
+answer: 3,
+explanation: "64 is a perfect cube because 4 × 4 × 4 = 64."
+},
+{
+topic: 1,
+q: "What is √100?",
+options: ["8", "9", "10", "12"],
+answer: 2,
+explanation: "√100 = 10 because 10 × 10 = 100."
+},
+{
+topic: 1,
+q: "What is ∛125?",
+options: ["4", "5", "6", "7"],
+answer: 1,
+explanation: "∛125 = 5 because 5 × 5 × 5 = 125."
+},
+{
+topic: 1,
+q: "Which statement is true?",
+options: [
+"√36 = 5",
+"√49 = 6",
+"∛27 = 3",
+"∛64 = 8"
+],
+answer: 2,
+explanation: "∛27 = 3 because 3 × 3 × 3 = 27."
+},
+
+/* TOPIC B */
+{
+topic: 2,
+q: "What is a set?",
+options: [
+"A random calculation",
+"A well-defined collection of objects",
+"A single number only",
+"A geometric shape"
+],
+answer: 1,
+explanation: "A set is a well-defined collection of objects called elements."
+},
+{
+topic: 2,
+q: "What do we call the objects contained in a set?",
+options: [
+"Factors",
+"Elements",
+"Products",
+"Exponents"
+],
+answer: 1,
+explanation: "The objects or members contained in a set are called elements."
+},
+{
+topic: 2,
+q: "Which set is a singleton set?",
+options: [
+"{1, 2}",
+"{1, 2, 3}",
+"{5}",
+"∅"
+],
+answer: 2,
+explanation: "A singleton set contains exactly one element, and {5} has one element."
+},
+{
+topic: 2,
+q: "Which symbol represents the empty set?",
+options: [
+"∪",
+"∩",
+"∅",
+"∈"
+],
+answer: 2,
+explanation: "The symbol ∅ represents a set containing no elements."
+},
+{
+topic: 2,
+q: "Which set is finite?",
+options: [
+"{1, 2, 3, 4}",
+"{1, 2, 3, ...}",
+"{2, 4, 6, 8, ...}",
+"The set of all integers"
+],
+answer: 0,
+explanation: "{1, 2, 3, 4} is finite because it contains a limited number of elements."
+},
+{
+topic: 2,
+q: "If A = {1, 2, 3}, which statement is true?",
+options: [
+"4 ∈ A",
+"3 ∈ A",
+"5 ∈ A",
+"6 ∈ A"
+],
+answer: 1,
+explanation: "3 is one of the elements listed in A, so 3 ∈ A."
+},
+{
+topic: 2,
+q: "If A = {1, 2} and B = {1, 2, 3}, what is the relationship?",
+options: [
+"A is a subset of B",
+"B is a subset of A",
+"A and B are disjoint",
+"A is empty"
+],
+answer: 0,
+explanation: "Every element of A is also in B, so A ⊆ B."
+},
+{
+topic: 2,
+q: "Which pair of sets is disjoint?",
+options: [
+"{1, 2} and {2, 3}",
+"{1, 3} and {3, 5}",
+"{1, 2} and {4, 5}",
+"{2, 4} and {4, 6}"
+],
+answer: 2,
+explanation: "{1, 2} and {4, 5} have no common elements, so they are disjoint."
+},
+{
+topic: 2,
+q: "Which pair contains overlapping sets?",
+options: [
+"{1, 2} and {3, 4}",
+"{1, 2} and {2, 3}",
+"{4, 5} and {6, 7}",
+"{8, 9} and {10, 11}"
+],
+answer: 1,
+explanation: "The sets overlap because both contain the element 2."
+},
+{
+topic: 2,
+q: "If A = {1, 2, 3} and B = {3, 2, 1}, what is true?",
+options: [
+"A = B",
+"A is empty",
+"A and B are disjoint",
+"A has more elements than B"
+],
+answer: 0,
+explanation: "Sets are equal when they contain exactly the same elements, regardless of order."
+},
+
+/* TOPIC C */
+{
+topic: 3,
+q: "What does the intersection A ∩ B represent?",
+options: [
+"Elements in A only",
+"Elements in B only",
+"Elements common to A and B",
+"Elements outside both sets"
+],
+answer: 2,
+explanation: "The intersection contains the elements that are common to both A and B."
+},
+{
+topic: 3,
+q: "What does the union A ∪ B represent?",
+options: [
+"Only the common elements",
+"All elements in A or B or both",
+"Only elements outside A and B",
+"Only elements in A"
+],
+answer: 1,
+explanation: "The union contains all elements belonging to A, B, or both."
+},
+{
+topic: 3,
+q: "A class has 30 learners. 18 like Math, 15 like Science, and 8 like both. How many like Math only?",
+options: ["8", "10", "12", "18"],
+answer: 2,
+explanation: "Math only = Math − Both = 18 − 8 = 10. Therefore the correct value is 10."
+},
+{
+topic: 3,
+q: "Using the same situation, how many like Science only?",
+options: ["7", "8", "10", "15"],
+answer: 0,
+explanation: "Science only = Science − Both = 15 − 8 = 7."
+},
+{
+topic: 3,
+q: "If 18 learners like Math, 15 like Science, and 8 like both, how many like at least one?",
+options: ["25", "26", "33", "41"],
+answer: 1,
+explanation: "At least one = 18 + 15 − 8 = 25."
+},
+{
+topic: 3,
+q: "A group has 30 learners and 25 like at least one of two subjects. How many like neither?",
+options: ["3", "5", "8", "10"],
+answer: 1,
+explanation: "Neither = Total − At Least One = 30 − 25 = 5."
+},
+{
+topic: 3,
+q: "If 20 learners are in Set A, 15 are in Set B, and 5 are in both, how many are in A ∪ B?",
+options: ["25", "30", "35", "40"],
+answer: 0,
+explanation: "A ∪ B = 20 + 15 − 5 = 30. Therefore the correct value is 30."
+},
+{
+topic: 3,
+q: "In a Venn diagram, what does the overlapping region usually represent?",
+options: [
+"A only",
+"B only",
+"Both A and B",
+"Neither A nor B"
+],
+answer: 2,
+explanation: "The overlapping region represents elements belonging to both sets."
+},
+{
+topic: 3,
+q: "A group has 50 learners. 30 belong to A, 25 belong to B, and 10 belong to both. How many belong to neither?",
+options: ["5", "10", "15", "20"],
+answer: 0,
+explanation: "At least one = 30 + 25 − 10 = 45. Neither = 50 − 45 = 5."
+},
+{
+topic: 3,
+q: "If A = {1,2,3} and B = {3,4,5}, what is A ∩ B?",
+options: [
+"{1,2}",
+"{3}",
+"{4,5}",
+"{1,2,3,4,5}"
+],
+answer: 1,
+explanation: "The only element common to A and B is 3, so A ∩ B = {3}."
+}
+
+];
+
+
+/* -----------------------------
+   QUIZ RENDERING
+----------------------------- */
+
+let score = 0;
+let answered = new Array(questions.length).fill(false);
+
+function renderQuiz(topic, containerId, startIndex) {
+
+    const container = document.getElementById(containerId);
+
+    const topicQuestions = questions.filter(q => q.topic === topic);
+
+    topicQuestions.forEach((q, localIndex) => {
+
+        const actualIndex = questions.indexOf(q);
+
+        const div = document.createElement("div");
+        div.className = "question";
+
+        let html = `
+            <div class="question-title">
+                ${actualIndex + 1}. ${q.q}
+            </div>
+        `;
+
+        q.options.forEach((option, index) => {
+            html += `
+                <label class="option">
+                    <input type="radio"
+                           name="question${actualIndex}"
+                           value="${index}">
+                    ${String.fromCharCode(65 + index)}. ${option}
+                </label>
+            `;
+        });
+
+        html += `
+            <button class="submit-btn"
+                    onclick="submitQuestion(${actualIndex})">
+                Submit Answer
+            </button>
+
+            <div id="feedback${actualIndex}" class="feedback"></div>
+        `;
+
+        div.innerHTML = html;
+        container.appendChild(div);
+    });
+}
+
+renderQuiz(1, "quiz1", 0);
+renderQuiz(2, "quiz2", 10);
+renderQuiz(3, "quiz3", 20);
+
+
+/* -----------------------------
+   SUBMIT INDIVIDUAL ANSWER
+----------------------------- */
+
+function submitQuestion(index) {
+
+    if (answered[index]) {
+        return;
+    }
+
+    const selected = document.querySelector(
+        `input[name="question${index}"]:checked`
+    );
+
+    const feedback = document.getElementById("feedback" + index);
+
+    if (!selected) {
+        feedback.className = "feedback incorrect";
+        feedback.innerHTML = "Please choose an answer before submitting.";
+        return;
+    }
+
+    const selectedAnswer = Number(selected.value);
+    const question = questions[index];
+
+    answered[index] = true;
+
+    document.querySelectorAll(
+        `input[name="question${index}"]`
+    ).forEach(input => {
+        input.disabled = true;
+    });
+
+    if (selectedAnswer === question.answer) {
+
+        score++;
+
+        feedback.className = "feedback correct";
+        feedback.innerHTML =
+            "<strong>Correct!</strong><br>" +
+            question.explanation;
+
+    } else {
+
+        feedback.className = "feedback incorrect";
+        feedback.innerHTML =
+            "<strong>Not quite.</strong><br>" +
+            "The correct answer is " +
+            question.options[question.answer] +
+            ".<br><br>" +
+            question.explanation;
+    }
+
+    document.getElementById("score").innerHTML =
+        score + " / 30";
+}
+
+
+/* -----------------------------
+   RESET
+----------------------------- */
 
 function resetQuiz() {
 
-    document
-        .querySelectorAll(
-            'input[type="radio"]'
-        )
-        .forEach(
-            function(input) {
+    score = 0;
+    answered = new Array(questions.length).fill(false);
 
-                input.checked =
-                    false;
+    document.getElementById("score").innerHTML = "0 / 30";
 
-            }
-        );
-
-
-    const scoreBox =
-        document.getElementById(
-            "score"
-        );
-
-
-    scoreBox.style.display =
-        "none";
-
-
-    scoreBox.innerHTML =
-        "";
-
+    location.reload();
 }
-
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
-
-updateDiagram();
 
 </script>
 
