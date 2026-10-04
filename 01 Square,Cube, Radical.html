@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Squares, Cubes & Radicals — Interactive Lesson</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef2f7;color:#172033;line-height:1.5}
+.topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);border-bottom:1px solid #d7dee8;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:9px 12px}.topbar-inner{max-width:1050px;margin:auto;display:flex;gap:8px;align-items:center;justify-content:space-between}.brand{font-weight:800;font-size:15px}.nav{display:flex;gap:5px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{text-decoration:none;color:#334155;font-size:12px;font-weight:700;padding:6px 8px;border-radius:8px}.nav a:hover{background:#e8eef7}
+main{max-width:1050px;margin:auto;padding:18px 10px 70px}.slide{min-height:88vh;margin:18px 0;padding:clamp(24px,5vw,58px);background:#fff;border-radius:22px;box-shadow:0 7px 25px rgba(20,35,55,.10);display:flex;flex-direction:column;justify-content:center;scroll-margin-top:65px;overflow:hidden}.slide.compact{min-height:auto;justify-content:flex-start}
+.title-slide{background:linear-gradient(145deg,#17365d,#245b94);color:#fff;text-align:center}.title-slide h1{font-size:clamp(2.1rem,7vw,4.4rem);margin:0 0 12px;line-height:1.05}.title-slide p{font-size:clamp(1rem,3vw,1.5rem);margin:7px auto;max-width:750px}.eyebrow{display:inline-block;font-size:12px;letter-spacing:1.5px;font-weight:800;text-transform:uppercase;opacity:.75;margin-bottom:12px}
+h2{font-size:clamp(1.65rem,5vw,3rem);line-height:1.12;margin:0 0 18px}h3{font-size:clamp(1.15rem,3.5vw,1.7rem);margin:20px 0 8px}p,li{font-size:clamp(1rem,2.8vw,1.25rem)}.big{font-size:clamp(1.5rem,5vw,2rem);font-weight:800;text-align:center;margin:12px 0}
+.formula{background:#edf4ff;border:2px solid #b8d2f1;border-radius:16px;padding:clamp(14px,3vw,25px);margin:14px 0;text-align:center;font-size:clamp(1.3rem,4.5vw,2.2rem);font-weight:800;overflow-x:auto}.example{background:#f7f9fc;border-left:6px solid #3975b8;padding:12px 16px;border-radius:10px;margin:12px 0}.tip{background:#fff7d6;border:1px solid #e9d681;padding:12px 16px;border-radius:12px;margin:14px 0}.danger{background:#fff0f0;border:1px solid #e8b6b6;padding:12px 16px;border-radius:12px;margin:14px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{padding:18px;border:1px solid #d9e1eb;border-radius:15px;background:#fbfcfe}.card strong{font-size:1.1em}
+.btn{display:inline-block;border:0;border-radius:11px;padding:11px 17px;background:#245b94;color:#fff;font-weight:800;cursor:pointer;font-size:15px;text-decoration:none}.btn:hover{filter:brightness(1.08)}.test-intro{background:#eaf3ff;border-radius:14px;padding:15px;margin-bottom:15px}.question{border:1px solid #d7dee8;border-radius:14px;padding:15px;margin:13px 0;background:#fff}.question p{margin-top:0;font-weight:800}label{display:block;padding:8px 10px;margin:4px 0;border-radius:9px;cursor:pointer;font-size:clamp(.96rem,2.6vw,1.1rem)}label:hover{background:#f0f5fb}input[type=radio]{margin-right:9px;transform:scale(1.1)}
+.result{display:none;margin-top:18px;padding:18px;border-radius:14px;background:#eaf7ee;border:1px solid #afd4ba;font-size:clamp(1rem,3vw,1.3rem)}.score{font-size:clamp(1.5rem,5vw,2.4rem);font-weight:900}.progress{height:8px;background:#dce4ee;border-radius:20px;overflow:hidden;margin-top:7px}.progress span{display:block;height:100%;background:#3975b8;transition:width .25s}.memory{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.memory .card{text-align:center}.footer{text-align:center;color:#64748b;padding:25px;font-size:.9rem}
+@media(max-width:650px){.slide{border-radius:15px;padding:22px 17px;min-height:80vh}.grid,.memory{grid-template-columns:1fr}.topbar-inner{align-items:flex-start;flex-direction:column}.topbar{padding-bottom:6px}main{padding:8px 6px 50px}.question{padding:12px}}
+</style>
+</head><body><header class="topbar"><div class="topbar-inner"><div class="brand">📘 Squares, Cubes & Radicals</div>
+<nav class="nav"><a href="#home">Home</a><a href="#pretest">Pre-Test</a><a href="#squares">Squares</a><a href="#cubes">Cubes</a><a href="#radicals">Radicals</a><a href="#examples">Examples</a><a href="#posttest">Post-Test</a><a href="#summary">Summary</a></nav></div></header><main>
+<section class="slide title-slide" id="home"><span class="eyebrow">Interactive Mathematics Lesson</span>
+<h1>Squares, Cubes &amp; Radicals</h1>
+<p>Understand perfect squares, square roots, perfect cubes, cube roots, and the basics of radical expressions.</p>
+<p><strong>Scroll down</strong> to move through the lesson like a presentation.</p>
+<div style="margin-top:22px"><a class="btn" href="#pretest">Start Pre-Test ↓</a></div>
+</section>
+
+<section class="slide compact" id="pretest"><span class="eyebrow">Before the lesson</span><h2>📝 Pre-Test — 10 Items</h2>
+<div class="test-intro"><strong>Directions:</strong> Choose the best answer. Try on your own before studying the lesson.</div>
+<form id="preForm">
+<div class="question"><p>1. Which is a perfect square?</p>
+<label><input type="radio" name="pre1" value="a"> 10</label>
+<label><input type="radio" name="pre1" value="b"> 16</label>
+<label><input type="radio" name="pre1" value="c"> 24</label>
+<label><input type="radio" name="pre1" value="d"> 50</label></div>
+<div class="question"><p>2. What is √81?</p>
+<label><input type="radio" name="pre2" value="a"> 8</label>
+<label><input type="radio" name="pre2" value="b"> 9</label>
+<label><input type="radio" name="pre2" value="c"> 10</label>
+<label><input type="radio" name="pre2" value="d"> 40.5</label></div>
+<div class="question"><p>3. 5³ means:</p>
+<label><input type="radio" name="pre3" value="a"> 5 + 5 + 5</label>
+<label><input type="radio" name="pre3" value="b"> 5 × 3</label>
+<label><input type="radio" name="pre3" value="c"> 5 × 5 × 5</label>
+<label><input type="radio" name="pre3" value="d"> 3 × 5</label></div>
+<div class="question"><p>4. Which is a perfect cube?</p>
+<label><input type="radio" name="pre4" value="a"> 9</label>
+<label><input type="radio" name="pre4" value="b"> 27</label>
+<label><input type="radio" name="pre4" value="c"> 36</label>
+<label><input type="radio" name="pre4" value="d"> 49</label></div>
+<div class="question"><p>5. What is ∛8?</p>
+<label><input type="radio" name="pre5" value="a"> 2</label>
+<label><input type="radio" name="pre5" value="b"> 4</label>
+<label><input type="radio" name="pre5" value="c"> 2.67</label>
+<label><input type="radio" name="pre5" value="d"> 64</label></div>
+<div class="question"><p>6. The symbol √ is called the:</p>
+<label><input type="radio" name="pre6" value="a"> exponent</label>
+<label><input type="radio" name="pre6" value="b"> radical sign</label>
+<label><input type="radio" name="pre6" value="c"> index</label>
+<label><input type="radio" name="pre6" value="d"> power</label></div>
+<div class="question"><p>7. Between which two whole numbers is √20?</p>
+<label><input type="radio" name="pre7" value="a"> 2 and 3</label>
+<label><input type="radio" name="pre7" value="b"> 3 and 4</label>
+<label><input type="radio" name="pre7" value="c"> 4 and 5</label>
+<label><input type="radio" name="pre7" value="d"> 5 and 6</label></div>
+<div class="question"><p>8. What is 10²?</p>
+<label><input type="radio" name="pre8" value="a"> 10</label>
+<label><input type="radio" name="pre8" value="b"> 20</label>
+<label><input type="radio" name="pre8" value="c"> 100</label>
+<label><input type="radio" name="pre8" value="d"> 1000</label></div>
+<div class="question"><p>9. Which number is NOT a perfect square?</p>
+<label><input type="radio" name="pre9" value="a"> 36</label>
+<label><input type="radio" name="pre9" value="b"> 64</label>
+<label><input type="radio" name="pre9" value="c"> 81</label>
+<label><input type="radio" name="pre9" value="d"> 125</label></div>
+<div class="question"><p>10. In √16, the 16 is called the:</p>
+<label><input type="radio" name="pre10" value="a"> index</label>
+<label><input type="radio" name="pre10" value="b"> radicand</label>
+<label><input type="radio" name="pre10" value="c"> radical</label>
+<label><input type="radio" name="pre10" value="d"> square</label></div>
+<button type="button" class="btn" onclick="gradeTest('pre')">Check Pre-Test</button>
+<div id="preResult" class="result"></div>
+</form>
+</section>
+
+<section class="slide" id="squares"><span class="eyebrow">Part 1</span><h2>Perfect Squares &amp; Square Roots</h2>
+<p>When you multiply a number by itself, you get a <strong>perfect square</strong>.</p>
+<div class="formula">n² = n × n</div>
+<div class="grid">
+<div class="card"><strong>1² = 1</strong><br>√1 = 1</div>
+<div class="card"><strong>2² = 4</strong><br>√4 = 2</div>
+<div class="card"><strong>3² = 9</strong><br>√9 = 3</div>
+<div class="card"><strong>4² = 16</strong><br>√16 = 4</div>
+<div class="card"><strong>5² = 25</strong><br>√25 = 5</div>
+<div class="card"><strong>6² = 36</strong><br>√36 = 6</div>
+<div class="card"><strong>7² = 49</strong><br>√49 = 7</div>
+<div class="card"><strong>8² = 64</strong><br>√64 = 8</div>
+<div class="card"><strong>9² = 81</strong><br>√81 = 9</div>
+<div class="card"><strong>10² = 100</strong><br>√100 = 10</div>
+</div>
+<div class="example"><strong>Example:</strong> A square garden has side 8 m. Area = 8² = <strong>64 m²</strong>. If area = 49 m², side = √49 = <strong>7 m</strong>.</div>
+<div class="tip"><strong>Remember:</strong> The square root (√) asks: "What number times itself gives this number?"</div>
+<div class="danger"><strong>Note:</strong> √25 = 5 only. We don't write −5 unless asked for all roots.</div>
+</section>
+
+<section class="slide" id="cubes"><span class="eyebrow">Part 2</span><h2>Perfect Cubes &amp; Cube Roots</h2>
+<p>When you multiply a number by itself three times, you get a <strong>perfect cube</strong>.</p>
+<div class="formula">n³ = n × n × n</div>
+<div class="grid">
+<div class="card"><strong>1³ = 1</strong><br>∛1 = 1</div>
+<div class="card"><strong>2³ = 8</strong><br>∛8 = 2</div>
+<div class="card"><strong>3³ = 27</strong><br>∛27 = 3</div>
+<div class="card"><strong>4³ = 64</strong><br>∛64 = 4</div>
+<div class="card"><strong>5³ = 125</strong><br>∛125 = 5</div>
+<div class="card"><strong>6³ = 216</strong><br>∛216 = 6</div>
+<div class="card"><strong>7³ = 343</strong><br>∛343 = 7</div>
+<div class="card"><strong>8³ = 512</strong><br>∛512 = 8</div>
+<div class="card"><strong>9³ = 729</strong><br>∛729 = 9</div>
+<div class="card"><strong>10³ = 1000</strong><br>∛1000 = 10</div>
+</div>
+<div class="example"><strong>Example:</strong> A cube box has side 3 cm. Volume = 3³ = <strong>27 cm³</strong>. If volume = 125 cm³, side = ∛125 = <strong>5 cm</strong>.</div>
+<div class="tip"><strong>Remember:</strong> The cube root symbol ∛ has a small 3 called the <em>index</em>. It means "what number multiplied three times gives this?"</div>
+</section>
+
+<section class="slide" id="radicals"><span class="eyebrow">Part 3</span><h2>Basics of Radicals</h2>
+<p>A <strong>radical</strong> is an expression that uses a root, such as square root or cube root.</p>
+<div class="formula"><span style="font-size:60%">index →</span> <span style="position:relative;top:-5px">ⁿ√</span> <span style="border-bottom:2px solid #3975b8; padding:0 8px">a</span> <span style="font-size:60%">← radicand</span></div>
+<div class="grid">
+<div class="card"><strong>Radical Sign</strong><br>The symbol √</div>
+<div class="card"><strong>Index</strong><br>Tells which root: 2 = square, 3 = cube</div>
+<div class="card"><strong>Radicand</strong><br>Number inside the radical symbol</div>
+<div class="card"><strong>Square Root</strong><br>Index 2: √a (index is usually not written)</div>
+</div>
+<h3>Estimating Roots</h3>
+<p>For numbers that are NOT perfect squares or cubes, we can estimate between which two roots they fall.</p>
+<div class="example"><strong>Example: √20</strong><br>16 &lt; 20 &lt; 25 &nbsp;→&nbsp; √16 &lt; √20 &lt; √25 &nbsp;→&nbsp; <strong>4 &lt; √20 &lt; 5</strong></div>
+<div class="example"><strong>Example: ∛30</strong><br>27 &lt; 30 &lt; 64 &nbsp;→&nbsp; ∛27 &lt; ∛30 &lt; ∛64 &nbsp;→&nbsp; <strong>3 &lt; ∛30 &lt; 4</strong></div>
+<div class="tip"><strong>Key Rule:</strong> √a × √b = √(a×b). Example: √4 × √9 = √36 = 2×3 = 6 ✅</div>
+<div class="danger"><strong>Watch out!</strong> √(a + b) ≠ √a + √b. √(9+16) ≠ √9 + √16 → √25 ≠ 3+4 → 5 ≠ 7 ❌</div>
+</section>
+
+<section class="slide" id="examples"><span class="eyebrow">Part 4</span><h2>Real-Life Examples 🇵🇭</h2>
+<div class="example"><strong>1. Tiling a floor.</strong> A square floor has area 144 m². Side length = √144 = <strong>12 meters</strong>.</div>
+<div class="example"><strong>2. Storage box.</strong> A cubic container has volume 64 dm³. Side = ∛64 = <strong>4 dm</strong>.</div>
+<div class="example"><strong>3. Buying tiles.</strong> Square tile area = 0.25 m². Side = √0.25 = <strong>0.5 m</strong> or 50 cm.</div>
+<div class="example"><strong>4. Estimating.</strong> A square field is 50 m². Side is between √49 = 7 and √64 = 8 → <strong>~7.07 m</strong>.</div>
+<div class="example"><strong>5. Cubic water tank.</strong> Volume = 1000 liters. Side = ∛1000 = <strong>10 dm</strong> (since 1 dm³ = 1 L).</div>
+<div class="tip"><strong>Steps:</strong> Identify what's being asked → square or cube root? → Is it perfect? Yes = exact value / No = estimate between two perfect roots.</div>
+</section>
+
+<section class="slide compact" id="posttest"><span class="eyebrow">After the lesson</span><h2>🎯 Post-Test — 20 Items</h2>
+<div class="test-intro"><strong>Directions:</strong> Choose the best answer. Your score will appear after you submit.</div>
+<form id="postForm">
+<div class="question"><p>1. What is 7 squared?</p>
+<label><input type="radio" name="post1" value="a"> 14</label>
+<label><input type="radio" name="post1" value="b"> 49</label>
+<label><input type="radio" name="post1" value="c"> 77</label>
+<label><input type="radio" name="post1" value="d"> 343</label></div>
+<div class="question"><p>2. What is √144?</p>
+<label><input type="radio" name="post2" value="a"> 11</label>
+<label><input type="radio" name="post2" value="b"> 12</label>
+<label><input type="radio" name="post2" value="c"> 13</label>
+<label><input type="radio" name="post2" value="d"> 72</label></div>
+<div class="question"><p>3. Which is a perfect square?</p>
+<label><input type="radio" name="post3" value="a"> 45</label>
+<label><input type="radio" name="post3" value="b"> 64</label>
+<label><input type="radio" name="post3" value="c"> 72</label>
+<label><input type="radio" name="post3" value="d"> 96</label></div>
+<div class="question"><p>4. What is 4 cubed?</p>
+<label><input type="radio" name="post4" value="a"> 12</label>
+<label><input type="radio" name="post4" value="b"> 16</label>
+<label><input type="radio" name="post4" value="c"> 64</label>
+<label><input type="radio" name="post4" value="d"> 81</label></div>
+<div class="question"><p>5. What is ∛27?</p>
+<label><input type="radio" name="post5" value="a"> 3</label>
+<label><input type="radio" name="post5" value="b"> 9</label>
+<label><input type="radio" name="post5" value="c"> 13.5</label>
+<label><input type="radio" name="post5" value="d"> 81</label></div>
+<div class="question"><p>6. Which is a perfect cube?</p>
+<label><input type="radio" name="post6" value="a"> 100</label>
+<label><input type="radio" name="post6" value="b"> 125</label>
+<label><input type="radio" name="post6" value="c"> 144</label>
+<label><input type="radio" name="post6" value="d"> 169</label></div>
+<div class="question"><p>7. In ∛64, what is the index?</p>
+<label><input type="radio" name="post7" value="a"> 3</label>
+<label><input type="radio" name="post7" value="b"> 64</label>
+<label><input type="radio" name="post7" value="c"> ∛</label>
+<label><input type="radio" name="post7" value="d"> 4</label></div>
+<div class="question"><p>8. In √81, what is the radicand?</p>
+<label><input type="radio" name="post8" value="a"> 9</label>
+<label><input type="radio" name="post8" value="b"> 81</label>
+<label><input type="radio" name="post8" value="c"> 2</label>
+<label><input type="radio" name="post8" value="d"> √</label></div>
+<div class="question"><p>9. Between which two numbers is √30?</p>
+<label><input type="radio" name="post9" value="a"> 4 &amp; 5</label>
+<label><input type="radio" name="post9" value="b"> 5 &amp; 6</label>
+<label><input type="radio" name="post9" value="c"> 6 &amp; 7</label>
+<label><input type="radio" name="post9" value="d"> 7 &amp; 8</label></div>
+<div class="question"><p>10. Side of square garden is 6 m. Area?</p>
+<label><input type="radio" name="post10" value="a"> 12 m²</label>
+<label><input type="radio" name="post10" value="b"> 24 m²</label>
+<label><input type="radio" name="post10" value="c"> 36 m²</label>
+<label><input type="radio" name="post10" value="d"> 216 m²</label></div>
+<div class="question"><p>11. Area of square = 81 m². Side length?</p>
+<label><input type="radio" name="post11" value="a"> 6 m</label>
+<label><input type="radio" name="post11" value="b"> 7 m</label>
+<label><input type="radio" name="post11" value="c"> 8 m</label>
+<label><input type="radio" name="post11" value="d"> 9 m</label></div>
+<div class="question"><p>12. Volume of cube = 125 cm³. Side length?</p>
+<label><input type="radio" name="post12" value="a"> 3 cm</label>
+<label><input type="radio" name="post12" value="b"> 4 cm</label>
+<label><input type="radio" name="post12" value="c"> 5 cm</label>
+<label><input type="radio" name="post12" value="d"> 25 cm</label></div>
+<div class="question"><p>13. Which statement is TRUE?</p>
+<label><input type="radio" name="post13" value="a"> √16 = 8</label>
+<label><input type="radio" name="post13" value="b"> ∛8 = 2</label>
+<label><input type="radio" name="post13" value="c"> 10² = 20</label>
+<label><input type="radio" name="post13" value="d"> ∛27 = 9</label></div>
+<div class="question"><p>14. Which is NOT a perfect square?</p>
+<label><input type="radio" name="post14" value="a"> 196</label>
+<label><input type="radio" name="post14" value="b"> 225</label>
+<label><input type="radio" name="post14" value="c"> 250</label>
+<label><input type="radio" name="post14" value="d"> 256</label></div>
+<div class="question"><p>15. ∛1000 equals:</p>
+<label><input type="radio" name="post15" value="a"> 10</label>
+<label><input type="radio" name="post15" value="b"> 100</label>
+<label><input type="radio" name="post15" value="c"> 333</label>
+<label><input type="radio" name="post15" value="d"> 30</label></div>
+<div class="question"><p>16. Between which two numbers is ∛40?</p>
+<label><input type="radio" name="post16" value="a"> 2 &amp; 3</label>
+<label><input type="radio" name="post16" value="b"> 3 &amp; 4</label>
+<label><input type="radio" name="post16" value="c"> 4 &amp; 5</label>
+<label><input type="radio" name="post16" value="d"> 5 &amp; 6</label></div>
+<div class="question"><p>17. √4 × √9 equals:</p>
+<label><input type="radio" name="post17" value="a"> 6</label>
+<label><input type="radio" name="post17" value="b"> 13</label>
+<label><input type="radio" name="post17" value="c"> 36</label>
+<label><input type="radio" name="post17" value="d"> √13</label></div>
+<div class="question"><p>18. Which is FALSE?</p>
+<label><input type="radio" name="post18" value="a"> √(9×16) = √9 × √16</label>
+<label><input type="radio" name="post18" value="b"> √(9+16) = √9 + √16</label>
+<label><input type="radio" name="post18" value="c"> √100 = 10</label>
+<label><input type="radio" name="post18" value="d"> ∛8 × ∛27 = ∛216</label></div>
+<div class="question"><p>19. A square tile has side 0.5 m. Area?</p>
+<label><input type="radio" name="post19" value="a"> 0.25 m²</label>
+<label><input type="radio" name="post19" value="b"> 0.5 m²</label>
+<label><input type="radio" name="post19" value="c"> 1 m²</label>
+<label><input type="radio" name="post19" value="d"> 2.5 m²</label></div>
+<div class="question"><p>20. √25 + √16 equals:</p>
+<label><input type="radio" name="post20" value="a"> √41</label>
+<label><input type="radio" name="post20" value="b"> 9</label>
+<label><input type="radio" name="post20" value="c"> 41</label>
+<label><input type="radio" name="post20" value="d"> 20</label></div>
+<button type="button" class="btn" onclick="gradeTest('post')">Submit Post-Test</button>
+<div id="postResult" class="result"></div>
+</form>
+</section>
+
+<section class="slide compact" id="summary"><span class="eyebrow">Final Review</span><h2>🧠 Quick Reference</h2>
+<div class="memory">
+<div class="card"><strong>Perfect Square</strong><br>n × n<div class="big">6²=36</div></div>
+<div class="card"><strong>Square Root</strong><br>What × itself = radicand<div class="big">√36=6</div></div>
+<div class="card"><strong>Perfect Cube</strong><br>n × n × n<div class="big">4³=64</div></div>
+<div class="card"><strong>Cube Root</strong><br>What × 3 times = radicand<div class="big">∛64=4</div></div>
+<div class="card"><strong>Radical Parts</strong><br>index, radicand, symbol<div class="big">ⁿ√a</div></div>
+<div class="card"><strong>Estimate</strong><br>Find nearest perfect roots<div class="big">√20→4–5</div></div>
+</div>
+<div class="tip"><strong>Final Tips:</strong> Multiply roots when multiplying radicands (√a×√b=√ab). Never split addition/subtraction inside the radical (√a+b ≠ √a+√b).</div>
+<a class="btn" href="#home">↑ Back to Top</a>
+</section>
+
+<div class="footer">Squares, Cubes &amp; Radicals • Interactive HTML Lesson</div>
+
+<script>
+const preAnswers = {
+  1:'b', 2:'b', 3:'c', 4:'b', 5:'a',
+  6:'b', 7:'c', 8:'c', 9:'d', 10:'b'
+};
+const postAnswers = {
+  1:'b', 2:'b', 3:'b', 4:'c', 5:'a',
+  6:'b', 7:'a', 8:'b', 9:'b', 10:'c',
+  11:'d', 12:'c', 13:'b', 14:'c', 15:'a',
+  16:'b', 17:'a', 18:'b', 19:'a', 20:'b'
+};
+function gradeTest(type) {
+  const answers = type === 'pre' ? preAnswers : postAnswers;
+  const total = Object.keys(answers).length;
+  let score = 0, unanswered = 0;
+  for(let i = 1; i <= total; i++) {
+    const sel = document.querySelector(`input[name="${type}${i}"]:checked`);
+    if(!sel) unanswered++;
+    else if(sel.value === answers[i]) score++;
+  }
+  const pct = Math.round(score / total * 100);
+  const result = document.getElementById(type + 'Result');
+  const msg = pct >= 90 ? 'Excellent! You fully understand squares, cubes, and radicals.' :
+              pct >= 75 ? 'Good work! Review what you missed and try again.' :
+              pct >= 60 ? 'Making progress. Review the examples and practice again.' :
+              'Keep practicing. Focus on the definitions and perfect squares/cubes chart.';
+  result.style.display = 'block';
+  result.innerHTML = `<div class="score">${score} / ${total} (${pct}%)</div>
+    <p>${msg}</p>${unanswered ? `<p><strong>${unanswered}</strong> unanswered.</p>` : ''}
+    <div class="progress"><span style="width:${pct}%"></span></div>`;
+  result.scrollIntoView({behavior:'smooth', block:'center'});
+}
+</script>
+</main></body></html>

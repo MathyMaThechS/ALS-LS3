@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>ALS LS3 Math — Learning System</title>
+    <style>
+        :root {
+            --bg-main: #f8fafc;
+            --card-bg: #ffffff;
+            --header-bg: #0f172a;
+            --primary-accent: #0284c7;
+            --energy-green: #059669;
+            --energy-green-active: #047857;
+            --sidebar-bg: #1e293b;
+            --sidebar-hover: #334155;
+            --text-heading: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --border-color: #cbd5e1;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-body);
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        .top-bar {
+            background-color: var(--header-bg);
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .toggle-btn {
+            background-color: var(--energy-green);
+            color: white;
+            border: none;
+            padding: 0.5rem 0.9rem;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .top-bar-title {
+            margin-left: 0.8rem;
+            font-size: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -280px;
+            width: 280px;
+            height: 100%;
+            background-color: var(--sidebar-bg);
+            color: #f1f5f9;
+            z-index: 1000;
+            transition: left 0.3s ease;
+            overflow-y: auto;
+            box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .sidebar.open {
+            left: 0;
+        }
+        .sidebar-header {
+            padding: 1.2rem 1rem;
+            background-color: var(--header-bg);
+            border-bottom: 1px solid #334155;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .sidebar-header h3 {
+            font-size: 1.1rem;
+            color: #ffffff;
+        }
+        .close-btn {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0 0.5rem;
+        }
+        .sidebar-menu {
+            padding: 0.5rem 0;
+        }
+        details.topic-accordion {
+            border-bottom: 1px solid #334155;
+        }
+        details.topic-accordion summary {
+            padding: 0.85rem 1rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            color: #e2e8f0;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--sidebar-bg);
+            transition: background 0.2s;
+        }
+        details.topic-accordion summary:hover {
+            background-color: var(--sidebar-hover);
+        }
+        details.topic-accordion summary::-webkit-details-marker {
+            display: none;
+        }
+        details.topic-accordion summary::after {
+            content: "▸";
+            font-size: 0.9rem;
+            color: var(--primary-accent);
+            transition: transform 0.2s;
+        }
+        details.topic-accordion[open] summary::after {
+            transform: rotate(90deg);
+        }
+        .subtopic-list {
+            background-color: #0f172a;
+            list-style: none;
+            padding: 0.3rem 0;
+        }
+        .subtopic-list li a {
+            display: block;
+            padding: 0.65rem 1rem 0.65rem 2rem;
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.88rem;
+            border-left: 3px solid transparent;
+            transition: all 0.2s;
+        }
+        .subtopic-list li a:hover, .subtopic-list li a:active {
+            color: #ffffff;
+            background-color: #1e293b;
+            border-left-color: var(--energy-green);
+        }
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 900;
+            display: none;
+        }
+        .overlay.active {
+            display: block;
+        }
+        header {
+            background: linear-gradient(135deg, #0f172a, #1e3a5f);
+            color: #ffffff;
+            padding: 2rem 1.25rem 2rem 1.25rem;
+            text-align: center;
+            border-bottom: 4px solid var(--energy-green);
+        }
+        header h1 {
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 0.8rem;
+        }
+        header p {
+            font-size: 1rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .container {
+            width: 100%;
+            padding: 1rem 0.85rem;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            border: 1px solid var(--border-color);
+        }
+        h2 {
+            color: var(--text-heading);
+            border-bottom: 2px solid #f1f5f9;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .lesson-list, .trick-list {
+            list-style: none;
+            margin-top: 0.8rem;
+        }
+        .lesson-list li, .trick-list li {
+            margin-bottom: 0.7rem;
+        }
+        .lesson-list a, .trick-list a {
+            display: block;
+            padding: 0.9rem 1rem;
+            background: #f8fafc;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-heading);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.25s;
+        }
+        .lesson-list a:hover, .trick-list a:hover {
+            background: #e0f2fe;
+            border-color: var(--primary-accent);
+            color: #0369a1;
+            transform: translateX(4px);
+        }
+        .lesson-list a span, .trick-list a span {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+            line-height: 1.4;
+        }
+        .contact-list {
+            list-style: none;
+            margin-top: 0.8rem;
+        }
+        .contact-list li {
+            margin-bottom: 0.85rem;
+            font-size: 0.95rem;
+            word-break: break-word;
+        }
+        .contact-list strong {
+            display: block;
+            color: var(--text-heading);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.15rem;
+        }
+        .contact-list a {
+            color: var(--primary-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .qr-container {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .qr-img {
+            max-width: 180px;
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+        }
+        .lesson-number {
+            display: inline-block;
+            background: var(--primary-accent);
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.15rem 0.5rem;
+            border-radius: 20px;
+            margin-right: 0.5rem;
+            font-weight: 700;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background-color: var(--header-bg);
+            color: #94a3b8;
+            font-size: 0.85rem;
+            margin-top: 1.5rem;
+        }
+        .support-contact-grid {
+            display: grid;
+            gap: 1.25rem;
+        }
+        @media (min-width: 640px) {
+            .container {
+                max-width: 900px;
+                margin: 1.5rem auto;
+                padding: 0 1.5rem;
+            }
+            .support-contact-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <button class="toggle-btn" id="openSidebarBtn" aria-label="Open Topics Menu">
+            <span>☰</span> Topics
+        </button>
+        <div class="top-bar-title">ALS LS3 Math Learning System</div>
+    </div>
+    <div class="overlay" id="sidebarOverlay"></div>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>📚 ALS LS3 Math Lessons</h3>
+            <button class="close-btn" id="closeSidebarBtn" aria-label="Close Menu">&times;</button>
+        </div>
+        <nav class="sidebar-menu">
+            <!-- Lesson 1 -->
+            <details class="topic-accordion" open>
+                <summary>01 — Squares, Cubes & Radicals</summary>
+                <ul class="subtopic-list">
+                    <li><a href="01 Square,Cube, Radical.html">📐 Perfect Squares, Cubes & Radicals</a></li>
+                </ul>
+            </details>
+            <!-- Lesson 2 -->
+            <details class="topic-accordion">
+                <summary>02 — Sets & Venn Diagrams</summary>
+                <ul class="subtopic-list">
+                    <li><a href="02 Sets and Venn Diagram 02.html">🔵 Sets and Venn Diagrams</a></li>
+                </ul>
+            </details>
+            <!-- Lesson 3 -->
+            <details class="topic-accordion">
+                <summary>03 — Integers Operations</summary>
+                <ul class="subtopic-list">
+                    <li><a href="03.1 multdiv.html">✖️➗ Multiplication & Division of Integers</a></li>
+                    <li><a href="03.2 addsub.html">➕➖ Addition & Subtraction of Integers</a></li>
+                </ul>
+            </details>
+            <!-- Lesson 4 -->
+            <details class="topic-accordion">
+                <summary>04 — Properties of Real Numbers</summary>
+                <ul class="subtopic-list">
+                    <li><a href="04 Properties of Real Numbers.html">🔢 Properties of Real Numbers</a></li>
+                </ul>
+            </details>
+            <!-- Lesson 5 -->
+            <details class="topic-accordion">
+                <summary>05 — Laws of Exponents</summary>
+                <ul class="subtopic-list">
+                    <li><a href="05 laws_of_exponents_interactive_lesson-1.html">⚡ Laws of Exponents</a></li>
+                </ul>
+            </details>
+            <!-- Lesson 6 -->
+            <details class="topic-accordion">
+                <summary>06 — Algebraic Expressions</summary>
+                <ul class="subtopic-list">
+                    <li><a href="06 Algebraic Expressions and Formulas.html">📘 Algebraic Expressions & Formulas</a></li>
+                </ul>
+            </details>
+            <!-- Math Tricks -->
+            <details class="topic-accordion">
+                <summary>💡 Math Tricks & Shortcuts</summary>
+                <ul class="subtopic-list">
+                    <li><a href="tricks_tab_finger-mult.html">🖐️ Finger Multiplication (6–10)</a></li>
+                </ul>
+            </details>
+        </nav>
+    </aside>
+    <header>
+        <h1>ALS LS3 — Mathematics Learning System</h1>
+        <p>Empowering Alternative Learners to Master Math, Build Confidence, and Succeed in Life Skills 🔢</p>
+    </header>
+    <div class="container">
+        <!-- MISSION / ABOUT -->
+        <section class="card">
+            <h2>🎯 About This ALS Learning Platform</h2>
+            <p>
+                I created this website to develop and share complete, interactive lessons specifically for <strong>ALS Learning Strand 3 — Mathematical and Problem-Solving Skills</strong>.
+            </p>
+            <br>
+            <p>
+                Many ALS learners need a strong, clear foundation in math to progress — whether for Accreditation & Equivalency (A&E), Senior High School, or daily life. These lessons are designed to be accessible, self-paced, and practical, with examples relevant to Filipino learners.
+            </p>
+            <br>
+            <p>
+                <strong>My goal:</strong> Make quality math education free and available anywhere, anytime — on your phone, no special software needed. Every lesson includes explanations, examples, and practice tests to help you track your progress.
+            </p>
+            <br>
+            <p>
+                <strong>About the Creator:</strong> I am a Licensed Professional Teacher with a passion for reaching every learner, especially those in Alternative Learning Systems. Technology makes it possible to bring the classroom to you.
+            </p>
+        </section>
+
+        <!-- ALL LESSONS — Numbered Order -->
+        <section class="card">
+            <h2>📖 Lessons — In Sequence</h2>
+            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Start from Lesson 1 and go in order for best results:</p>
+            <ul class="lesson-list">
+                <li>
+                    <a href="01 Square,Cube, Radical.html">
+                        <span class="lesson-number">01</span> Perfect Squares, Cubes & Radicals
+                        <span>Square roots, cube roots, radical basics — 10-item Pre-Test & 20-item Post-Test</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="02 Sets and Venn Diagram 02.html">
+                        <span class="lesson-number">02</span> Sets and Venn Diagrams
+                        <span>Notation, union, intersection, complement, real-life word problems</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="03.1 multdiv.html">
+                        <span class="lesson-number">03.1</span> Multiplication & Division of Integers
+                        <span>Sign rules, step-by-step examples, practice quizzes</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="03.2 addsub.html">
+                        <span class="lesson-number">03.2</span> Addition & Subtraction of Integers
+                        <span>Number line, sign combinations, practice with answer keys</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="04 Properties of Real Numbers.html">
+                        <span class="lesson-number">04</span> Properties of Real Numbers
+                        <span>Commutative, Associative, Distributive, Identity, Inverse properties</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="05 laws_of_exponents_interactive_lesson-1.html">
+                        <span class="lesson-number">05</span> Laws of Exponents
+                        <span>Product, quotient, power rules — 10-item Pre-Test & 20-item Post-Test</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="06 Algebraic Expressions and Formulas.html">
+                        <span class="lesson-number">06</span> Algebraic Expressions & Formulas
+                        <span>Translate words to algebra, evaluate expressions, real-life applications</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- TRICKS SECTION -->
+        <section class="card">
+            <h2>💡 Math Tricks & Shortcuts</h2>
+            <p style="font-size: 0.9rem; margin-bottom: 0.5rem;">Learn faster mental math methods:</p>
+            <ul class="trick-list">
+                <li>
+                    <a href="tricks_tab_finger-mult.html">
+                        🖐️ Finger Multiplication (Numbers 6–10)
+                        <span>Visual, hands-on method — great for quick recall</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <!-- CONTACT & SUPPORT -->
+        <div class="support-contact-grid">
+            <section class="card">
+                <h2>📬 Suggest a Topic</h2>
+                <p style="font-size: 0.9rem;">What other ALS LS3 topics should I create next? Message me:</p>
+                <ul class="contact-list">
+                    <li>
+                        <strong>Facebook</strong>
+                        <a href="https://www.facebook.com/pacardzmanuel" target="_blank">Manuel Pacardo</a>
+                    </li>
+                    <li>
+                        <strong>Email</strong>
+                        <a href="mailto:mathymathechs@gmail.com">mathymathechs@gmail.com</a>
+                    </li>
+                </ul>
+            </section>
+            <section class="card">
+                <h2>💜 Support This ALS Project</h2>
+                <p style="font-size: 0.9rem;">Your support helps create more free lessons for ALS students across the Philippines:</p>
+                <div class="qr-container">
+                    <img src="qr.jpg" alt="QR Code" class="qr-img">
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ALS LS3 Mathematics Learning System<br>Created for Alternative Learning System students — Empowering Education for All</p>
+    </footer>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const overlay = document.getElementById('sidebarOverlay');
+        const openBtn = document.getElementById('openSidebarBtn');
+        const closeBtn = document.getElementById('closeSidebarBtn');
+
+        function openSidebar() {
+            sidebar.classList.add('open');
+            overlay.classList.add('active');
+        }
+        function closeSidebar() {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+
+        openBtn.addEventListener('click', openSidebar);
+        closeBtn.addEventListener('click', closeSidebar);
+        overlay.addEventListener('click', closeSidebar);
+    </script>
+</body>
+</html>

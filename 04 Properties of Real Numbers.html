@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALS Lesson: Properties of Real Numbers</title>
+    <style>
+        * {box-sizing: border-box; font-family: Arial, sans-serif;}
+        body {background: #f0f8ff; margin: 0; padding: 20px; line-height: 1.6;}
+        .container {max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 3px 10px rgba(0,0,0,0.1);}
+        h1 {color: #2c3e50; text-align: center;}
+        h2 {color: #2980b9; border-bottom: 2px solid #3498db; padding-bottom: 5px;}
+        .property {background: #e8f4fc; padding: 15px; margin: 12px 0; border-radius: 8px; border-left: 4px solid #2980b9;}
+        .formula {font-weight: bold; color: #d35400; font-size: 1.1em;}
+        .number-line {position: relative; height: 100px; margin: 20px 0; background: #f9f9f9; border-radius: 8px; padding: 10px;}
+        .line {position: absolute; top: 50%; left: 30px; right: 30px; height: 2px; background: #333;}
+        .tick {position: absolute; top: 40px; width: 1px; height: 20px; background: #333;}
+        .label {position: absolute; top: 65px; font-size: 14px; text-align: center; transform: translateX(-50%);}
+        .arrow-left, .arrow-right {position: absolute; top: 45%; width: 0; height: 0; border-style: solid;}
+        .arrow-left {left: 20px; border-width: 8px 10px 8px 0; border-color: transparent #333 transparent transparent;}
+        .arrow-right {right: 20px; border-width: 8px 0 8px 10px; border-color: transparent transparent transparent #333;}
+        .highlight-int {color: #e74c3c; font-weight: bold;}
+        .practice {background: #fff3cd; padding: 18px; border-radius: 8px; margin-top: 25px;}
+        footer {text-align: center; margin-top: 30px; color: #7f8c8d; font-size: 0.9em;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>📘 ALS Mathematics Lesson</h1>
+    <h2 style="text-align:center; border:none; color:#8e44ad;">Properties of Real Numbers & Number Lines</h2>
+    <p style="text-align:center; font-style: italic;">For Alternative Learning System Learners</p>
+
+    <h2>1. What are Real Numbers?</h2>
+    <p><strong>Real numbers</strong> include all numbers you use in daily life — counting numbers, whole numbers, fractions, decimals, positive and negative numbers. They can be represented on a <strong>number line</strong>.</p>
+
+    <h3>📌 Sets of Real Numbers</h3>
+    <ul>
+        <li><strong>Natural Numbers (Counting Numbers):</strong> 1, 2, 3, 4, ...</li>
+        <li><strong>Whole Numbers:</strong> 0, 1, 2, 3, 4, ...</li>
+        <li><strong>Integers:</strong> ..., −3, −2, −1, 0, 1, 2, 3, ... <em>(no fractions or decimals)</em></li>
+        <li><strong>Rational Numbers:</strong> Can be written as a fraction <sup>a</sup>/<sub>b</sub> (examples: ½, 0.75, −⅔)</li>
+        <li><strong>Irrational Numbers:</strong> Cannot be written as simple fractions (examples: π, √2)</li>
+    </ul>
+
+    <h2>2. Number Line — Especially Integers</h2>
+    <p>The number line shows numbers in order. <span class="highlight-int">Integers</span> are marked in <span class="highlight-int">red bold</span> below:</p>
+
+    <div class="number-line">
+        <div class="arrow-left"></div>
+        <div class="line"></div>
+        <div class="arrow-right"></div>
+        <!-- Ticks and Labels -->
+        <div class="tick" style="left: 15%;"></div><div class="label" style="left: 15%;" class="highlight-int">−3</div>
+        <div class="tick" style="left: 25%;"></div><div class="label" style="left: 25%;" class="highlight-int">−2</div>
+        <div class="tick" style="left: 35%;"></div><div class="label" style="left: 35%;" class="highlight-int">−1</div>
+        <div class="tick" style="left: 50%;"></div><div class="label" style="left: 50%; font-weight:bold;">0</div>
+        <div class="tick" style="left: 65%;"></div><div class="label" style="left: 65%;" class="highlight-int">1</div>
+        <div class="tick" style="left: 75%;"></div><div class="label" style="left: 75%;" class="highlight-int">2</div>
+        <div class="tick" style="left: 85%;"></div><div class="label" style="left: 85%;" class="highlight-int">3</div>
+    </div>
+
+    <p>✅ <strong>Rules:</strong></p>
+    <ul>
+        <li>Numbers to the <strong>right</strong> are <em>greater</em> → 3 > 0 > −2</li>
+        <li>Numbers to the <strong>left</strong> are <em>smaller</em> → −3 < −1 < 2</li>
+        <li>Zero is neither positive nor negative — it is the center point.</li>
+        <li>Fractions/decimals fall <em>between</em> the integer marks.</li>
+    </ul>
+
+    <h2>3. Properties of Real Numbers</h2>
+
+    <div class="property">
+        <h3>🔄 Commutative Property</h3>
+        <p>Changing <em>order</em> does not change the result.</p>
+        <p class="formula">Addition: a + b = b + a</p>
+        <p>Example: 4 + 2 = 2 + 4 → 6 = 6 ✔️</p>
+        <p class="formula">Multiplication: a × b = b × a</p>
+        <p>Example: 3 × 5 = 5 × 3 → 15 = 15 ✔️</p>
+        <p><em>⚠️ Does NOT work for subtraction or division!</em></p>
+    </div>
+
+    <div class="property">
+        <h3>🔗 Associative Property</h3>
+        <p>Changing <em>grouping</em> (parentheses) does not change the result.</p>
+        <p class="formula">Addition: (a + b) + c = a + (b + c)</p>
+        <p>Example: (2 + 3) + 4 = 2 + (3 + 4) → 9 = 9 ✔️</p>
+        <p class="formula">Multiplication: (a × b) × c = a × (b × c)</p>
+        <p>Example: (2 × 3) × 4 = 2 × (3 × 4) → 24 = 24 ✔️</p>
+    </div>
+
+    <div class="property">
+        <h3>✨ Identity Property</h3>
+        <p>Adding or multiplying by a special number leaves the original number the same.</p>
+        <p class="formula">Addition: a + 0 = a</p>
+        <p>Zero (<strong>0</strong>) is the additive identity → 7 + 0 = 7 ✔️</p>
+        <p class="formula">Multiplication: a × 1 = a</p>
+        <p>One (<strong>1</strong>) is the multiplicative identity → −5 × 1 = −5 ✔️</p>
+    </div>
+
+    <div class="property">
+        <h3>⚖️ Inverse Property</h3>
+        <p>Combining a number with its inverse gives the identity value.</p>
+        <p class="formula">Addition: a + (−a) = 0</p>
+        <p>Opposite numbers sum to zero → 6 + (−6) = 0 ✔️</p>
+        <p class="formula">Multiplication: a × (1/a) = 1 &nbsp;(a ≠ 0)</p>
+        <p>Reciprocals multiply to one → 5 × (1/5) = 1 ✔️</p>
+    </div>
+
+    <div class="property">
+        <h3>⚡ Zero Product Property</h3>
+        <p>If product of two numbers is zero, at least one of them must be zero.</p>
+        <p class="formula">If a × b = 0 &nbsp;then &nbsp;a = 0 &nbsp;or &nbsp;b = 0 &nbsp;(or both)</p>
+        <p>Example: (x − 2)(x + 3) = 0 → x = 2 or x = −3 ✔️</p>
+    </div>
+
+    <div class="property">
+        <h3>🔒 Closure Property</h3>
+        <p>When you operate on two numbers from a set, the result stays in the <em>same set</em>.</p>
+        <ul>
+            <li><strong>Real numbers:</strong> Real ± Real = Real; Real × Real = Real ✔️</li>
+            <li><strong>Integers:</strong> Integer ± Integer = Integer; Integer × Integer = Integer ✔️</li>
+            <li><em>Not closed under division:</em> 1 ÷ 2 = 0.5 (not an integer)</li>
+        </ul>
+    </div>
+
+    <div class="practice">
+        <h2>✏️ Practice Exercise</h2>
+        <p>Identify the property shown:</p>
+        <ol>
+            <li>8 + 0 = 8 → _________________________</li>
+            <li>3 × 7 = 7 × 3 → _________________________</li>
+            <li>(5 + 2) + 6 = 5 + (2 + 6) → _________________________</li>
+            <li>9 + (−9) = 0 → _________________________</li>
+            <li>If 5y = 0 then y = 0 → _________________________</li>
+            <li>Integers × Integers = Integer → _________________________</li>
+        </ol>
+        <details>
+            <summary><strong>Click to see Answers</strong></summary>
+            <ol>
+                <li>Identity Property of Addition</li>
+                <li>Commutative Property of Multiplication</li>
+                <li>Associative Property of Addition</li>
+                <li>Inverse Property of Addition</li>
+                <li>Zero Product Property</li>
+                <li>Closure Property (Multiplication over Integers)</li>
+            </ol>
+        </details>
+    </div>
+
+    <footer>
+        ALS Mathematics • Real Numbers Lesson • Free Educational Resource
+    </footer>
+</div>
+</body>
+</html>

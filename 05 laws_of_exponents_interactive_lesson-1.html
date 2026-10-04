@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Laws of Exponents — Interactive Lesson</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef2f7;color:#172033;line-height:1.5}
+.topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);border-bottom:1px solid #d7dee8;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:9px 12px}.topbar-inner{max-width:1050px;margin:auto;display:flex;gap:8px;align-items:center;justify-content:space-between}.brand{font-weight:800;font-size:15px}.nav{display:flex;gap:5px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{text-decoration:none;color:#334155;font-size:12px;font-weight:700;padding:6px 8px;border-radius:8px}.nav a:hover{background:#e8eef7}
+main{max-width:1050px;margin:auto;padding:18px 10px 70px}.slide{min-height:88vh;margin:18px 0;padding:clamp(24px,5vw,58px);background:#fff;border-radius:22px;box-shadow:0 7px 25px rgba(20,35,55,.10);display:flex;flex-direction:column;justify-content:center;scroll-margin-top:65px;overflow:hidden}.slide.compact{min-height:auto;justify-content:flex-start}
+.title-slide{background:linear-gradient(145deg,#17365d,#245b94);color:#fff;text-align:center}.title-slide h1{font-size:clamp(2.1rem,7vw,5rem);margin:0 0 12px;line-height:1.05}.title-slide p{font-size:clamp(1rem,3vw,1.5rem);margin:7px auto;max-width:750px}.eyebrow{display:inline-block;font-size:12px;letter-spacing:1.5px;font-weight:800;text-transform:uppercase;opacity:.75;margin-bottom:12px}
+h2{font-size:clamp(1.65rem,5vw,3rem);line-height:1.12;margin:0 0 18px}h3{font-size:clamp(1.15rem,3.5vw,1.7rem);margin:20px 0 8px}p,li{font-size:clamp(1rem,2.8vw,1.25rem)}.big{font-size:clamp(1.5rem,5vw,2.8rem);font-weight:800;text-align:center;margin:20px 0}
+.formula{background:#edf4ff;border:2px solid #b8d2f1;border-radius:16px;padding:clamp(14px,3vw,25px);margin:14px 0;text-align:center;font-size:clamp(1.35rem,4.5vw,2.35rem);font-weight:800;overflow-x:auto}.example{background:#f7f9fc;border-left:6px solid #3975b8;padding:12px 16px;border-radius:10px;margin:12px 0}.tip{background:#fff7d6;border:1px solid #e9d681;padding:12px 16px;border-radius:12px;margin:14px 0}.danger{background:#fff0f0;border:1px solid #e8b6b6;padding:12px 16px;border-radius:12px;margin:14px 0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{padding:18px;border:1px solid #d9e1eb;border-radius:15px;background:#fbfcfe}.card strong{font-size:1.1em}
+.btn{display:inline-block;border:0;border-radius:11px;padding:11px 17px;background:#245b94;color:#fff;font-weight:800;cursor:pointer;font-size:15px;text-decoration:none}.btn:hover{filter:brightness(1.08)}.test-intro{background:#eaf3ff;border-radius:14px;padding:15px;margin-bottom:15px}.question{border:1px solid #d7dee8;border-radius:14px;padding:15px;margin:13px 0;background:#fff}.question p{margin-top:0;font-weight:800}label{display:block;padding:8px 10px;margin:4px 0;border-radius:9px;cursor:pointer;font-size:clamp(.96rem,2.6vw,1.1rem)}label:hover{background:#f0f5fb}input[type=radio]{margin-right:9px;transform:scale(1.1)}
+.result{display:none;margin-top:18px;padding:18px;border-radius:14px;background:#eaf7ee;border:1px solid #afd4ba;font-size:clamp(1rem,3vw,1.3rem)}.score{font-size:clamp(1.5rem,5vw,2.4rem);font-weight:900}.progress{height:8px;background:#dce4ee;border-radius:20px;overflow:hidden;margin-top:7px}.progress span{display:block;height:100%;background:#3975b8;transition:width .25s}.answer{color:#166534;font-weight:800}.memory{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}.memory .card{text-align:center}.footer{text-align:center;color:#64748b;padding:25px;font-size:.9rem}
+@media(max-width:650px){.slide{border-radius:15px;padding:22px 17px;min-height:80vh}.grid,.memory{grid-template-columns:1fr}.topbar-inner{align-items:flex-start;flex-direction:column}.topbar{padding-bottom:6px}main{padding:8px 6px 50px}.question{padding:12px}}
+</style>
+</head><body><header class="topbar"><div class="topbar-inner"><div class="brand">📘 Laws of Exponents</div>
+<nav class="nav"><a href="#home">Home</a><a href="#pretest">Pre-Test</a><a href="#lesson">Lesson</a><a href="#rules">Rules</a><a href="#examples">Examples</a><a href="#posttest">Post-Test</a><a href="#summary">Summary</a></nav></div></header><main><section class="slide title-slide" id="home"><span class="eyebrow">Interactive Mathematics Lesson</span>
+<h1>Laws of Exponents</h1><p>Learn how to simplify expressions with exponents using clear rules, examples, and practice.</p>
+<p><strong>Scroll down</strong> to move through the lesson like a PowerPoint presentation.</p>
+<div style="margin-top:22px"><a class="btn" href="#pretest">Start Pre-Test ↓</a></div></section><section class="slide compact" id="pretest"><span class="eyebrow">Before the lesson</span><h2>📝 Pre-Test — 10 Items</h2>
+<div class="test-intro"><strong>Directions:</strong> Choose the best answer. Try to answer on your own before studying the lesson.</div>
+<form id="preForm"><div class="question"><p>1. What is the value of 2³?</p><label><input type="radio" name="pre1" value="a"> 6</label>
+<label><input type="radio" name="pre1" value="b"> 8</label>
+<label><input type="radio" name="pre1" value="c"> 9</label>
+<label><input type="radio" name="pre1" value="d"> 12</label></div>
+<div class="question"><p>2. In 5², what is the exponent?</p><label><input type="radio" name="pre2" value="a"> 5</label>
+<label><input type="radio" name="pre2" value="b"> 2</label>
+<label><input type="radio" name="pre2" value="c"> 10</label>
+<label><input type="radio" name="pre2" value="d"> 25</label></div>
+<div class="question"><p>3. Which is equal to 3 × 3 × 3 × 3?</p><label><input type="radio" name="pre3" value="a"> 3⁴</label>
+<label><input type="radio" name="pre3" value="b"> 4³</label>
+<label><input type="radio" name="pre3" value="c"> 3³</label>
+<label><input type="radio" name="pre3" value="d"> 4⁴</label></div>
+<div class="question"><p>4. What is 7⁰?</p><label><input type="radio" name="pre4" value="a"> 0</label>
+<label><input type="radio" name="pre4" value="b"> 1</label>
+<label><input type="radio" name="pre4" value="c"> 7</label>
+<label><input type="radio" name="pre4" value="d"> 70</label></div>
+<div class="question"><p>5. Simplify: 2³ × 2².</p><label><input type="radio" name="pre5" value="a"> 2⁵</label>
+<label><input type="radio" name="pre5" value="b"> 2⁶</label>
+<label><input type="radio" name="pre5" value="c"> 4⁵</label>
+<label><input type="radio" name="pre5" value="d"> 4⁶</label></div>
+<div class="question"><p>6. Simplify: 5⁶ ÷ 5².</p><label><input type="radio" name="pre6" value="a"> 5³</label>
+<label><input type="radio" name="pre6" value="b"> 5⁴</label>
+<label><input type="radio" name="pre6" value="c"> 5⁸</label>
+<label><input type="radio" name="pre6" value="d"> 25⁴</label></div>
+<div class="question"><p>7. Simplify: (2³)².</p><label><input type="radio" name="pre7" value="a"> 2⁵</label>
+<label><input type="radio" name="pre7" value="b"> 2⁶</label>
+<label><input type="radio" name="pre7" value="c"> 4⁶</label>
+<label><input type="radio" name="pre7" value="d"> 2⁹</label></div>
+<div class="question"><p>8. What is the value of 10⁻²?</p><label><input type="radio" name="pre8" value="a"> −100</label>
+<label><input type="radio" name="pre8" value="b"> −0.01</label>
+<label><input type="radio" name="pre8" value="c"> 0.01</label>
+<label><input type="radio" name="pre8" value="d"> 100</label></div>
+<div class="question"><p>9. Simplify: x⁴ × x³.</p><label><input type="radio" name="pre9" value="a"> x¹</label>
+<label><input type="radio" name="pre9" value="b"> x⁷</label>
+<label><input type="radio" name="pre9" value="c"> x¹²</label>
+<label><input type="radio" name="pre9" value="d"> 2x⁷</label></div>
+<div class="question"><p>10. Which rule is used for aᵐ ÷ aⁿ?</p><label><input type="radio" name="pre10" value="a"> Add exponents</label>
+<label><input type="radio" name="pre10" value="b"> Multiply exponents</label>
+<label><input type="radio" name="pre10" value="c"> Subtract exponents</label>
+<label><input type="radio" name="pre10" value="d"> Divide exponents</label></div><button type="button" class="btn" onclick="gradeTest('pre')">Check Pre-Test</button><div id="preResult" class="result"></div></form></section>
+<section class="slide" id="lesson"><span class="eyebrow">Part 1</span><h2>What Is an Exponent?</h2>
+<p>An exponent tells us <strong>how many times a base is used as a factor</strong>.</p>
+<div class="formula">aⁿ = a × a × a × ... × a</div>
+<p>The base is <strong>a</strong>. The exponent is <strong>n</strong>.</p>
+<div class="example"><strong>Example:</strong> 2⁴ = 2 × 2 × 2 × 2 = <strong>16</strong></div>
+<div class="tip"><strong>Remember:</strong> The exponent does NOT mean base × exponent. It tells you how many copies of the base are multiplied.</div></section>
+
+<section class="slide" id="rules"><span class="eyebrow">Part 2</span><h2>Law 1 — Product of Powers</h2>
+<p>When multiplying powers with the <strong>same base</strong>, keep the base and <strong>add the exponents</strong>.</p>
+<div class="formula">aᵐ × aⁿ = aᵐ⁺ⁿ</div>
+<div class="example"><strong>Example:</strong> 2³ × 2⁴ = 2³⁺⁴ = <strong>2⁷</strong></div>
+<div class="example"><strong>Another:</strong> x⁵ × x² = <strong>x⁷</strong></div>
+<div class="tip">Think: <strong>Multiplication → Add the exponents.</strong></div></section>
+
+<section class="slide"><span class="eyebrow">Part 3</span><h2>Law 2 — Quotient of Powers</h2>
+<p>When dividing powers with the <strong>same base</strong>, keep the base and <strong>subtract the exponents</strong>.</p>
+<div class="formula">aᵐ ÷ aⁿ = aᵐ⁻ⁿ</div>
+<div class="example"><strong>Example:</strong> 5⁶ ÷ 5² = 5⁶⁻² = <strong>5⁴</strong></div>
+<div class="example"><strong>Another:</strong> x⁸ ÷ x³ = <strong>x⁵</strong></div>
+<div class="tip">Think: <strong>Division → Subtract the exponents.</strong></div></section>
+
+<section class="slide"><span class="eyebrow">Part 4</span><h2>Law 3 — Power of a Power</h2>
+<p>When a power is raised to another power, <strong>multiply the exponents</strong>.</p>
+<div class="formula">(aᵐ)ⁿ = aᵐⁿ</div>
+<div class="example"><strong>Example:</strong> (2³)² = 2³×² = <strong>2⁶</strong></div>
+<div class="example"><strong>Another:</strong> (x⁴)³ = <strong>x¹²</strong></div>
+<div class="tip">Think: <strong>Power outside a power → Multiply the exponents.</strong></div></section>
+
+<section class="slide"><span class="eyebrow">Part 5</span><h2>Law 4 — Power of a Product</h2>
+<p>An exponent outside parentheses applies to <strong>every factor</strong> inside.</p>
+<div class="formula">(ab)ⁿ = aⁿbⁿ</div>
+<div class="example"><strong>Example:</strong> (2x)³ = 2³x³ = <strong>8x³</strong></div>
+<div class="example"><strong>Another:</strong> (3ab)² = <strong>9a²b²</strong></div>
+<div class="danger"><strong>Be careful:</strong> (a + b)² is NOT a² + b². The product rule applies to multiplication, not addition.</div></section>
+
+<section class="slide"><span class="eyebrow">Part 6</span><h2>Law 5 — Power of a Quotient</h2>
+<p>An exponent outside a fraction applies to both the numerator and denominator.</p>
+<div class="formula">(a/b)ⁿ = aⁿ/bⁿ</div>
+<div class="example"><strong>Example:</strong> (2/3)³ = <strong>2³/3³ = 8/27</strong></div>
+<div class="example"><strong>Another:</strong> (x/y)² = <strong>x²/y²</strong></div></section>
+
+<section class="slide"><span class="eyebrow">Part 7</span><h2>Law 6 — Zero Exponent</h2>
+<p>Any nonzero number raised to the zero power equals <strong>1</strong>.</p>
+<div class="formula">a⁰ = 1 &nbsp;&nbsp; (a ≠ 0)</div>
+<div class="example">7⁰ = <strong>1</strong></div>
+<div class="example">x⁰ = <strong>1</strong> &nbsp; (when x ≠ 0)</div>
+<div class="tip">The zero exponent does not make the answer zero. It makes the answer <strong>1</strong>.</div></section>
+
+<section class="slide"><span class="eyebrow">Part 8</span><h2>Law 7 — Negative Exponents</h2>
+<p>A negative exponent means the reciprocal of the positive exponent.</p>
+<div class="formula">a⁻ⁿ = 1/aⁿ</div>
+<div class="example">2⁻³ = 1/2³ = <strong>1/8</strong></div>
+<div class="example">x⁻⁴ = <strong>1/x⁴</strong></div>
+<div class="tip">Think: <strong>Negative exponent → Move the factor across the fraction bar and make the exponent positive.</strong></div></section>
+
+<section class="slide"><span class="eyebrow">Part 9</span><h2>Combining Laws</h2>
+<p>Some expressions require more than one law. Work carefully from one step to the next.</p>
+<div class="example"><strong>Example:</strong><br>(x² × x³)²<br>= (x⁵)² &nbsp; <em>Product of Powers</em><br>= <strong>x¹⁰</strong> &nbsp; <em>Power of a Power</em></div>
+<div class="example"><strong>Example:</strong><br>x⁷ ÷ x² = x⁷⁻² = <strong>x⁵</strong></div>
+<div class="tip"><strong>Strategy:</strong> Identify the operation first, choose the matching law, then simplify one step at a time.</div></section>
+
+<section class="slide compact" id="examples"><span class="eyebrow">Guided Practice</span><h2>Quick Practice</h2>
+<div class="grid">
+<div class="card"><strong>1.</strong> 3² × 3⁵<br><span class="answer">Answer: 3⁷</span></div>
+<div class="card"><strong>2.</strong> y⁹ ÷ y⁴<br><span class="answer">Answer: y⁵</span></div>
+<div class="card"><strong>3.</strong> (a³)⁴<br><span class="answer">Answer: a¹²</span></div>
+<div class="card"><strong>4.</strong> (2x)²<br><span class="answer">Answer: 4x²</span></div>
+<div class="card"><strong>5.</strong> 6⁰<br><span class="answer">Answer: 1</span></div>
+<div class="card"><strong>6.</strong> 5⁻²<br><span class="answer">Answer: 1/25</span></div>
+</div><div class="tip"><strong>Try solving each one before looking at the answer.</strong></div></section>
+<section class="slide compact" id="posttest"><span class="eyebrow">After the lesson</span><h2>🎯 Post-Test — 20 Items</h2>
+<div class="test-intro"><strong>Directions:</strong> Choose the best answer. Your score will appear after you submit.</div>
+<form id="postForm"><div class="question"><p>1. Simplify: 2⁴ × 2³.</p><label><input type="radio" name="post1" value="a"> 2⁷</label>
+<label><input type="radio" name="post1" value="b"> 2¹²</label>
+<label><input type="radio" name="post1" value="c"> 4⁷</label>
+<label><input type="radio" name="post1" value="d"> 2¹</label></div>
+<div class="question"><p>2. Simplify: 7⁸ ÷ 7³.</p><label><input type="radio" name="post2" value="a"> 7⁵</label>
+<label><input type="radio" name="post2" value="b"> 7¹¹</label>
+<label><input type="radio" name="post2" value="c"> 7²⁴</label>
+<label><input type="radio" name="post2" value="d"> 7³</label></div>
+<div class="question"><p>3. Simplify: (3²)⁴.</p><label><input type="radio" name="post3" value="a"> 3⁶</label>
+<label><input type="radio" name="post3" value="b"> 3⁸</label>
+<label><input type="radio" name="post3" value="c"> 3¹⁶</label>
+<label><input type="radio" name="post3" value="d"> 6⁴</label></div>
+<div class="question"><p>4. Simplify: (2x)³.</p><label><input type="radio" name="post4" value="a"> 2x³</label>
+<label><input type="radio" name="post4" value="b"> 6x³</label>
+<label><input type="radio" name="post4" value="c"> 8x³</label>
+<label><input type="radio" name="post4" value="d"> 8x</label></div>
+<div class="question"><p>5. Simplify: (ab)⁴.</p><label><input type="radio" name="post5" value="a"> a⁴ + b⁴</label>
+<label><input type="radio" name="post5" value="b"> a⁴b⁴</label>
+<label><input type="radio" name="post5" value="c"> a⁴b</label>
+<label><input type="radio" name="post5" value="d"> ab⁴</label></div>
+<div class="question"><p>6. What is 9⁰?</p><label><input type="radio" name="post6" value="a"> 0</label>
+<label><input type="radio" name="post6" value="b"> 1</label>
+<label><input type="radio" name="post6" value="c"> 9</label>
+<label><input type="radio" name="post6" value="d"> 90</label></div>
+<div class="question"><p>7. What is 4⁻²?</p><label><input type="radio" name="post7" value="a"> −16</label>
+<label><input type="radio" name="post7" value="b"> −1/16</label>
+<label><input type="radio" name="post7" value="c"> 1/8</label>
+<label><input type="radio" name="post7" value="d"> 1/16</label></div>
+<div class="question"><p>8. Simplify: x⁶ × x² × x³.</p><label><input type="radio" name="post8" value="a"> x¹¹</label>
+<label><input type="radio" name="post8" value="b"> x¹²</label>
+<label><input type="radio" name="post8" value="c"> x¹⁸</label>
+<label><input type="radio" name="post8" value="d"> 3x¹¹</label></div>
+<div class="question"><p>9. Simplify: y¹⁰ ÷ y⁴.</p><label><input type="radio" name="post9" value="a"> y⁶</label>
+<label><input type="radio" name="post9" value="b"> y¹⁴</label>
+<label><input type="radio" name="post9" value="c"> y⁴</label>
+<label><input type="radio" name="post9" value="d"> y²⁰</label></div>
+<div class="question"><p>10. Simplify: (m⁵)².</p><label><input type="radio" name="post10" value="a"> m⁷</label>
+<label><input type="radio" name="post10" value="b"> m¹⁰</label>
+<label><input type="radio" name="post10" value="c"> m²⁵</label>
+<label><input type="radio" name="post10" value="d"> 2m⁵</label></div>
+<div class="question"><p>11. Simplify: (3a²)².</p><label><input type="radio" name="post11" value="a"> 3a⁴</label>
+<label><input type="radio" name="post11" value="b"> 6a²</label>
+<label><input type="radio" name="post11" value="c"> 9a⁴</label>
+<label><input type="radio" name="post11" value="d"> 9a²</label></div>
+<div class="question"><p>12. Simplify: (x/y)³.</p><label><input type="radio" name="post12" value="a"> x³/y³</label>
+<label><input type="radio" name="post12" value="b"> x³/y</label>
+<label><input type="radio" name="post12" value="c"> x/y³</label>
+<label><input type="radio" name="post12" value="d"> 3x/3y</label></div>
+<div class="question"><p>13. Which expression is equal to 1?</p><label><input type="radio" name="post13" value="a"> 8⁰</label>
+<label><input type="radio" name="post13" value="b"> 8¹</label>
+<label><input type="radio" name="post13" value="c"> 8⁻¹</label>
+<label><input type="radio" name="post13" value="d"> 0⁸</label></div>
+<div class="question"><p>14. Simplify: 10⁻³.</p><label><input type="radio" name="post14" value="a"> −0.001</label>
+<label><input type="radio" name="post14" value="b"> 0.001</label>
+<label><input type="radio" name="post14" value="c"> 1000</label>
+<label><input type="radio" name="post14" value="d"> −1000</label></div>
+<div class="question"><p>15. Simplify: (p²q³)².</p><label><input type="radio" name="post15" value="a"> p⁴q⁶</label>
+<label><input type="radio" name="post15" value="b"> p⁴q⁵</label>
+<label><input type="radio" name="post15" value="c"> p²q⁶</label>
+<label><input type="radio" name="post15" value="d"> p⁴q⁹</label></div>
+<div class="question"><p>16. Simplify: a⁹ ÷ a⁹, where a ≠ 0.</p><label><input type="radio" name="post16" value="a"> a</label>
+<label><input type="radio" name="post16" value="b"> 0</label>
+<label><input type="radio" name="post16" value="c"> 1</label>
+<label><input type="radio" name="post16" value="d"> a¹⁸</label></div>
+<div class="question"><p>17. Simplify: (x² × x⁴)³.</p><label><input type="radio" name="post17" value="a"> x⁶</label>
+<label><input type="radio" name="post17" value="b"> x⁸</label>
+<label><input type="radio" name="post17" value="c"> x¹²</label>
+<label><input type="radio" name="post17" value="d"> x¹⁸</label></div>
+<div class="question"><p>18. Which law says aᵐ × aⁿ = aᵐ⁺ⁿ?</p><label><input type="radio" name="post18" value="a"> Power of a Power</label>
+<label><input type="radio" name="post18" value="b"> Product of Powers</label>
+<label><input type="radio" name="post18" value="c"> Zero Exponent</label>
+<label><input type="radio" name="post18" value="d"> Negative Exponent</label></div>
+<div class="question"><p>19. Which law says (aᵐ)ⁿ = aᵐⁿ?</p><label><input type="radio" name="post19" value="a"> Power of a Power</label>
+<label><input type="radio" name="post19" value="b"> Quotient of Powers</label>
+<label><input type="radio" name="post19" value="c"> Product of Powers</label>
+<label><input type="radio" name="post19" value="d"> Power of a Quotient</label></div>
+<div class="question"><p>20. Simplify: 2⁻³ × 2⁵.</p><label><input type="radio" name="post20" value="a"> 2²</label>
+<label><input type="radio" name="post20" value="b"> 2⁻¹⁵</label>
+<label><input type="radio" name="post20" value="c"> 2⁸</label>
+<label><input type="radio" name="post20" value="d"> 1/2²</label></div><button type="button" class="btn" onclick="gradeTest('post')">Submit Post-Test</button><div id="postResult" class="result"></div></form></section><section class="slide compact" id="summary"><span class="eyebrow">Final Review</span><h2>🧠 Remember the Laws</h2>
+<div class="memory">
+<div class="card"><strong>Multiply same bases</strong><br>ADD exponents<div class="big">aᵐ · aⁿ = aᵐ⁺ⁿ</div></div>
+<div class="card"><strong>Divide same bases</strong><br>SUBTRACT exponents<div class="big">aᵐ / aⁿ = aᵐ⁻ⁿ</div></div>
+<div class="card"><strong>Power of a power</strong><br>MULTIPLY exponents<div class="big">(aᵐ)ⁿ = aᵐⁿ</div></div>
+<div class="card"><strong>Power of a product</strong><br>Apply to every factor<div class="big">(ab)ⁿ = aⁿbⁿ</div></div>
+<div class="card"><strong>Zero exponent</strong><br>Nonzero base → 1<div class="big">a⁰ = 1</div></div>
+<div class="card"><strong>Negative exponent</strong><br>Use the reciprocal<div class="big">a⁻ⁿ = 1/aⁿ</div></div>
+</div><div class="tip"><strong>Final strategy:</strong> Look at the operation → identify the law → apply the law → simplify the answer.</div>
+<a class="btn" href="#home">↑ Back to Top</a></section><div class="footer">Laws of Exponents • Interactive HTML Lesson</div>
+<script>
+const preAnswers={1:'b',2:'b',3:'a',4:'b',5:'a',6:'b',7:'b',8:'c',9:'b',10:'c'};
+const postAnswers={1:'a',2:'a',3:'b',4:'c',5:'b',6:'b',7:'d',8:'a',9:'a',10:'b',11:'c',12:'a',13:'a',14:'b',15:'a',16:'c',17:'d',18:'b',19:'a',20:'a'};
+function gradeTest(type){
+ const answers=type==='pre'?preAnswers:postAnswers,total=Object.keys(answers).length;let score=0,unanswered=0;
+ for(let i=1;i<=total;i++){const s=document.querySelector(`input[name="${type}${i}"]:checked`);if(!s)unanswered++;else if(s.value===answers[i])score++;}
+ const pct=Math.round(score/total*100),result=document.getElementById(type+'Result');
+ let msg=pct>=90?'Excellent work! You have a strong understanding of the laws of exponents.':pct>=75?'Good work! Review the laws you missed and try again.':pct>=60?'You are making progress. Review the examples and practice again.':'Keep practicing. Go back through the lesson and focus on matching each operation with the correct law.';
+ result.style.display='block';result.innerHTML=`<div class="score">${score} / ${total} (${pct}%)</div><p>${msg}</p>${unanswered?`<p><strong>${unanswered}</strong> item(s) were left unanswered.</p>`:''}<div class="progress"><span style="width:${pct}%"></span></div>`;
+ result.scrollIntoView({behavior:'smooth',block:'center'});
+}
+</script>
+</main></body></html>
