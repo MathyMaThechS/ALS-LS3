@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Addition &amp; Subtraction of Polynomials &mdash; ALS LS3 Math</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#eef2f7;color:#172033;line-height:1.5}
+.topbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);border-bottom:1px solid #d7dee8;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:9px 12px}.topbar-inner{max-width:1050px;margin:auto;display:flex;gap:8px;align-items:center;justify-content:space-between}.brand{font-weight:800;font-size:15px}.nav{display:flex;gap:5px;overflow-x:auto;white-space:nowrap;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav a{text-decoration:none;color:#334155;font-size:12px;font-weight:700;padding:6px 8px;border-radius:8px}.nav a:hover{background:#e8eef7}
+main{max-width:1050px;margin:auto;padding:18px 10px 70px}.slide{min-height:88vh;margin:18px 0;padding:clamp(24px,5vw,58px);background:#fff;border-radius:22px;box-shadow:0 7px 25px rgba(20,35,55,.10);display:flex;flex-direction:column;justify-content:center;scroll-margin-top:65px;overflow:hidden}.slide.compact{min-height:auto;justify-content:flex-start}
+.title-slide{background:linear-gradient(145deg,#2c5282,#4299e1);color:#fff;text-align:center}.title-slide h1{font-size:clamp(2.1rem,7vw,4rem);margin:0 0 12px;line-height:1.05}.title-slide p{font-size:clamp(1rem,3vw,1.25rem);margin:7px auto;max-width:750px}.eyebrow{display:inline-block;font-size:12px;letter-spacing:1.5px;font-weight:800;text-transform:uppercase;opacity:.75;margin-bottom:12px}
+h2{font-size:clamp(1.65rem,5vw,2.2rem);line-height:1.12;margin:0 0 18px}h3{font-size:clamp(1.1rem,3vw,1.4rem);margin:24px 0 10px;color:#2b6cb8}h4{font-size:1rem;margin:16px 0 8px;color:#17365d}p,li{font-size:clamp(1rem,2.8vw,1.15rem)}
+.example{background:#f7f9fc;border-left:6px solid #4299e1;padding:14px 18px;border-radius:10px;margin:12px 0}.example strong{color:#17365d}.tip{background:#e6fffa;border:1px solid #81e6d9;padding:14px 18px;border-radius:12px;margin:14px 0}.danger{background:#fff0f0;border:1px solid #feb2b2;padding:14px 18px;border-radius:12px;margin:14px 0}
+.example-item{padding:8px 0;border-bottom:1px dashed #eee}
+.example-item:last-child{border-bottom:none}
+.example-question{display:block;margin-bottom:4px}
+.answer-btn{padding:6px 14px;font-size:0.9rem;background:#e2e8f0;border:none;border-radius:6px;cursor:pointer;color:#333;font-weight:bold;margin:4px 0;transition:background 0.2s}
+.answer-btn:hover{background:#d0d7e2}
+.hidden-answer{display:none;padding:8px 12px;background:#eaf7ee;border-radius:6px;color:#1e7d42;font-weight:bold;margin-top:6px}
+.quiz-section{margin-top:35px;padding:20px;background:#fef8e8;border-radius:14px;border:2px solid #f3e29f}
+.quiz-title{font-weight:bold;font-size:1.1rem;margin-bottom:15px;color:#856400}
+.btn{display:inline-block;border:0;border-radius:11px;padding:11px 17px;background:#2b6cb0;color:#fff;font-weight:800;cursor:pointer;font-size:15px;text-decoration:none}.btn:hover{filter:brightness(1.08)}.btn-sm{padding:6px 12px;font-size:0.9rem;border-radius:8px}
+.test-intro{background:#ebf8ff;border-radius:14px;padding:15px;margin-bottom:15px}.question{border:1px solid #d7dee8;border-radius:14px;padding:15px;margin:13px 0;background:#fff}.question p{margin-top:0;font-weight:700}label{display:block;padding:8px 10px;margin:4px 0;border-radius:9px;cursor:pointer;font-size:clamp(.96rem,2.6vw,1.05rem)}label:hover{background:#f0f5fb}input[type=radio]{margin-right:9px;transform:scale(1.1)}
+.result{display:none;margin-top:18px;padding:18px;border-radius:14px;background:#eaf7ee;border:1px solid #afd4ba;font-size:clamp(1rem,3vw,1.2rem)}
+.score{font-size:clamp(1.5rem,5vw,2.2rem);font-weight:900}.feedback{padding:9px 11px;margin-top:8px;border-radius:8px;background:#f8fafc;font-size:.98rem;line-height:1.45}.correct-question{border-color:#86c79a!important;background:#f3fbf5!important}.wrong-question{border-color:#e8a1a1!important;background:#fff8f8!important}.answer-btn{min-height:36px}.btn{min-height:40px}
+.summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:16px}
+.summary-card{padding:16px;border-radius:12px;border:1px solid #e2e8f0;background:#fafafa;text-align:center}
+.summary-card strong{display:block;font-size:1.1rem;margin-bottom:6px}.summary-card .sym{font-size:1.5rem;font-weight:bold;color:#2b6cb0;margin:8px 0}
+@media(max-width:650px){.slide{border-radius:15px;padding:22px 17px}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner"><div class="brand">📘 Polynomials</div>
+<nav class="nav"><a href="#home">Home</a><a href="#pretest">Pre-Test</a><a href="#like-terms">Like Terms</a><a href="#addition">Addition</a><a href="#subtraction">Subtraction</a><a href="#posttest">Post-Test</a><a href="#summary">Summary</a></nav></div></header>
+<main>
+<section class="slide title-slide" id="home">
+<span class="eyebrow">ALS LS3 Math &mdash; Interactive Lesson</span>
+<h1>Addition &amp; Subtraction<br/>of Polynomials</h1>
+<p>Combine like terms and learn the rules for adding and subtracting polynomials.</p>
+<p><strong>Scroll down</strong> or use the navigation bar above.</p>
+<div style="margin-top:22px"><a class="btn" href="#pretest">Start Pre-Test &darr;</a></div>
+</section>
+<section class="slide compact" id="pretest">
+<span class="eyebrow">Before the lesson</span>
+<h2>📝 Pre-Test &mdash; 10 Items</h2>
+<div class="test-intro"><strong>Directions:</strong> Choose the best answer. Don't worry if you don't know some yet!</div>
+<form id="preForm">
+<div class="question"><p>1. Which are <em>like terms</em>?</p>
+
+
+
+<label> <input name="pre1" type="radio" value="a"/> 2x and 2x&sup2;</label><label> <input name="pre1" type="radio" value="b"/> 5x and 2x</label><label> <input name="pre1" type="radio" value="c"/> 4 and 2x</label><label> <input name="pre1" type="radio" value="d"/> 3x and 3y</label></div>
+<div class="question"><p>2. Simplify: 3x + 5x</p>
+
+
+
+<label> <input name="pre2" type="radio" value="a"/> 8x&sup2;</label><label> <input name="pre2" type="radio" value="b"/> 2x</label><label> <input name="pre2" type="radio" value="c"/> 15x</label><label> <input name="pre2" type="radio" value="d"/> 8x</label></div>
+<div class="question"><p>3. Simplify: 7y &minus; 4y</p>
+
+
+
+<label> <input name="pre3" type="radio" value="a"/> 3y</label><label> <input name="pre3" type="radio" value="b"/> &minus;3y</label><label> <input name="pre3" type="radio" value="c"/> 3</label><label> <input name="pre3" type="radio" value="d"/> 11y</label></div>
+<div class="question"><p>4. Add: (2x + 3) + (4x + 5)</p>
+
+
+
+<label> <input name="pre4" type="radio" value="a"/> 6x &minus; 2</label><label> <input name="pre4" type="radio" value="b"/> 8x + 8</label><label> <input name="pre4" type="radio" value="c"/> 6x&sup2; + 8</label><label> <input name="pre4" type="radio" value="d"/> 6x + 8</label></div>
+<div class="question"><p>5. Subtract: (5x + 4) &minus; (2x + 1)</p>
+
+
+
+<label> <input name="pre5" type="radio" value="a"/> &minus;3x + 3</label><label> <input name="pre5" type="radio" value="b"/> 7x + 5</label><label> <input name="pre5" type="radio" value="c"/> 3x + 3</label><label> <input name="pre5" type="radio" value="d"/> 3x + 5</label></div>
+<div class="question"><p>6. What is &minus;(3x &minus; 2) equal to?</p>
+
+
+
+<label> <input name="pre6" type="radio" value="a"/> &minus;3x + 2</label><label> <input name="pre6" type="radio" value="b"/> 3x &minus; 2</label><label> <input name="pre6" type="radio" value="c"/> &minus;3x &minus; 2</label><label> <input name="pre6" type="radio" value="d"/> 3x + 2</label></div>
+<div class="question"><p>7. Simplify: x&sup2; + 3x&sup2;</p>
+
+
+
+<label> <input name="pre7" type="radio" value="a"/> 4x⁴</label><label> <input name="pre7" type="radio" value="b"/> 4x&sup2;</label><label> <input name="pre7" type="radio" value="c"/> x&sup2;</label><label> <input name="pre7" type="radio" value="d"/> 3x&sup2;</label></div>
+<div class="question"><p>8. Add: (3a + 2b) + (5a &minus; 3b)</p>
+
+
+
+<label> <input name="pre8" type="radio" value="a"/> 2a &minus; b</label><label> <input name="pre8" type="radio" value="b"/> 8a &minus; b</label><label> <input name="pre8" type="radio" value="c"/> 8a + b</label><label> <input name="pre8" type="radio" value="d"/> 8a + 5b</label></div>
+<div class="question"><p>9. Subtract: (10m &minus; 5) &minus; (6m + 3)</p>
+
+
+
+<label> <input name="pre9" type="radio" value="a"/> 4m &minus; 8</label><label> <input name="pre9" type="radio" value="b"/> 4m &minus; 2</label><label> <input name="pre9" type="radio" value="c"/> 4m + 2</label><label> <input name="pre9" type="radio" value="d"/> 16m &minus; 8</label></div>
+<div class="question"><p>10. Simplify: 4x + 3 &minus; 2x + 7</p>
+
+
+
+<label> <input name="pre10" type="radio" value="a"/> 6x &minus; 4</label><label> <input name="pre10" type="radio" value="b"/> 6x + 10</label><label> <input name="pre10" type="radio" value="c"/> 2x + 10</label><label> <input name="pre10" type="radio" value="d"/> 2x &minus; 4</label></div>
+<button class="btn" onclick="gradeTest('pre', {pre1:'b',pre2:'d',pre3:'a',pre4:'d',pre5:'c',pre6:'a',pre7:'b',pre8:'b',pre9:'a',pre10:'c'})" type="button">Check Pre-Test</button>
+<div class="result" id="preResult"></div><button class="btn btn-sm" onclick="resetTest('preForm','preResult')" type="button">Retry Pre-Test</button>
+</form>
+</section>
+<section class="slide compact" id="like-terms">
+<span class="eyebrow">Part 1</span>
+<h2>📌 What are Like Terms?</h2>
+<p><strong>Like terms</strong> are terms that have the <em>same variable</em> raised to the <em>same power</em>. Only the coefficients can be different!</p>
+<div class="tip">
+<strong>✅ Like Terms</strong><br/>
+&bull; 3x and &minus;5x &nbsp;&nbsp;(same variable x, exponent 1)<br/>
+&bull; 2y&sup2; and 7y&sup2; &nbsp;&nbsp;(same variable y, exponent 2)<br/>
+&bull; 4 and &minus;8 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(constants &mdash; no variable)
+</div>
+<div class="danger">
+<strong>❌ NOT Like Terms</strong><br/>
+&bull; 2x and 2y &nbsp;&nbsp;(different variables)<br/>
+&bull; 3x and 3x&sup2; &nbsp;&nbsp;(different exponents)<br/>
+&bull; 4x and 7 &nbsp;&nbsp;&nbsp;&nbsp;(one has variable, one doesn't)
+</div>
+<h3>🎯 Identifying Like Terms &mdash; 5 Worked Examples</h3>
+<p>Study each example first. Click <strong>Show Solution</strong> to see the answer and the reasoning step by step.</p>
+<div class="example">
+<strong>Example 1: Are 4x and &minus;7x like terms?</strong>
+<div class="example-item"><span class="example-question">Check the variable part of each term.</span>
+<button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1:</strong> The first term is 4x. Its variable part is x.<br/><strong>Step 2:</strong> The second term is &minus;7x. Its variable part is also x.<br/><strong>Conclusion:</strong> YES. Both terms have the same variable and exponent (x&sup1;), so they are like terms.</div></div>
+</div>
+<div class="example">
+<strong>Example 2: Are 3a&sup2; and 3a like terms?</strong>
+<div class="example-item"><span class="example-question">Compare the exponents.</span>
+<button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1:</strong> In 3a&sup2;, the exponent of a is 2.<br/><strong>Step 2:</strong> In 3a, the exponent of a is 1.<br/><strong>Conclusion:</strong> NO. The exponents are different, so these are not like terms.</div></div>
+</div>
+<div class="example">
+<strong>Example 3: Simplify 5x + 8x.</strong>
+<div class="example-item"><span class="example-question">Combine the like terms.</span>
+<button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1:</strong> Both terms contain x, so they are like terms.<br/><strong>Step 2:</strong> Add the coefficients: 5 + 8 = 13.<br/><strong>Step 3:</strong> Keep the variable x.<br/><strong>Answer:</strong> 5x + 8x = 13x.</div></div>
+</div>
+<div class="example">
+<strong>Example 4: Simplify 9y&sup2; &minus; 4y&sup2;.</strong>
+<div class="example-item"><span class="example-question">Subtract the coefficients.</span>
+<button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1:</strong> Both terms have the same variable part, y&sup2;.<br/><strong>Step 2:</strong> Subtract the coefficients: 9 &minus; 4 = 5.<br/><strong>Step 3:</strong> Keep y&sup2; unchanged.<br/><strong>Answer:</strong> 9y&sup2; &minus; 4y&sup2; = 5y&sup2;.</div></div>
+</div>
+<div class="example">
+<strong>Example 5: Simplify 3x + 4 + 2x &minus; 7.</strong>
+<div class="example-item"><span class="example-question">Group variable terms and constants.</span>
+<button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1:</strong> Group like terms: (3x + 2x) + (4 &minus; 7).<br/><strong>Step 2:</strong> Combine the x-terms: 3x + 2x = 5x.<br/><strong>Step 3:</strong> Combine the constants: 4 &minus; 7 = &minus;3.<br/><strong>Answer:</strong> 5x &minus; 3. Remember: x-terms and constants are not like terms, so combine them separately.</div></div>
+</div>
+<div class="quiz-section">
+<div class="quiz-title">📝 Quick Quiz &mdash; Like Terms (10 Items)</div>
+<form id="quizLikeTerms">
+<div class="question" style="background:#fff">
+<p>1. Which pair are like terms?</p>
+
+
+
+
+<label> <input name="lt1" type="radio" value="a"/> 3x and 3x&sup2;</label><label> <input name="lt1" type="radio" value="b"/> 5x and &minus;3x</label><label> <input name="lt1" type="radio" value="c"/> 2x and 2y</label><label> <input name="lt1" type="radio" value="d"/> 4 and 2x</label></div>
+<div class="question" style="background:#fff">
+<p>2. Simplify: 6y + 2y</p>
+
+
+
+
+<label> <input name="lt2" type="radio" value="a"/> 12y</label><label> <input name="lt2" type="radio" value="b"/> 8y&sup2;</label><label> <input name="lt2" type="radio" value="c"/> 8y</label><label> <input name="lt2" type="radio" value="d"/> 4y</label></div>
+<div class="question" style="background:#fff">
+<p>3. Simplify: 9a &minus; 4a</p>
+
+
+
+
+<label> <input name="lt3" type="radio" value="a"/> &minus;5a</label><label> <input name="lt3" type="radio" value="b"/> 13a</label><label> <input name="lt3" type="radio" value="c"/> 5</label><label> <input name="lt3" type="radio" value="d"/> 5a</label></div>
+<div class="question" style="background:#fff">
+<p>4. Which is NOT a like term with 2x&sup2;?</p>
+
+
+
+
+<label> <input name="lt4" type="radio" value="a"/> 5x&sup2;</label><label> <input name="lt4" type="radio" value="b"/> 2x</label><label> <input name="lt4" type="radio" value="c"/> &minus;x&sup2;</label><label> <input name="lt4" type="radio" value="d"/> 10x&sup2;</label></div>
+<div class="question" style="background:#fff">
+<p>5. Simplify: x + 6x</p>
+
+
+
+
+<label> <input name="lt5" type="radio" value="a"/> 6x&sup2;</label><label> <input name="lt5" type="radio" value="b"/> 5x</label><label> <input name="lt5" type="radio" value="c"/> 6x</label><label> <input name="lt5" type="radio" value="d"/> 7x</label></div>
+<div class="question" style="background:#fff">
+<p>6. Simplify: 8b&sup2; + b&sup2;</p>
+
+
+
+
+<label> <input name="lt6" type="radio" value="a"/> 8b&sup2;</label><label> <input name="lt6" type="radio" value="b"/> 8b⁴</label><label> <input name="lt6" type="radio" value="c"/> 9b&sup2;</label><label> <input name="lt6" type="radio" value="d"/> 9b⁴</label></div>
+<div class="question" style="background:#fff">
+<p>7. Simplify: 5 + 3x + 7</p>
+
+
+
+
+<label> <input name="lt7" type="radio" value="a"/> 3x + 12</label><label> <input name="lt7" type="radio" value="b"/> 15x</label><label> <input name="lt7" type="radio" value="c"/> 8x + 7</label><label> <input name="lt7" type="radio" value="d"/> 3x + 2</label></div>
+<div class="question" style="background:#fff">
+<p>8. Simplify: 4x + 2y &minus; x</p>
+
+
+
+
+<label> <input name="lt8" type="radio" value="a"/> 3x + 2y</label><label> <input name="lt8" type="radio" value="b"/> 5x + 2y</label><label> <input name="lt8" type="radio" value="c"/> 5xy</label><label> <input name="lt8" type="radio" value="d"/> 3x &minus; 2y</label></div>
+<div class="question" style="background:#fff">
+<p>9. Simplify: 10m &minus; 3m + m</p>
+
+
+
+
+<label> <input name="lt9" type="radio" value="a"/> 7m</label><label> <input name="lt9" type="radio" value="b"/> 8m</label><label> <input name="lt9" type="radio" value="c"/> 6m</label><label> <input name="lt9" type="radio" value="d"/> 14m</label></div>
+<div class="question" style="background:#fff">
+<p>10. Simplify: 6a&sup2; + 2a + 3a&sup2; &minus; a</p>
+
+
+
+
+<label> <input name="lt10" type="radio" value="a"/> 9a&sup2; + a</label><label> <input name="lt10" type="radio" value="b"/> 9a&sup2; + 3a</label><label> <input name="lt10" type="radio" value="c"/> 7a&sup2; + a</label><label> <input name="lt10" type="radio" value="d"/> 9a⁴ + a&sup2;</label></div>
+<button class="btn btn-sm" onclick="gradeQuiz('quizLikeTerms', {lt1:'b',lt2:'c',lt3:'d',lt4:'b',lt5:'d',lt6:'c',lt7:'a',lt8:'a',lt9:'b',lt10:'a'})" type="button">Check Answers</button>
+<div class="result" id="quizLikeTermsResult"></div>
+<button class="btn btn-sm" onclick="resetTest('quizLikeTerms','quizLikeTermsResult')" type="button">Retry Quiz</button>
+</form>
+</div>
+</section>
+<section class="slide compact" id="addition">
+<span class="eyebrow">Part 2</span>
+<h2>➕ Adding Polynomials</h2>
+<p><strong>Step 1:</strong> Remove parentheses<br/>
+<strong>Step 2:</strong> Group like terms together<br/>
+<strong>Step 3:</strong> Add the coefficients &mdash; keep the variable and exponent the same!</p>
+<h3>🧩 Worked Examples &mdash; 5 Problems</h3>
+<p><strong>Rule:</strong> When adding polynomials, remove the parentheses, group like terms, then add their coefficients. Keep each variable and exponent unchanged.</p>
+<div class="example"><strong>Example 1: Add (3x + 4) + (2x &minus; 7).</strong>
+<div class="example-item"><span class="example-question">Follow each step.</span><button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1 &mdash; Remove parentheses:</strong> 3x + 4 + 2x &minus; 7.<br/><strong>Step 2 &mdash; Group like terms:</strong> (3x + 2x) + (4 &minus; 7).<br/><strong>Step 3 &mdash; Add coefficients:</strong> 3x + 2x = 5x, and 4 &minus; 7 = &minus;3.<br/><strong>Answer:</strong> 5x &minus; 3.</div></div>
+</div>
+<div class="example"><strong>Example 2: Add (2x&sup2; + 3x &minus; 5) + (4x&sup2; &minus; x + 1).</strong>
+<div class="example-item"><span class="example-question">Combine terms with matching powers.</span><button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1 &mdash; Remove parentheses:</strong> 2x&sup2; + 3x &minus; 5 + 4x&sup2; &minus; x + 1.<br/><strong>Step 2 &mdash; Group like terms:</strong> (2x&sup2; + 4x&sup2;) + (3x &minus; x) + (&minus;5 + 1).<br/><strong>Step 3 &mdash; Add each group:</strong> 6x&sup2; + 2x &minus; 4.<br/><strong>Answer:</strong> 6x&sup2; + 2x &minus; 4.</div></div>
+</div>
+<div class="example"><strong>Example 3: Add (5a + 2b) + (3a &minus; 7b).</strong>
+<div class="example-item"><span class="example-question">Notice that a-terms and b-terms are different groups.</span><button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1 &mdash; Remove parentheses:</strong> 5a + 2b + 3a &minus; 7b.<br/><strong>Step 2 &mdash; Group like terms:</strong> (5a + 3a) + (2b &minus; 7b).<br/><strong>Step 3 &mdash; Add coefficients:</strong> 5a + 3a = 8a; 2b &minus; 7b = &minus;5b.<br/><strong>Answer:</strong> 8a &minus; 5b.</div></div>
+</div>
+<div class="example"><strong>Example 4: Add (x&sup2; &minus; 4x + 6) + (3x&sup2; + 2x &minus; 9).</strong>
+<div class="example-item"><span class="example-question">Combine the squared terms, x-terms, and constants separately.</span><button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1 &mdash; Remove parentheses:</strong> x&sup2; &minus; 4x + 6 + 3x&sup2; + 2x &minus; 9.<br/><strong>Step 2 &mdash; Group like terms:</strong> (x&sup2; + 3x&sup2;) + (&minus;4x + 2x) + (6 &minus; 9).<br/><strong>Step 3 &mdash; Simplify each group:</strong> 4x&sup2; &minus; 2x &minus; 3.<br/><strong>Answer:</strong> 4x&sup2; &minus; 2x &minus; 3.</div></div>
+</div>
+<div class="example"><strong>Example 5: Add (2m&sup2; + 3m &minus; 1) + (m&sup2; &minus; 5m + 8) + (4m&sup2; + m &minus; 2).</strong>
+<div class="example-item"><span class="example-question">There are three polynomials. Group all matching terms.</span><button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1 &mdash; Remove parentheses:</strong> 2m&sup2; + 3m &minus; 1 + m&sup2; &minus; 5m + 8 + 4m&sup2; + m &minus; 2.<br/><strong>Step 2 &mdash; Group like terms:</strong> (2m&sup2; + m&sup2; + 4m&sup2;) + (3m &minus; 5m + m) + (&minus;1 + 8 &minus; 2).<br/><strong>Step 3 &mdash; Add coefficients:</strong> 7m&sup2; + (&minus;1m) + 5.<br/><strong>Answer:</strong> 7m&sup2; &minus; m + 5.</div></div>
+</div>
+<div class="quiz-section">
+<div class="quiz-title">📝 Quick Quiz &mdash; Adding Polynomials (10 Items)</div>
+<form id="quizAdd">
+<div class="question" style="background:#fff">
+<p>1. (2x + 5) + (3x + 1) = ?</p>
+
+
+
+<label> <input name="a1" type="radio" value="a"/> 6x + 6</label><label> <input name="a1" type="radio" value="b"/> 5x + 6</label><label> <input name="a1" type="radio" value="c"/> 5x + 4</label><label> <input name="a1" type="radio" value="d"/> None of the above</label></div>
+<div class="question" style="background:#fff">
+<p>2. (4y &minus; 3) + (2y + 8) = ?</p>
+
+
+
+<label> <input name="a2" type="radio" value="a"/> 2y + 5</label><label> <input name="a2" type="radio" value="b"/> 6y + 11</label><label> <input name="a2" type="radio" value="c"/> None of the above</label><label> <input name="a2" type="radio" value="d"/> 6y + 5</label></div>
+<div class="question" style="background:#fff">
+<p>3. (x&sup2; + 2x) + (3x&sup2; &minus; 5x) = ?</p>
+
+
+
+<label> <input name="a3" type="radio" value="a"/> 3x⁴ &minus; 3x</label><label> <input name="a3" type="radio" value="b"/> None of the above</label><label> <input name="a3" type="radio" value="c"/> 4x&sup2; &minus; 3x</label><label> <input name="a3" type="radio" value="d"/> 4x&sup2; + 7x</label></div>
+<div class="question" style="background:#fff">
+<p>4. (5a + 2b) + (3a &minus; 7b) = ?</p>
+
+
+
+<label> <input name="a4" type="radio" value="a"/> 8a &minus; 5b</label><label> <input name="a4" type="radio" value="b"/> None of the above</label><label> <input name="a4" type="radio" value="c"/> 8a + 9b</label><label> <input name="a4" type="radio" value="d"/> 2a &minus; 5b</label></div>
+<div class="question" style="background:#fff">
+<p>5. (3x&sup2; + 2x &minus; 1) + (x&sup2; + 5x + 6) = ?</p>
+
+
+
+<label> <input name="a5" type="radio" value="a"/> 4x&sup2; + 7x + 5</label><label> <input name="a5" type="radio" value="b"/> 3x&sup2; + 7x + 5</label><label> <input name="a5" type="radio" value="c"/> 4x&sup2; + 7x + 7</label><label> <input name="a5" type="radio" value="d"/> None of the above</label></div>
+<div class="question" style="background:#fff">
+<p>6. (7m + 9) + (3m &minus; 4) = ?</p>
+
+
+
+<label> <input name="a6" type="radio" value="a"/> None of the above</label><label> <input name="a6" type="radio" value="b"/> 4m + 5</label><label> <input name="a6" type="radio" value="c"/> 10m + 13</label><label> <input name="a6" type="radio" value="d"/> 10m + 5</label></div>
+<div class="question" style="background:#fff">
+<p>7. (&minus;2x&sup2; + 5x) + (6x&sup2; &minus; x) = ?</p>
+
+
+
+<label> <input name="a7" type="radio" value="a"/> 4x&sup2; + 6x</label><label> <input name="a7" type="radio" value="b"/> 4x&sup2; + 4x</label><label> <input name="a7" type="radio" value="c"/> 8x&sup2; + 6x</label><label> <input name="a7" type="radio" value="d"/> None of the above</label></div>
+<div class="question" style="background:#fff">
+<p>8. (4a &minus; 6b) + (3a + 6b) = ?</p>
+
+
+
+<label> <input name="a8" type="radio" value="a"/> 7a</label><label> <input name="a8" type="radio" value="b"/> None of the above</label><label> <input name="a8" type="radio" value="c"/> 7a &minus; 12b</label><label> <input name="a8" type="radio" value="d"/> a</label></div>
+<div class="question" style="background:#fff">
+<p>9. (x + 5) + (2x &minus; 3) + (4x + 8) = ?</p>
+
+
+
+<label> <input name="a9" type="radio" value="a"/> None of the above</label><label> <input name="a9" type="radio" value="b"/> 7x + 16</label><label> <input name="a9" type="radio" value="c"/> 7x + 10</label><label> <input name="a9" type="radio" value="d"/> 6x + 10</label></div>
+<div class="question" style="background:#fff">
+<p>10. (3x&sup2; &minus; 2x + 7) + (x&sup2; + 4x &minus; 2) = ?</p>
+
+
+
+<label> <input name="a10" type="radio" value="a"/> 4x&sup2; + 6x + 5</label><label> <input name="a10" type="radio" value="b"/> 4x&sup2; + 2x + 5</label><label> <input name="a10" type="radio" value="c"/> 3x&sup2; + 2x + 5</label><label> <input name="a10" type="radio" value="d"/> None of the above</label></div>
+<button class="btn btn-sm" onclick="gradeQuiz('quizAdd', {a1:'b',a2:'d',a3:'c',a4:'a',a5:'a',a6:'d',a7:'b',a8:'a',a9:'c',a10:'b'})" type="button">Check Answers</button>
+<div class="result" id="quizAddResult"></div>
+<button class="btn btn-sm" onclick="resetTest('quizAdd','quizAddResult')" type="button">Retry Quiz</button>
+</form>
+</div>
+</section>
+<section class="slide compact" id="subtraction">
+<span class="eyebrow">Part 3</span>
+<h2>➖ Subtracting Polynomials</h2>
+<div class="danger">
+<strong>⚠️ MOST IMPORTANT RULE:</strong> When subtracting, <em>change the sign of EVERY term</em> in the second polynomial!
+</div>
+<p><strong>Step 1:</strong> Distribute the negative sign to ALL terms in the second polynomial<br/>
+<strong>Step 2:</strong> Remove parentheses<br/>
+<strong>Step 3:</strong> Combine like terms</p>
+<h3>🧩 Worked Examples &mdash; 5 Problems</h3>
+<p><strong>Rule:</strong> Subtracting a polynomial means adding its opposite. Change the sign of <em>every term</em> inside the second set of parentheses, then combine like terms.</p>
+<div class="example"><strong>Example 1: Subtract (5x + 3) &minus; (2x + 4).</strong>
+<div class="example-item"><span class="example-question">Pay attention to both signs in the second parentheses.</span><button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1 &mdash; Keep the first polynomial:</strong> 5x + 3.<br/><strong>Step 2 &mdash; Change every sign in the second polynomial:</strong> &minus;(2x + 4) becomes &minus;2x &minus; 4.<br/><strong>Step 3 &mdash; Rewrite and group:</strong> 5x + 3 &minus; 2x &minus; 4 = (5x &minus; 2x) + (3 &minus; 4).<br/><strong>Step 4 &mdash; Simplify:</strong> 3x &minus; 1.<br/><strong>Answer:</strong> 3x &minus; 1.</div></div>
+</div>
+<div class="example"><strong>Example 2: Subtract (7x&sup2; &minus; 4x + 2) &minus; (3x&sup2; + 5x &minus; 1).</strong>
+<div class="example-item"><span class="example-question">The negative sign changes +5x to &minus;5x and &minus;1 to +1.</span><button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1 &mdash; Change every sign in the second polynomial:</strong> 3x&sup2; + 5x &minus; 1 becomes &minus;3x&sup2; &minus; 5x + 1.<br/><strong>Step 2 &mdash; Rewrite:</strong> 7x&sup2; &minus; 4x + 2 &minus; 3x&sup2; &minus; 5x + 1.<br/><strong>Step 3 &mdash; Group like terms:</strong> (7x&sup2; &minus; 3x&sup2;) + (&minus;4x &minus; 5x) + (2 + 1).<br/><strong>Step 4 &mdash; Simplify:</strong> 4x&sup2; &minus; 9x + 3.<br/><strong>Answer:</strong> 4x&sup2; &minus; 9x + 3.</div></div>
+</div>
+<div class="example"><strong>Example 3: Subtract (8a + 2b) &minus; (3a &minus; 4b).</strong>
+<div class="example-item"><span class="example-question">Remember that subtracting &minus;4b changes it to +4b.</span><button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1 &mdash; Change every sign in the second polynomial:</strong> 3a &minus; 4b becomes &minus;3a + 4b.<br/><strong>Step 2 &mdash; Rewrite:</strong> 8a + 2b &minus; 3a + 4b.<br/><strong>Step 3 &mdash; Group like terms:</strong> (8a &minus; 3a) + (2b + 4b).<br/><strong>Step 4 &mdash; Simplify:</strong> 5a + 6b.<br/><strong>Answer:</strong> 5a + 6b.</div></div>
+</div>
+<div class="example"><strong>Example 4: Subtract (6y&sup2; + 2y &minus; 5) &minus; (y&sup2; &minus; 3y + 4).</strong>
+<div class="example-item"><span class="example-question">Change the signs of all three terms in the second polynomial.</span><button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1 &mdash; Change signs:</strong> y&sup2; &minus; 3y + 4 becomes &minus;y&sup2; + 3y &minus; 4.<br/><strong>Step 2 &mdash; Rewrite:</strong> 6y&sup2; + 2y &minus; 5 &minus; y&sup2; + 3y &minus; 4.<br/><strong>Step 3 &mdash; Group like terms:</strong> (6y&sup2; &minus; y&sup2;) + (2y + 3y) + (&minus;5 &minus; 4).<br/><strong>Step 4 &mdash; Simplify:</strong> 5y&sup2; + 5y &minus; 9.<br/><strong>Answer:</strong> 5y&sup2; + 5y &minus; 9.</div></div>
+</div>
+<div class="example"><strong>Example 5: Subtract (4m&sup2; &minus; 2m + 7) &minus; (6m&sup2; + 3m &minus; 5).</strong>
+<div class="example-item"><span class="example-question">The result can have negative coefficients.</span><button class="answer-btn" onclick="toggleAnswer(this)">Show Solution</button>
+<div class="hidden-answer"><strong>Step 1 &mdash; Change every sign in the second polynomial:</strong> 6m&sup2; + 3m &minus; 5 becomes &minus;6m&sup2; &minus; 3m + 5.<br/><strong>Step 2 &mdash; Rewrite:</strong> 4m&sup2; &minus; 2m + 7 &minus; 6m&sup2; &minus; 3m + 5.<br/><strong>Step 3 &mdash; Group like terms:</strong> (4m&sup2; &minus; 6m&sup2;) + (&minus;2m &minus; 3m) + (7 + 5).<br/><strong>Step 4 &mdash; Simplify:</strong> &minus;2m&sup2; &minus; 5m + 12.<br/><strong>Answer:</strong> &minus;2m&sup2; &minus; 5m + 12.</div></div>
+</div>
+<div class="quiz-section">
+<div class="quiz-title">📝 Quick Quiz &mdash; Subtracting Polynomials (10 Items)</div>
+<form id="quizSub">
+<div class="question" style="background:#fff">
+<p>1. (6x + 5) &minus; (2x + 3) = ?</p>
+
+
+
+<label> <input name="s1" type="radio" value="a"/> 4x + 8</label><label> <input name="s1" type="radio" value="b"/> 4x + 2</label><label> <input name="s1" type="radio" value="c"/> None of the above</label><label> <input name="s1" type="radio" value="d"/> 8x + 2</label></div>
+<div class="question" style="background:#fff">
+<p>2. Distribute: &minus;(3x &minus; 7) = ?</p>
+
+
+
+<label> <input name="s2" type="radio" value="a"/> &minus;3x + 7</label><label> <input name="s2" type="radio" value="b"/> &minus;3x &minus; 7</label><label> <input name="s2" type="radio" value="c"/> None of the above</label><label> <input name="s2" type="radio" value="d"/> 3x &minus; 7</label></div>
+<div class="question" style="background:#fff">
+<p>3. (9y &minus; 4) &minus; (5y + 2) = ?</p>
+
+
+
+<label> <input name="s3" type="radio" value="a"/> 4y &minus; 6</label><label> <input name="s3" type="radio" value="b"/> 14y &minus; 6</label><label> <input name="s3" type="radio" value="c"/> 4y &minus; 2</label><label> <input name="s3" type="radio" value="d"/> None of the above</label></div>
+<div class="question" style="background:#fff">
+<p>4. (8x&sup2; + 3x) &minus; (2x&sup2; + 5x) = ?</p>
+
+
+
+<label> <input name="s4" type="radio" value="a"/> 10x&sup2; &minus; 2x</label><label> <input name="s4" type="radio" value="b"/> None of the above</label><label> <input name="s4" type="radio" value="c"/> 6x&sup2; &minus; 2x</label><label> <input name="s4" type="radio" value="d"/> 6x&sup2; + 8x</label></div>
+<div class="question" style="background:#fff">
+<p>5. (4a + 2b) &minus; (a &minus; 3b) = ?</p>
+
+
+
+<label> <input name="s5" type="radio" value="a"/> 5a &minus; b</label><label> <input name="s5" type="radio" value="b"/> 3a &minus; b</label><label> <input name="s5" type="radio" value="c"/> None of the above</label><label> <input name="s5" type="radio" value="d"/> 3a + 5b</label></div>
+<div class="question" style="background:#fff">
+<p>6. (10m &minus; 7) &minus; (6m &minus; 2) = ?</p>
+
+
+
+<label> <input name="s6" type="radio" value="a"/> 4m &minus; 9</label><label> <input name="s6" type="radio" value="b"/> 4m &minus; 5</label><label> <input name="s6" type="radio" value="c"/> 16m &minus; 5</label><label> <input name="s6" type="radio" value="d"/> None of the above</label></div>
+<div class="question" style="background:#fff">
+<p>7. (5x&sup2; &minus; 3x + 4) &minus; (2x&sup2; + 6x &minus; 1) = ?</p>
+
+
+
+<label> <input name="s7" type="radio" value="a"/> 3x&sup2; + 3x + 3</label><label> <input name="s7" type="radio" value="b"/> None of the above</label><label> <input name="s7" type="radio" value="c"/> 7x&sup2; + 3x + 3</label><label> <input name="s7" type="radio" value="d"/> 3x&sup2; &minus; 9x + 5</label></div>
+<div class="question" style="background:#fff">
+<p>8. (7x + 8) &minus; (7x &minus; 5) = ?</p>
+
+
+
+<label> <input name="s8" type="radio" value="a"/> 14x + 13</label><label> <input name="s8" type="radio" value="b"/> None of the above</label><label> <input name="s8" type="radio" value="c"/> 13</label><label> <input name="s8" type="radio" value="d"/> 0</label></div>
+<div class="question" style="background:#fff">
+<p>9. (x&sup2; + 4x &minus; 3) &minus; (x&sup2; &minus; 2x + 7) = ?</p>
+
+
+
+<label> <input name="s9" type="radio" value="a"/> None of the above</label><label> <input name="s9" type="radio" value="b"/> 6x &minus; 10</label><label> <input name="s9" type="radio" value="c"/> 2x&sup2; + 2x &minus; 10</label><label> <input name="s9" type="radio" value="d"/> 6x + 4</label></div>
+<div class="question" style="background:#fff">
+<p>10. (9a&sup2; &minus; 5a + 2) &minus; (4a&sup2; + 3a &minus; 6) = ?</p>
+
+
+
+<label> <input name="s10" type="radio" value="a"/> 5a&sup2; &minus; 8a + 8</label><label> <input name="s10" type="radio" value="b"/> 5a&sup2; &minus; 2a &minus; 4</label><label> <input name="s10" type="radio" value="c"/> 13a&sup2; &minus; 8a + 8</label><label> <input name="s10" type="radio" value="d"/> None of the above</label></div>
+<button class="btn btn-sm" onclick="gradeQuiz('quizSub', {s1:'b',s2:'a',s3:'a',s4:'c',s5:'d',s6:'b',s7:'d',s8:'c',s9:'b',s10:'a'})" type="button">Check Answers</button>
+<div class="result" id="quizSubResult"></div>
+<button class="btn btn-sm" onclick="resetTest('quizSub','quizSubResult')" type="button">Retry Quiz</button>
+</form>
+</div>
+</section>
+<section class="slide compact" id="posttest">
+<span class="eyebrow">After the lesson</span><h2>📝 Post-Test &mdash; 20 Items</h2>
+<div class="test-intro"><strong>Directions:</strong> Choose the best answer. After checking, review the explanations and retry if needed.</div>
+<form id="postForm"><div class="question" data-explanation="Like terms have the same variable raised to the same exponent."><p>1. Which pair consists of like terms?</p><label> <input name="p1" type="radio" value="a"/> 7 and 2y</label><label> <input name="p1" type="radio" value="b"/> 2x and 5x</label><label> <input name="p1" type="radio" value="c"/> 4x and 4x&sup2;</label><label> <input name="p1" type="radio" value="d"/> 3x and 3y</label></div><div class="question" data-explanation="Add the coefficients: 8 + 4 = 12, and keep x."><p>2. Simplify: 8x + 4x</p><label> <input name="p2" type="radio" value="a"/> 12x</label><label> <input name="p2" type="radio" value="b"/> 12x&sup2;</label><label> <input name="p2" type="radio" value="c"/> 4x</label><label> <input name="p2" type="radio" value="d"/> 32x</label></div><div class="question" data-explanation="Subtract the coefficients: 9 &minus; 3 = 6, and keep y."><p>3. Simplify: 9y &minus; 3y</p><label> <input name="p3" type="radio" value="a"/> 3y</label><label> <input name="p3" type="radio" value="b"/> 6</label><label> <input name="p3" type="radio" value="c"/> 6y</label><label> <input name="p3" type="radio" value="d"/> 12y</label></div><div class="question" data-explanation="Combine x-terms and constants: 3x + 4x = 7x and 2 + 5 = 7."><p>4. Add: (3x + 2) + (4x + 5)</p><label> <input name="p4" type="radio" value="a"/> 7x + 7</label><label> <input name="p4" type="radio" value="b"/> 12x + 7</label><label> <input name="p4" type="radio" value="c"/> 7x + 3</label><label> <input name="p4" type="radio" value="d"/> 6x + 9</label></div><div class="question" data-explanation="Change both signs in the second polynomial: 7x + 6 &minus; 2x &minus; 1 = 5x + 5."><p>5. Subtract: (7x + 6) &minus; (2x + 1)</p><label> <input name="p5" type="radio" value="a"/> 5x &minus; 5</label><label> <input name="p5" type="radio" value="b"/> 5x + 5</label><label> <input name="p5" type="radio" value="c"/> 9x + 7</label><label> <input name="p5" type="radio" value="d"/> 5x + 7</label></div><div class="question" data-explanation="Multiplying each term by &minus;1 changes both signs."><p>6. What is &minus;(5x &minus; 3)?</p><label> <input name="p6" type="radio" value="a"/> &minus;5x &minus; 3</label><label> <input name="p6" type="radio" value="b"/> &minus;5x + 3</label><label> <input name="p6" type="radio" value="c"/> 5x &minus; 3</label><label> <input name="p6" type="radio" value="d"/> 5x + 3</label></div><div class="question" data-explanation="Combine like terms: 2x&sup2; + 4x&sup2; = 6x&sup2; and x &minus; 3x = &minus;2x."><p>7. Add: (2x&sup2; + x) + (4x&sup2; &minus; 3x)</p><label> <input name="p7" type="radio" value="a"/> 6x⁴ &minus; 2x</label><label> <input name="p7" type="radio" value="b"/> 2x&sup2; + 4x</label><label> <input name="p7" type="radio" value="c"/> 6x&sup2; &minus; 4x</label><label> <input name="p7" type="radio" value="d"/> 6x&sup2; &minus; 2x</label></div><div class="question" data-explanation="Distribute the minus: 6y &minus; 4 &minus; 3y &minus; 2 = 3y &minus; 6."><p>8. Subtract: (6y &minus; 4) &minus; (3y + 2)</p><label> <input name="p8" type="radio" value="a"/> 3y &minus; 2</label><label> <input name="p8" type="radio" value="b"/> 3y + 2</label><label> <input name="p8" type="radio" value="c"/> 3y &minus; 6</label><label> <input name="p8" type="radio" value="d"/> 9y &minus; 6</label></div><div class="question" data-explanation="Combine a-terms (5a + 3a) and b-terms (2b &minus; 7b)."><p>9. Add: (5a + 2b) + (3a &minus; 7b)</p><label> <input name="p9" type="radio" value="a"/> 2a &minus; 5b</label><label> <input name="p9" type="radio" value="b"/> 8a &minus; 5b</label><label> <input name="p9" type="radio" value="c"/> 8a + 9b</label><label> <input name="p9" type="radio" value="d"/> 8a + 5b</label></div><div class="question" data-explanation="Combine variable terms: 4x &minus; 2x = 2x; constants: 7 &minus; 3 = 4."><p>10. Simplify: 4x + 7 &minus; 2x &minus; 3</p><label> <input name="p10" type="radio" value="a"/> 6x + 4</label><label> <input name="p10" type="radio" value="b"/> &minus;2x + 4</label><label> <input name="p10" type="radio" value="c"/> 2x + 10</label><label> <input name="p10" type="radio" value="d"/> 2x + 4</label></div><div class="question" data-explanation="Subtract matching coefficients: 9 &minus; 3 = 6 and 5 &minus; 2 = 3."><p>11. Subtract: (9x&sup2; + 5x) &minus; (3x&sup2; + 2x)</p><label> <input name="p11" type="radio" value="a"/> 6x&sup2; + 7x</label><label> <input name="p11" type="radio" value="b"/> 12x&sup2; + 7x</label><label> <input name="p11" type="radio" value="c"/> 6x&sup2; &minus; 3x</label><label> <input name="p11" type="radio" value="d"/> 6x&sup2; + 3x</label></div><div class="question" data-explanation="Combine terms: 5x&sup2;, (&minus;2x + 7x) = 5x, and 5 &minus; 4 = 1."><p>12. Add: (3x&sup2; &minus; 2x + 5) + (2x&sup2; + 7x &minus; 4)</p><label> <input name="p12" type="radio" value="a"/> 5x&sup2; + 5x + 1</label><label> <input name="p12" type="radio" value="b"/> x&sup2; + 5x + 1</label><label> <input name="p12" type="radio" value="c"/> 5x&sup2; + 9x + 1</label><label> <input name="p12" type="radio" value="d"/> 5x&sup2; + 5x + 9</label></div><div class="question" data-explanation="Change signs in the second polynomial: 8m&sup2; &minus; 3m + 6 &minus; 4m&sup2; &minus; m + 2."><p>13. Subtract: (8m&sup2; &minus; 3m + 6) &minus; (4m&sup2; + m &minus; 2)</p><label> <input name="p13" type="radio" value="a"/> 4m&sup2; &minus; 4m + 4</label><label> <input name="p13" type="radio" value="b"/> 4m&sup2; &minus; 4m + 8</label><label> <input name="p13" type="radio" value="c"/> 12m&sup2; &minus; 2m + 4</label><label> <input name="p13" type="radio" value="d"/> 4m&sup2; &minus; 2m + 4</label></div><div class="question" data-explanation="The x-terms total 2x + 5x + x = 8x; the y-terms cancel."><p>14. Add: (2x + 3y) + (5x &minus; y) + (x &minus; 2y)</p><label> <input name="p14" type="radio" value="a"/> 8x + 2y</label><label> <input name="p14" type="radio" value="b"/> 7x + 2y</label><label> <input name="p14" type="radio" value="c"/> 8x</label><label> <input name="p14" type="radio" value="d"/> 8x + 4y</label></div><div class="question" data-explanation="Distribute the minus: x&sup2; + y&sup2; &minus; 2x&sup2; + 3y&sup2; = &minus;x&sup2; + 4y&sup2;."><p>15. Simplify: (x&sup2; + y&sup2;) &minus; (2x&sup2; &minus; 3y&sup2;)</p><label> <input name="p15" type="radio" value="a"/> 3x&sup2; &minus; 2y&sup2;</label><label> <input name="p15" type="radio" value="b"/> x&sup2; + 4y&sup2;</label><label> <input name="p15" type="radio" value="c"/> &minus;x&sup2; &minus; 2y&sup2;</label><label> <input name="p15" type="radio" value="d"/> &minus;x&sup2; + 4y&sup2;</label></div><div class="question" data-explanation="Distribute the last minus, then combine: 4a + 3a &minus; 2a = 5a and &minus;5 + 9 + 6 = 10."><p>16. Simplify: (4a &minus; 5) + (3a + 9) &minus; (2a &minus; 6)</p><label> <input name="p16" type="radio" value="a"/> 5a + 4</label><label> <input name="p16" type="radio" value="b"/> 5a &minus; 2</label><label> <input name="p16" type="radio" value="c"/> 5a + 10</label><label> <input name="p16" type="radio" value="d"/> 9a + 10</label></div><div class="question" data-explanation="Change the second polynomial signs: 6x&sup2; + 2x &minus; 1 &minus; x&sup2; + 4x &minus; 3."><p>17. Subtract: (6x&sup2; + 2x &minus; 1) &minus; (x&sup2; &minus; 4x + 3)</p><label> <input name="p17" type="radio" value="a"/> 5x&sup2; + 6x &minus; 4</label><label> <input name="p17" type="radio" value="b"/> 5x&sup2; + 6x + 2</label><label> <input name="p17" type="radio" value="c"/> 7x&sup2; + 6x + 2</label><label> <input name="p17" type="radio" value="d"/> 5x&sup2; &minus; 2x + 2</label></div><div class="question" data-explanation="Combine like terms: 2m&sup2; + 3m&sup2; = 5m&sup2;, &minus;5m + m = &minus;4m, 4 &minus; 9 = &minus;5."><p>18. Add: (2m&sup2; &minus; 5m + 4) + (3m&sup2; + m &minus; 9)</p><label> <input name="p18" type="radio" value="a"/> 5m&sup2; + 4m &minus; 5</label><label> <input name="p18" type="radio" value="b"/> m&sup2; &minus; 4m &minus; 5</label><label> <input name="p18" type="radio" value="c"/> 5m&sup2; &minus; 4m &minus; 5</label><label> <input name="p18" type="radio" value="d"/> 5m&sup2; &minus; 6m + 13</label></div><div class="question" data-explanation="Distribute the minus: 7p &minus; 2 &minus; 3p + 8 = 4p + 6."><p>19. Simplify: (7p &minus; 2) &minus; (3p &minus; 8)</p><label> <input name="p19" type="radio" value="a"/> 4p &minus; 6</label><label> <input name="p19" type="radio" value="b"/> 4p &minus; 10</label><label> <input name="p19" type="radio" value="c"/> 10p + 6</label><label> <input name="p19" type="radio" value="d"/> 4p + 6</label></div><div class="question" data-explanation="Combine squared terms, x-terms, and constants separately."><p>20. Add: (x&sup2; + 3x &minus; 4) + (2x&sup2; &minus; x + 6)</p><label> <input name="p20" type="radio" value="a"/> 3x&sup2; + 2x + 2</label><label> <input name="p20" type="radio" value="b"/> 3x&sup2; + 2x &minus; 10</label><label> <input name="p20" type="radio" value="c"/> 3x&sup2; + 4x + 2</label><label> <input name="p20" type="radio" value="d"/> 2x&sup2; + 2x + 2</label></div><button class="btn" onclick="gradeTest('post', {p1:'b',p2:'a',p3:'c',p4:'a',p5:'b',p6:'b',p7:'d',p8:'c',p9:'b',p10:'d',p11:'d',p12:'a',p13:'b',p14:'c',p15:'d',p16:'c',p17:'a',p18:'c',p19:'d',p20:'a'}, {p1: 'Like terms have the same variable raised to the same exponent.',p2: 'Add the coefficients: 8 + 4 = 12, and keep x.',p3: 'Subtract the coefficients: 9 &minus; 3 = 6, and keep y.',p4: 'Combine x-terms and constants: 3x + 4x = 7x and 2 + 5 = 7.',p5: 'Change both signs in the second polynomial: 7x + 6 &minus; 2x &minus; 1 = 5x + 5.',p6: 'Multiplying each term by &minus;1 changes both signs.',p7: 'Combine like terms: 2x&sup2; + 4x&sup2; = 6x&sup2; and x &minus; 3x = &minus;2x.',p8: 'Distribute the minus: 6y &minus; 4 &minus; 3y &minus; 2 = 3y &minus; 6.',p9: 'Combine a-terms (5a + 3a) and b-terms (2b &minus; 7b).',p10: 'Combine variable terms: 4x &minus; 2x = 2x; constants: 7 &minus; 3 = 4.',p11: 'Subtract matching coefficients: 9 &minus; 3 = 6 and 5 &minus; 2 = 3.',p12: 'Combine terms: 5x&sup2;, (&minus;2x + 7x) = 5x, and 5 &minus; 4 = 1.',p13: 'Change signs in the second polynomial: 8m&sup2; &minus; 3m + 6 &minus; 4m&sup2; &minus; m + 2.',p14: 'The x-terms total 2x + 5x + x = 8x; the y-terms cancel.',p15: 'Distribute the minus: x&sup2; + y&sup2; &minus; 2x&sup2; + 3y&sup2; = &minus;x&sup2; + 4y&sup2;.',p16: 'Distribute the last minus, then combine: 4a + 3a &minus; 2a = 5a and &minus;5 + 9 + 6 = 10.',p17: 'Change the second polynomial signs: 6x&sup2; + 2x &minus; 1 &minus; x&sup2; + 4x &minus; 3.',p18: 'Combine like terms: 2m&sup2; + 3m&sup2; = 5m&sup2;, &minus;5m + m = &minus;4m, 4 &minus; 9 = &minus;5.',p19: 'Distribute the minus: 7p &minus; 2 &minus; 3p + 8 = 4p + 6.',p20: 'Combine squared terms, x-terms, and constants separately.'})" type="button">Check Post-Test</button>
+<button class="btn btn-sm" onclick="resetTest('postForm','postResult')" type="button">Retry Post-Test</button><div class="result" id="postResult"></div></form></section>
+<section class="slide compact" id="summary"><span class="eyebrow">Review</span><h2>📚 Lesson Summary</h2>
+<div class="summary-grid"><div class="summary-card"><strong>Like Terms</strong><div class="sym">3x + 5x = 8x</div><p>Same variables with the same exponents can be combined.</p></div>
+<div class="summary-card"><strong>Addition</strong><div class="sym">(2x+3)+(x+4)=3x+7</div><p>Remove parentheses and add coefficients of like terms.</p></div>
+<div class="summary-card"><strong>Subtraction</strong><div class="sym">(5x+3)&minus;(2x+1)=3x+2</div><p>Change the sign of every term in the second polynomial, then combine like terms.</p></div></div>
+<div class="tip"><strong>Remember:</strong> Never combine unlike terms such as x and x&sup2;. Combine only terms with matching variable parts.</div>
+<a class="btn" href="#home">Back to Top &uarr;</a></section>
+</main>
+<script>
+function toggleAnswer(button){const answer=button.nextElementSibling;if(!answer)return;const hidden=getComputedStyle(answer).display==='none';answer.style.display=hidden?'block':'none';button.textContent=hidden?'Hide Answer':'Show Answer';}
+function getExplanation(form, name, provided){if(provided && provided[name])return provided[name];const q=form.querySelector('input[name="'+name+'"]')?.closest('.question');if(q && q.dataset.explanation)return q.dataset.explanation;const text=q?.querySelector('p')?.innerText||'';if(/like terms/i.test(text))return 'Like terms have the same variable part, including the same exponents.';if(/subtract|−\s*\(/i.test(text))return 'When subtracting polynomials, distribute the minus sign to every term in the second polynomial, then combine like terms.';if(/add|simplify|combine/i.test(text))return 'Combine only like terms by adding or subtracting their coefficients, keeping the variable parts unchanged.';return 'Check the variable parts and combine only like terms.';}
+function gradeTest(prefix, answers, explanations={}){const form=document.getElementById(prefix==='pre'?'preForm':'postForm');if(!form)return;let score=0,total=Object.keys(answers).length,answered=0;form.querySelectorAll('.question').forEach(q=>{q.classList.remove('correct-question','wrong-question');q.querySelector('.feedback')?.remove();});for(const [name,correct] of Object.entries(answers)){const selected=form.querySelector('input[name="'+name+'"]:checked');const q=form.querySelector('input[name="'+name+'"]').closest('.question');const labels=[...q.querySelectorAll('label')];const correctLabel=labels.find(l=>l.querySelector('input')?.value===correct);const correctText=correctLabel?correctLabel.innerText.trim().replace(/^\s*[a-d]\s*/i,''):'';const fb=document.createElement('div');fb.className='feedback';if(selected){answered++;if(selected.value===correct){score++;q.classList.add('correct-question');fb.innerHTML='<strong>✓ Correct.</strong> '+(explanations[name]||getExplanation(form,name,explanations));fb.style.color='#166534';}else{q.classList.add('wrong-question');fb.innerHTML='<strong>✗ Not quite.</strong> Correct answer: <strong>'+correctText+'</strong><br>'+getExplanation(form,name,explanations);fb.style.color='#9b1c1c';}}else{q.classList.add('wrong-question');fb.innerHTML='<strong>Not answered.</strong> Correct answer: <strong>'+correctText+'</strong><br>'+getExplanation(form,name,explanations);fb.style.color='#9b1c1c';}q.appendChild(fb);}const result=document.getElementById(prefix==='pre'?'preResult':'postResult');if(result){result.style.display='block';result.innerHTML='<div class="score">'+score+' / '+total+'</div><p><strong>'+Math.round(score/total*100)+'%</strong> · Answered '+answered+' of '+total+' questions.</p><p>'+(score===total?'Excellent work!':score>=total*.7?'Good effort! Review any missed items and try again.':'Keep practicing. Read the explanations, then retry the test.')+'</p>';result.scrollIntoView({behavior:'smooth',block:'nearest'});} }
+function gradeQuiz(formId,answers){const form=document.getElementById(formId);if(!form)return;let score=0,total=Object.keys(answers).length,answered=0;form.querySelectorAll('.question').forEach(q=>{q.querySelector('.feedback')?.remove();});for(const [name,correct] of Object.entries(answers)){const selected=form.querySelector('input[name="'+name+'"]:checked');const q=form.querySelector('input[name="'+name+'"]').closest('.question');const labels=[...q.querySelectorAll('label')];const correctLabel=labels.find(l=>l.querySelector('input')?.value===correct);const correctText=correctLabel?correctLabel.innerText.trim():'';const fb=document.createElement('div');fb.className='feedback';if(selected){answered++;if(selected.value===correct){score++;fb.innerHTML='<strong>✓ Correct.</strong> '+getExplanation(form,name);fb.style.color='#166534';}else{fb.innerHTML='<strong>✗ Incorrect.</strong> Correct answer: <strong>'+correctText+'</strong><br>'+getExplanation(form,name);fb.style.color='#9b1c1c';}}else{fb.innerHTML='<strong>Not answered.</strong> Correct answer: <strong>'+correctText+'</strong><br>'+getExplanation(form,name);fb.style.color='#9b1c1c';}q.appendChild(fb);}const result=document.getElementById(formId+'Result');if(result){result.style.display='block';result.innerHTML='<div class="score">'+score+' / '+total+'</div><p>'+Math.round(score/total*100)+'% · Answered '+answered+' of '+total+'.</p>';result.scrollIntoView({behavior:'smooth',block:'nearest'});}}
+function resetTest(formId,resultId){const form=document.getElementById(formId);if(!form)return;form.reset();form.querySelectorAll('.feedback').forEach(e=>e.remove());form.querySelectorAll('.question').forEach(q=>q.classList.remove('correct-question','wrong-question'));const result=document.getElementById(resultId);if(result){result.style.display='none';result.innerHTML='';}form.scrollIntoView({behavior:'smooth',block:'start'});}
+</script>
+</body></html>
